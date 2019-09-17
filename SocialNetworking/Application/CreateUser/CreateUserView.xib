@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CreateUserView" customModule="SocialNetworking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waa-Tv-5DP">
+                    <rect key="frame" x="35" y="348" width="344" height="210"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-3z-wAs">
+                            <rect key="frame" x="0.0" y="0.0" width="344" height="140"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cim-pP-k3q">
+                                    <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="MvD-nk-04W"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trK-1P-2ab">
+                                    <rect key="frame" x="0.0" y="50" width="344" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="acq-0c-hUH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MjB-Wg-e5f">
+                                    <rect key="frame" x="0.0" y="100" width="344" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="gk5-rf-Axm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-0V-fP5" customClass="IBDesignableUIButton" customModule="UIKitExtensions">
+                            <rect key="frame" x="47" y="160" width="250" height="50"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="fZ3-Ix-F2j"/>
+                                <constraint firstAttribute="height" constant="50" id="nv2-sR-B7r"/>
+                            </constraints>
+                            <state key="normal" title="Create"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="fBk-0V-fP5" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="GiY-QA-7Sx"/>
+                        <constraint firstAttribute="trailing" secondItem="m1x-3z-wAs" secondAttribute="trailing" id="N61-2c-zsH"/>
+                        <constraint firstItem="m1x-3z-wAs" firstAttribute="leading" secondItem="waa-Tv-5DP" secondAttribute="leading" id="Rza-iv-SXC"/>
+                        <constraint firstItem="fBk-0V-fP5" firstAttribute="top" secondItem="m1x-3z-wAs" secondAttribute="bottom" constant="20" id="cna-sM-Lr1"/>
+                        <constraint firstAttribute="bottom" secondItem="fBk-0V-fP5" secondAttribute="bottom" id="jT9-aa-5ht"/>
+                        <constraint firstItem="m1x-3z-wAs" firstAttribute="top" secondItem="waa-Tv-5DP" secondAttribute="top" id="rc6-eX-QWd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.15636768937110901" green="0.16786375641822815" blue="0.20936322212219238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="waa-Tv-5DP" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="6l9-1A-8XK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="waa-Tv-5DP" secondAttribute="trailing" constant="35" id="88Y-RF-FNY"/>
+                <constraint firstItem="waa-Tv-5DP" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9CL-gh-wPq"/>
+                <constraint firstItem="waa-Tv-5DP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="oXi-pO-0Zj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
+        </view>
+    </objects>
+</document>
