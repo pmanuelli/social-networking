@@ -1,16 +1,39 @@
 PODS:
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxKeyboard (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - UIKitExtensions (1.0.0)
 
 DEPENDENCIES:
+  - RxCocoa (~> 5.0)
+  - RxKeyboard
+  - RxSwift (~> 5.0)
   - UIKitExtensions (from `../uikit-extensions`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxKeyboard
+    - RxRelay
+    - RxSwift
 
 EXTERNAL SOURCES:
   UIKitExtensions:
     :path: "../uikit-extensions"
 
 SPEC CHECKSUMS:
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   UIKitExtensions: ba814ad4e8e26e018a9634aa7387f4cc9f2103a9
 
-PODFILE CHECKSUM: 9f165832ee22b17dce837a78795b384a298be8f4
+PODFILE CHECKSUM: d6fcae7bc076c6a479e54cf6d4007b99bd8d5816
 
 COCOAPODS: 1.7.4
