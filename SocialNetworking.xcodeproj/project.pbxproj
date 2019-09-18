@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED72A842331C4FA00DE36F3 /* Colors.xcassets */; };
 		84306CEEA0D79A51E3C4AD6C /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */; };
 		A142D0E05FB7B9B9BF719631 /* Pods_SocialNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */; };
 		E913656823307CF10015CF99 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656423307CF10015CF99 /* CreateUserViewController.swift */; };
@@ -34,6 +35,7 @@
 		140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA13A29609A51F33BDDAC9 /* Pods-SocialNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		555ADF3D131C74BE6441D6A1 /* Pods-SocialNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6ED72A842331C4FA00DE36F3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AFB8FA4A3C3E3E289F6B653 /* Pods-SocialNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C49EC2F9AB51B19F1BD5AAF /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 				E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */,
 				E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */,
 				E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */,
+				6ED72A842331C4FA00DE36F3 /* Colors.xcassets */,
 				E985DDAE232DE7E0009C2C32 /* Assets.xcassets */,
 				E985DDB3232DE7E0009C2C32 /* Info.plist */,
 			);
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E985DDB2232DE7E0009C2C32 /* LaunchScreen.storyboard in Resources */,
+				6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */,
 				E985DDAF232DE7E0009C2C32 /* Assets.xcassets in Resources */,
 				E913656B23307CF10015CF99 /* CreateUserView.xib in Resources */,
 			);

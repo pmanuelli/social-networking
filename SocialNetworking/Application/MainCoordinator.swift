@@ -15,5 +15,6 @@ class MainCoordinator {
         let viewController = CreateUserViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
+        navigationController.isNavigationBarHidden = true
     }    
 }
