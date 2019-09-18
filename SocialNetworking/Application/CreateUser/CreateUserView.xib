@@ -30,7 +30,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-so-0kX">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="username" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-Wj-z5a">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Nickname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-Wj-z5a">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -65,7 +65,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-VC-EgP">
                                                     <rect key="frame" x="0.0" y="50" width="344" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-T7-cGp">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Given Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-T7-cGp">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -100,7 +100,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-Mi-HaN">
                                                     <rect key="frame" x="0.0" y="100" width="344" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last Name" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8O-Zv-98Z">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Family Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8O-Zv-98Z">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -231,13 +231,13 @@
     </objects>
     <resources>
         <namedColor name="Above Level Background">
-            <color red="0.28229367733001709" green="0.2822246253490448" blue="0.29047474265098572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Above Level Font">
-            <color red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="At Level Background">
-            <color red="0.19994902610778809" green="0.19986602663993835" blue="0.20812943577766418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

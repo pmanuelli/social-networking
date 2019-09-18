@@ -26,7 +26,17 @@ class CreateUserView: UIView {
     }
     
     private func setupTextFields() {
+        
         textFields = [userNameTextField, firstNameTextField, lastNameTextField]
+        textFields.forEach { setupPlaceholderTextColor($0)  }
+    }
+    
+    private func setupPlaceholderTextColor(_ textField: UITextField) {
+        
+        let string = textField.placeholder ?? ""
+        let attributes = [NSAttributedString.Key.foregroundColor : ColorsCatalog.belowLevelBackground]
+                
+        textField.attributedPlaceholder = NSAttributedString(string: string, attributes: attributes)
     }
     
     private func observeKeyboardHeight() {
