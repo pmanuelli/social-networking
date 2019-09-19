@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,10 +20,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waa-Tv-5DP">
-                                    <rect key="frame" x="35" y="318" width="344" height="260"/>
+                                    <rect key="frame" x="35" y="312.5" width="344" height="271"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-3z-wAs">
-                                            <rect key="frame" x="0.0" y="0.0" width="344" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="201"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-so-0kX">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
@@ -97,8 +95,34 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWP-PE-T3b">
+                                                    <rect key="frame" x="0.0" y="100" width="344" height="1"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g48-4m-exR" customClass="TwoColorsGradientView" customModule="UIKitExtensions">
+                                                            <rect key="frame" x="72" y="0.0" width="200" height="1"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="zqZ-0d-4Mb"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                                    <color key="value" name="Primary"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                                    <color key="value" name="Secondary"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="g48-4m-exR" secondAttribute="bottom" id="Kp9-e9-BgS"/>
+                                                        <constraint firstItem="g48-4m-exR" firstAttribute="top" secondItem="qWP-PE-T3b" secondAttribute="top" id="WCA-KR-faJ"/>
+                                                        <constraint firstItem="g48-4m-exR" firstAttribute="centerX" secondItem="qWP-PE-T3b" secondAttribute="centerX" id="oFj-GI-hgs"/>
+                                                    </constraints>
+                                                </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-VC-EgP">
-                                                    <rect key="frame" x="0.0" y="100" width="344" height="40"/>
+                                                    <rect key="frame" x="0.0" y="111" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Given Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-T7-cGp">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
@@ -133,7 +157,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-Mi-HaN">
-                                                    <rect key="frame" x="0.0" y="150" width="344" height="40"/>
+                                                    <rect key="frame" x="0.0" y="161" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Family Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8O-Zv-98Z">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
@@ -170,7 +194,7 @@
                                             </subviews>
                                         </stackView>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gue-TY-bVx" userLabel="Register User Button Container" customClass="TwoColorsGradientView" customModule="UIKitExtensions">
-                                            <rect key="frame" x="47" y="210" width="250" height="50"/>
+                                            <rect key="frame" x="47" y="221" width="250" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-0V-fP5" userLabel="Register User Button" customClass="IBDesignableUIButton" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
@@ -213,6 +237,7 @@
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="leading" secondItem="waa-Tv-5DP" secondAttribute="leading" id="Rza-iv-SXC"/>
                                         <constraint firstItem="gue-TY-bVx" firstAttribute="top" secondItem="m1x-3z-wAs" secondAttribute="bottom" constant="20" id="VhX-1x-eUF"/>
                                         <constraint firstAttribute="bottom" secondItem="gue-TY-bVx" secondAttribute="bottom" id="WNY-GC-IBs"/>
+                                        <constraint firstItem="g48-4m-exR" firstAttribute="width" secondItem="gue-TY-bVx" secondAttribute="width" constant="-50" id="e5c-7b-krm"/>
                                         <constraint firstItem="gue-TY-bVx" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="oZz-Pd-HGR"/>
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="top" secondItem="waa-Tv-5DP" secondAttribute="top" id="rc6-eX-QWd"/>
                                     </constraints>
@@ -254,14 +279,14 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="firstNameTextField" destination="xLY-T7-cGp" id="bL3-Vk-glA"/>
+                <outlet property="familyNameTextField" destination="W8O-Zv-98Z" id="Bse-ZI-6mR"/>
+                <outlet property="givenNameTextField" destination="xLY-T7-cGp" id="bL3-Vk-glA"/>
                 <outlet property="keyboardAdjustmentViewHeightConstraint" destination="Cf3-VB-avl" id="Hy0-wS-qjm"/>
-                <outlet property="lastNameTextField" destination="W8O-Zv-98Z" id="Bse-ZI-6mR"/>
                 <outlet property="passwordTextField" destination="4VJ-g1-Dkj" id="Q64-0I-TKI"/>
                 <outlet property="registerUserButton" destination="fBk-0V-fP5" id="3c0-9H-Gg1"/>
                 <outlet property="registerUserButtonContainer" destination="gue-TY-bVx" id="aoY-yb-cdD"/>
                 <outlet property="scrollView" destination="x7r-k0-lBz" id="gZu-gy-peh"/>
-                <outlet property="userNameTextField" destination="fW9-Wj-z5a" id="ngV-qh-4Mk"/>
+                <outlet property="usernameTextField" destination="fW9-Wj-z5a" id="ngV-qh-4Mk"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </view>

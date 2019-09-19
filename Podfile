@@ -12,12 +12,14 @@ target 'SocialNetworking' do
   pod 'UIKitExtensions', :path => '../uikit-extensions'
   
   pod 'RxSwift', '~> 5.0'
+  pod 'RxSwiftExt', '~> 5'
   pod 'RxCocoa', '~> 5.0'
   pod 'RxKeyboard'
 
   target 'SocialNetworkingTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    pod 'RxTest', '~> 5.0'
     
   end
 

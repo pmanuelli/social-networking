@@ -7,10 +7,10 @@ import RxKeyboard
 class RegisterUserView: UIView {
 
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var userNameTextField: UITextField!
+    @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var firstNameTextField: UITextField!
-    @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var givenNameTextField: UITextField!
+    @IBOutlet var familyNameTextField: UITextField!
     @IBOutlet var registerUserButton: UIButton!
     @IBOutlet var registerUserButtonContainer: UIView!
     
@@ -31,7 +31,7 @@ class RegisterUserView: UIView {
     
     private func setupTextFields() {
         
-        textFields = [userNameTextField, passwordTextField, firstNameTextField, lastNameTextField]
+        textFields = [usernameTextField, passwordTextField, givenNameTextField, familyNameTextField]
         textFields.forEach { setupPlaceholderTextColor($0)  }
     }
     

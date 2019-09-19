@@ -8,12 +8,24 @@ PODS:
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - RxSwiftExt (5.1.1):
+    - RxSwiftExt/Core (= 5.1.1)
+    - RxSwiftExt/RxCocoa (= 5.1.1)
+  - RxSwiftExt/Core (5.1.1):
+    - RxSwift (~> 5.0)
+  - RxSwiftExt/RxCocoa (5.1.1):
+    - RxCocoa (~> 5.0)
+    - RxSwiftExt/Core
+  - RxTest (5.0.0):
+    - RxSwift (~> 5)
   - UIKitExtensions (1.0.0)
 
 DEPENDENCIES:
   - RxCocoa (~> 5.0)
   - RxKeyboard
   - RxSwift (~> 5.0)
+  - RxSwiftExt (~> 5)
+  - RxTest (~> 5.0)
   - UIKitExtensions (from `../uikit-extensions`)
 
 SPEC REPOS:
@@ -22,6 +34,8 @@ SPEC REPOS:
     - RxKeyboard
     - RxRelay
     - RxSwift
+    - RxSwiftExt
+    - RxTest
 
 EXTERNAL SOURCES:
   UIKitExtensions:
@@ -32,8 +46,10 @@ SPEC CHECKSUMS:
   RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxSwiftExt: 0d2fd77523a169d1459be34961b996a194bdef0e
+  RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
   UIKitExtensions: ba814ad4e8e26e018a9634aa7387f4cc9f2103a9
 
-PODFILE CHECKSUM: d6fcae7bc076c6a479e54cf6d4007b99bd8d5816
+PODFILE CHECKSUM: 40979afb78a08aa816046de4a8ae0e92b96eb369
 
 COCOAPODS: 1.7.4
