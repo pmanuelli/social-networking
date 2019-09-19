@@ -4,14 +4,15 @@ import UIKitExtensions
 import RxSwift
 import RxKeyboard
 
-class CreateUserView: UIView {
+class RegisterUserView: UIView {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var userNameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
-    @IBOutlet var createUserButton: UIButton!
-    @IBOutlet var createUserButtonContainer: UIView!
+    @IBOutlet var registerUserButton: UIButton!
+    @IBOutlet var registerUserButtonContainer: UIView!
     
     @IBOutlet var keyboardAdjustmentViewHeightConstraint: NSLayoutConstraint!
 
@@ -25,12 +26,12 @@ class CreateUserView: UIView {
         observeKeyboardHeight()
 
         setupTextFields()
-        setupCreateUserButton()
+        setupRegisterUserButton()
     }
     
     private func setupTextFields() {
         
-        textFields = [userNameTextField, firstNameTextField, lastNameTextField]
+        textFields = [userNameTextField, passwordTextField, firstNameTextField, lastNameTextField]
         textFields.forEach { setupPlaceholderTextColor($0)  }
     }
     
@@ -42,8 +43,8 @@ class CreateUserView: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: string, attributes: attributes)
     }
     
-    private func setupCreateUserButton() {
-        createUserButton.addTarget(self, action: #selector(createUserButtonTouched), for: .touchUpInside)
+    private func setupRegisterUserButton() {
+        registerUserButton.addTarget(self, action: #selector(RegisterUserButtonTouched), for: .touchUpInside)
     }
     
     private func observeKeyboardHeight() {
@@ -60,13 +61,13 @@ class CreateUserView: UIView {
     }
     
     @objc
-    private func createUserButtonTouched() {
+    private func RegisterUserButtonTouched() {
         
-        createUserButtonContainer.applyAnimation(TouchUpInsideViewAnimation())
+        registerUserButtonContainer.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
 
-extension CreateUserView: UITextFieldDelegate {
+extension RegisterUserView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         setNextResponder(current: textField)

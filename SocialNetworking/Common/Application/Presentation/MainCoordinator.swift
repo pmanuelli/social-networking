@@ -11,8 +11,8 @@ class MainCoordinator {
     
     func start() {
         
-        let viewModel = CreateUserViewModel()
-        let viewController = CreateUserViewController(viewModel: viewModel)
+        let viewModel = RegisterUserViewModel()
+        let viewController = RegisterUserViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.isNavigationBarHidden = true

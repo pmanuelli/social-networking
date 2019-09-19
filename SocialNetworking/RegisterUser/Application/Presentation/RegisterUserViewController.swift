@@ -2,13 +2,13 @@
 import UIKit
 import UIKitExtensions
 
-class CreateUserViewController: UIViewController {
+class RegisterUserViewController: UIViewController {
     
-    lazy var mainView = CreateUserView.initFromNib()
+    lazy var mainView = RegisterUserView.initFromNib()
     
-    let viewModel: CreateUserViewModel
+    let viewModel: RegisterUserViewModel
 
-    init(viewModel: CreateUserViewModel) {
+    init(viewModel: RegisterUserViewModel) {
         self.viewModel = viewModel
         super.init(nibName: .none, bundle: .none)
     }

@@ -12,10 +12,10 @@
 		6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */; };
 		84306CEEA0D79A51E3C4AD6C /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */; };
 		A142D0E05FB7B9B9BF719631 /* Pods_SocialNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */; };
-		E913656823307CF10015CF99 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656423307CF10015CF99 /* CreateUserViewController.swift */; };
-		E913656923307CF10015CF99 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656523307CF10015CF99 /* CreateUserView.swift */; };
-		E913656A23307CF10015CF99 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656623307CF10015CF99 /* CreateUserViewModel.swift */; };
-		E913656B23307CF10015CF99 /* CreateUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913656723307CF10015CF99 /* CreateUserView.xib */; };
+		E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656423307CF10015CF99 /* RegisterUserViewController.swift */; };
+		E913656923307CF10015CF99 /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656523307CF10015CF99 /* RegisterUserView.swift */; };
+		E913656A23307CF10015CF99 /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656623307CF10015CF99 /* RegisterUserViewModel.swift */; };
+		E913656B23307CF10015CF99 /* RegisterUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913656723307CF10015CF99 /* RegisterUserView.xib */; };
 		E985DDA6232DE7DF009C2C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */; };
 		E985DDAF232DE7E0009C2C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985DDAE232DE7E0009C2C32 /* Assets.xcassets */; };
 		E985DDB2232DE7E0009C2C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */; };
@@ -43,10 +43,10 @@
 		9AFB8FA4A3C3E3E289F6B653 /* Pods-SocialNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C49EC2F9AB51B19F1BD5AAF /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E913656423307CF10015CF99 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
-		E913656523307CF10015CF99 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
-		E913656623307CF10015CF99 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
-		E913656723307CF10015CF99 /* CreateUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserView.xib; sourceTree = "<group>"; };
+		E913656423307CF10015CF99 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		E913656523307CF10015CF99 /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
+		E913656623307CF10015CF99 /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
+		E913656723307CF10015CF99 /* RegisterUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterUserView.xib; sourceTree = "<group>"; };
 		E985DDA2232DE7DF009C2C32 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E985DDAE232DE7E0009C2C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,10 +113,10 @@
 		6E0C1434233300B9000D1524 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E913656423307CF10015CF99 /* CreateUserViewController.swift */,
-				E913656523307CF10015CF99 /* CreateUserView.swift */,
-				E913656623307CF10015CF99 /* CreateUserViewModel.swift */,
-				E913656723307CF10015CF99 /* CreateUserView.xib */,
+				E913656423307CF10015CF99 /* RegisterUserViewController.swift */,
+				E913656523307CF10015CF99 /* RegisterUserView.swift */,
+				E913656623307CF10015CF99 /* RegisterUserViewModel.swift */,
+				E913656723307CF10015CF99 /* RegisterUserView.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -161,13 +161,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E913656323307CBF0015CF99 /* CreateUser */ = {
+		E913656323307CBF0015CF99 /* RegisterUser */ = {
 			isa = PBXGroup;
 			children = (
 				6E0C143223330081000D1524 /* Domain */,
 				6E0C14332333008E000D1524 /* Application */,
 			);
-			path = CreateUser;
+			path = RegisterUser;
 			sourceTree = "<group>";
 		};
 		E985DD99232DE7DF009C2C32 = {
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				6E0C14312333005E000D1524 /* Common */,
-				E913656323307CBF0015CF99 /* CreateUser */,
+				E913656323307CBF0015CF99 /* RegisterUser */,
 				E9F5A7FE232E82E200CE8BEF /* Core */,
 			);
 			path = SocialNetworking;
@@ -313,7 +313,7 @@
 				E985DDB2232DE7E0009C2C32 /* LaunchScreen.storyboard in Resources */,
 				6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */,
 				E985DDAF232DE7E0009C2C32 /* Assets.xcassets in Resources */,
-				E913656B23307CF10015CF99 /* CreateUserView.xib in Resources */,
+				E913656B23307CF10015CF99 /* RegisterUserView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +398,10 @@
 				E9F5A7FD232E823200CE8BEF /* MainCoordinator.swift in Sources */,
 				6E0C143923330162000D1524 /* UIView+Animations.swift in Sources */,
 				6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */,
-				E913656923307CF10015CF99 /* CreateUserView.swift in Sources */,
-				E913656A23307CF10015CF99 /* CreateUserViewModel.swift in Sources */,
+				E913656923307CF10015CF99 /* RegisterUserView.swift in Sources */,
+				E913656A23307CF10015CF99 /* RegisterUserViewModel.swift in Sources */,
 				E985DDA6232DE7DF009C2C32 /* AppDelegate.swift in Sources */,
-				E913656823307CF10015CF99 /* CreateUserViewController.swift in Sources */,
+				E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
