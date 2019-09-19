@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0C143923330162000D1524 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C143823330162000D1524 /* UIView+Animations.swift */; };
 		6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED72A842331C4FA00DE36F3 /* Colors.xcassets */; };
 		6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */; };
 		84306CEEA0D79A51E3C4AD6C /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */; };
@@ -36,6 +37,7 @@
 		140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DA13A29609A51F33BDDAC9 /* Pods-SocialNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		555ADF3D131C74BE6441D6A1 /* Pods-SocialNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E0C143823330162000D1524 /* UIView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		6ED72A842331C4FA00DE36F3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCatalog.swift; sourceTree = "<group>"; };
 		9AFB8FA4A3C3E3E289F6B653 /* Pods-SocialNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E0C14312333005E000D1524 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5A7FF232E82E900CE8BEF /* Application */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6E0C143223330081000D1524 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6E0C14332333008E000D1524 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C1434233300B9000D1524 /* Presentation */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6E0C1434233300B9000D1524 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E913656423307CF10015CF99 /* CreateUserViewController.swift */,
+				E913656523307CF10015CF99 /* CreateUserView.swift */,
+				E913656623307CF10015CF99 /* CreateUserViewModel.swift */,
+				E913656723307CF10015CF99 /* CreateUserView.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6E0C1435233300C7000D1524 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */,
+				E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */,
+				6E0C14372333013C000D1524 /* UIKitExtension */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6E0C1436233300E1000D1524 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E985DDAE232DE7E0009C2C32 /* Assets.xcassets */,
+				6ED72A842331C4FA00DE36F3 /* Colors.xcassets */,
+				6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */,
+				E985DDB3232DE7E0009C2C32 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		6E0C14372333013C000D1524 /* UIKitExtension */ = {
+			isa = PBXGroup;
+			children = (
+				6E0C143823330162000D1524 /* UIView+Animations.swift */,
+			);
+			path = UIKitExtension;
+			sourceTree = "<group>";
+		};
 		9CCAC78E4FDBBED406029C02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +164,8 @@
 		E913656323307CBF0015CF99 /* CreateUser */ = {
 			isa = PBXGroup;
 			children = (
-				E913656423307CF10015CF99 /* CreateUserViewController.swift */,
-				E913656523307CF10015CF99 /* CreateUserView.swift */,
-				E913656623307CF10015CF99 /* CreateUserViewModel.swift */,
-				E913656723307CF10015CF99 /* CreateUserView.xib */,
+				6E0C143223330081000D1524 /* Domain */,
+				6E0C14332333008E000D1524 /* Application */,
 			);
 			path = CreateUser;
 			sourceTree = "<group>";
@@ -130,8 +193,9 @@
 		E985DDA4232DE7DF009C2C32 /* SocialNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				6E0C14312333005E000D1524 /* Common */,
+				E913656323307CBF0015CF99 /* CreateUser */,
 				E9F5A7FE232E82E200CE8BEF /* Core */,
-				E9F5A7FF232E82E900CE8BEF /* Application */,
 			);
 			path = SocialNetworking;
 			sourceTree = "<group>";
@@ -155,14 +219,9 @@
 		E9F5A7FF232E82E900CE8BEF /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				E913656323307CBF0015CF99 /* CreateUser */,
-				E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */,
 				E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */,
-				E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */,
-				6ED72A842331C4FA00DE36F3 /* Colors.xcassets */,
-				6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */,
-				E985DDAE232DE7E0009C2C32 /* Assets.xcassets */,
-				E985DDB3232DE7E0009C2C32 /* Info.plist */,
+				6E0C1435233300C7000D1524 /* Presentation */,
+				6E0C1436233300E1000D1524 /* Resource */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -337,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F5A7FD232E823200CE8BEF /* MainCoordinator.swift in Sources */,
+				6E0C143923330162000D1524 /* UIView+Animations.swift in Sources */,
 				6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */,
 				E913656923307CF10015CF99 /* CreateUserView.swift in Sources */,
 				E913656A23307CF10015CF99 /* CreateUserViewModel.swift in Sources */,
@@ -496,7 +556,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UW4KT7U5SP;
-				INFOPLIST_FILE = SocialNetworking/Application/Info.plist;
+				INFOPLIST_FILE = SocialNetworking/Common/Application/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UW4KT7U5SP;
-				INFOPLIST_FILE = SocialNetworking/Application/Info.plist;
+				INFOPLIST_FILE = SocialNetworking/Common/Application/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

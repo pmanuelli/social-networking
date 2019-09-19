@@ -36,7 +36,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="dVe-2m-xcX"/>
                                                             </constraints>
-                                                            <color key="textColor" name="Above Level Font"/>
+                                                            <color key="textColor" name="Above Level Font Body"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="nickname"/>
                                                             <userDefinedRuntimeAttributes>
@@ -71,7 +71,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="UxX-Si-4yY"/>
                                                             </constraints>
-                                                            <color key="textColor" name="Above Level Font"/>
+                                                            <color key="textColor" name="Above Level Font Body"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="given-name"/>
                                                             <userDefinedRuntimeAttributes>
@@ -106,7 +106,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="t6l-U6-Kaz"/>
                                                             </constraints>
-                                                            <color key="textColor" name="Above Level Font"/>
+                                                            <color key="textColor" name="Above Level Font Body"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="family-name"/>
                                                             <userDefinedRuntimeAttributes>
@@ -160,10 +160,10 @@
                                                     <point key="value" x="1" y="0.5"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                    <color key="value" red="0.2901960784" green="0.61176470589999998" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" name="Primary"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                    <color key="value" red="0.25443181399999998" green="0.92946159839999998" blue="0.77908509969999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" name="Secondary"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="25"/>
@@ -219,7 +219,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="createUserButton" destination="fBk-0V-fP5" id="nWs-VL-YI6"/>
+                <outlet property="createUserButton" destination="fBk-0V-fP5" id="rWL-VC-gUd"/>
+                <outlet property="createUserButtonContainer" destination="gue-TY-bVx" id="mwW-Sk-wac"/>
                 <outlet property="firstNameTextField" destination="xLY-T7-cGp" id="bL3-Vk-glA"/>
                 <outlet property="keyboardAdjustmentViewHeightConstraint" destination="Cf3-VB-avl" id="Hy0-wS-qjm"/>
                 <outlet property="lastNameTextField" destination="W8O-Zv-98Z" id="Bse-ZI-6mR"/>
@@ -233,11 +234,17 @@
         <namedColor name="Above Level Background">
             <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Above Level Font">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Above Level Font Body">
+            <color white="0.89999997615814209" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="At Level Background">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.28999999165534973" green="0.6119999885559082" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.25499999523162842" green="0.92900002002716064" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

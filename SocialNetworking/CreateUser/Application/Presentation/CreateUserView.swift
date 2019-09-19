@@ -11,6 +11,7 @@ class CreateUserView: UIView {
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var createUserButton: UIButton!
+    @IBOutlet var createUserButtonContainer: UIView!
     
     @IBOutlet var keyboardAdjustmentViewHeightConstraint: NSLayoutConstraint!
 
@@ -21,8 +22,10 @@ class CreateUserView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupTextFields()
         observeKeyboardHeight()
+
+        setupTextFields()
+        setupCreateUserButton()
     }
     
     private func setupTextFields() {
@@ -39,6 +42,10 @@ class CreateUserView: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: string, attributes: attributes)
     }
     
+    private func setupCreateUserButton() {
+        createUserButton.addTarget(self, action: #selector(createUserButtonTouched), for: .touchUpInside)
+    }
+    
     private func observeKeyboardHeight() {
         
         RxKeyboard.instance.visibleHeight
@@ -50,6 +57,12 @@ class CreateUserView: UIView {
         
         keyboardAdjustmentViewHeightConstraint.constant = height
         layoutIfNeeded()
+    }
+    
+    @objc
+    private func createUserButtonTouched() {
+        
+        createUserButtonContainer.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
 
