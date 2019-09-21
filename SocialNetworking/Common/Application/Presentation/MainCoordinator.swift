@@ -1,5 +1,6 @@
 
 import UIKit
+import RxSwift
 
 class MainCoordinator {
     
@@ -11,10 +12,17 @@ class MainCoordinator {
     
     func start() {
         
-        let viewModel = RegisterUserViewModel()
+        let viewModel = RegisterUserViewModel(registerUser: RegisterUserDummy())
         let viewController = RegisterUserViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.isNavigationBarHidden = true
     }    
+}
+
+private class RegisterUserDummy: RegisterUser {
+    
+    func execute(username: String, password: String, givenName: String, familyName: String) -> Single<User> {
+        abort()
+    }
 }
