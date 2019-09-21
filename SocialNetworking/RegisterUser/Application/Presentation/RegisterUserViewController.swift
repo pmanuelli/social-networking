@@ -38,10 +38,10 @@ class RegisterUserViewController: UIViewController {
     
     private func bindTextFields() {
         
-        bind(mainView.usernameTextField, to: viewModel.username)
-        bind(mainView.passwordTextField, to: viewModel.password)
-        bind(mainView.givenNameTextField, to: viewModel.givenName)
-        bind(mainView.familyNameTextField, to: viewModel.familyName)
+        bind(mainView.usernameTextField, to: viewModel.input.username)
+        bind(mainView.passwordTextField, to: viewModel.input.password)
+        bind(mainView.givenNameTextField, to: viewModel.input.givenName)
+        bind(mainView.familyNameTextField, to: viewModel.input.familyName)
     }
     
     private func bind(_ textField: UITextField, to relay: BehaviorRelay<String>) {
@@ -55,7 +55,7 @@ class RegisterUserViewController: UIViewController {
     
     private func bindRegisterButton() {
                 
-        viewModel.registerUserButtonEnabled
+        viewModel.output.registerUserButtonEnabled
             .drive(onNext: { [weak self] in self?.registerUserButtonEnabledChanged($0) })
             .disposed(by: disposeBag)
     }

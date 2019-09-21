@@ -8,19 +8,23 @@ import SwiftyMocky
 
 class RegisterUserViewModelTests: XCTestCase {
 
+    // RxTest elements
     private var scheduler: TestScheduler!
-    private var observer: TestableObserver<Bool>!
+    private var registerUserButtonEnabledObserver: TestableObserver<Bool>!
+    private var didRegisterUserObserver: TestableObserver<User>!
+    private let disposeBag = DisposeBag()
     
+    // Dependencies
     private let registerUser = RegisterUserMock()
     
+    // Object under test
     private var viewModel: RegisterUserViewModel!
-    
-    private let disposeBag = DisposeBag()
     
     override func setUp() {
         
         scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(Bool.self)
+        registerUserButtonEnabledObserver = scheduler.createObserver(Bool.self)
+        didRegisterUserObserver = scheduler.createObserver(User.self)
     }
     
     func testInitiallyDisablesRegisterUserButton() {
@@ -53,7 +57,9 @@ class RegisterUserViewModelTests: XCTestCase {
     
     func testRegistersNewUser() {
         
-        givenARegisterUserAction()
+        let user = UserBuilder().build()
+        
+        givenARegisterUserAction(returning: user)
         givenAViewModel()
         givenFieldsSetTo(username: "tool", password: "FearInocolum$1",
                          givenName: "Fear", familyName: "Inoculum")
@@ -62,30 +68,36 @@ class RegisterUserViewModelTests: XCTestCase {
         
         thenRegisterUserActionIsExecutedWith(username: "tool", password: "FearInocolum$1",
                                              givenName: "Fear", familyName: "Inoculum")
-    }
-    
-    private func givenARegisterUserAction() {
         
+        thenEmittedUserIs(user)
+    }
+        
+    private func givenARegisterUserAction(returning user: User) {
+                
         Given(registerUser, .execute(username: .any, password: .any,
                                      givenName: .any, familyName: .any,
-                                     willReturn: .never()))
+                                     willReturn: Single.just(user)))
     }
     private func givenAViewModel() {
         
         viewModel = RegisterUserViewModel(registerUser: registerUser)
         
-        viewModel.registerUserButtonEnabled
-            .drive(observer)
+        viewModel.output.registerUserButtonEnabled
+            .drive(registerUserButtonEnabledObserver)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.didRegisterUser
+            .subscribe(didRegisterUserObserver)
             .disposed(by: disposeBag)
     }
     
     private func givenFieldsSetTo(username: String, password: String,
                                   givenName: String, familyName: String) {
         
-        viewModel.username.accept(username)
-        viewModel.password.accept(password)
-        viewModel.givenName.accept(givenName)
-        viewModel.familyName.accept(familyName)
+        viewModel.input.username.accept(username)
+        viewModel.input.password.accept(password)
+        viewModel.input.givenName.accept(givenName)
+        viewModel.input.familyName.accept(familyName)
     }
         
     private func whenViewModelIsCreated() {
@@ -100,7 +112,7 @@ class RegisterUserViewModelTests: XCTestCase {
     }
     
     private func whenUsernameChangesTo(_ text: String) {
-        viewModel.username.accept(text)
+        viewModel.input.username.accept(text)
     }
     
     private func whenRegisterUserButtonIsTouched() {
@@ -109,22 +121,26 @@ class RegisterUserViewModelTests: XCTestCase {
     
     private func thenRegisterUserButtonIsDisabled() {
         
-        let lastValue = observer.events.last?.value.element
+        let lastValue = registerUserButtonEnabledObserver.events.last?.value.element
         XCTAssertEqual(lastValue, false)
     }
     
     private func thenRegisterUserButtonIsEnabled() {
         
-        let lastValue = observer.events.last?.value.element
+        let lastValue = registerUserButtonEnabledObserver.events.last?.value.element
         XCTAssertEqual(lastValue, true)
     }
     
     private func thenRegisterUserActionIsExecutedWith(username: String, password: String,
                                                       givenName: String, familyName: String) {
         
-        Verify(registerUser, .once, .execute(username: .value(username),
-                                             password: .value(password),
-                                             givenName: .value(givenName),
-                                             familyName: .value(familyName)))
+        Verify(registerUser, .once, .execute(username: .value(username), password: .value(password),
+                                             givenName: .value(givenName), familyName: .value(familyName)))
+    }
+    
+    private func thenEmittedUserIs(_ user: User) {
+        
+        let observedElements = didRegisterUserObserver.events.map { $0.value.element }
+        XCTAssertEqual(observedElements, [user])
     }
 }

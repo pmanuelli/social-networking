@@ -7,3 +7,5 @@ struct User {
     let givenName: String
     let familyName: String
 }
+
+extension User: Equatable { }
