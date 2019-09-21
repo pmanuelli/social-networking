@@ -12,6 +12,7 @@ class RegisterUserView: UIView {
     @IBOutlet var givenNameTextField: UITextField!
     @IBOutlet var familyNameTextField: UITextField!
     @IBOutlet var registerUserButton: PrimaryButton!
+    @IBOutlet var errorLabel: UILabel!
     
     @IBOutlet var keyboardAdjustmentViewHeightConstraint: NSLayoutConstraint!
 
@@ -84,5 +85,25 @@ extension RegisterUserView: UITextFieldDelegate {
     
     private func findNextTextField(of textField: UITextField) -> UITextField? {
         return textFields.nextElement(after: textField)
+    }
+}
+
+extension RegisterUserView {
+    
+    func showErrorLabel(_ text: String) {
+        guard errorLabel.isHidden else { return }
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.errorLabel.text = text
+            self.errorLabel.alpha = 1
+            self.errorLabel.isHidden = false })
+    }
+    
+    func hideErrorLabel() {
+        guard !errorLabel.isHidden else { return }
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.errorLabel.alpha = 0
+            self.errorLabel.isHidden = true })
     }
 }

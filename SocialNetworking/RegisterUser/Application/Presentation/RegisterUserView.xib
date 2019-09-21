@@ -193,9 +193,15 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-1i-QVD">
+                                                    <rect key="frame" x="0.0" y="201" width="344" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" name="Error"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-MQ-RB8" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
+                                        <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-MQ-RB8" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
                                             <rect key="frame" x="47" y="221" width="250" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="4PY-bP-j5e"/>
@@ -209,8 +215,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Pg5-MQ-RB8" secondAttribute="bottom" id="49M-da-HY3"/>
                                         <constraint firstAttribute="width" constant="344" id="8R8-5H-8mi"/>
-                                        <constraint firstAttribute="bottom" secondItem="Pg5-MQ-RB8" secondAttribute="bottom" id="L1U-tC-TEq"/>
                                         <constraint firstAttribute="trailing" secondItem="m1x-3z-wAs" secondAttribute="trailing" id="N61-2c-zsH"/>
                                         <constraint firstItem="Pg5-MQ-RB8" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="NJp-gi-WNJ"/>
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="leading" secondItem="waa-Tv-5DP" secondAttribute="leading" id="Rza-iv-SXC"/>
@@ -256,6 +262,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="errorLabel" destination="LFA-1i-QVD" id="f8m-kD-V42"/>
                 <outlet property="familyNameTextField" destination="W8O-Zv-98Z" id="Bse-ZI-6mR"/>
                 <outlet property="givenNameTextField" destination="xLY-T7-cGp" id="bL3-Vk-glA"/>
                 <outlet property="keyboardAdjustmentViewHeightConstraint" destination="Cf3-VB-avl" id="Hy0-wS-qjm"/>
@@ -276,6 +283,9 @@
         </namedColor>
         <namedColor name="At Level Background">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Error">
+            <color red="0.94914549589157104" green="0.51946848630905151" blue="0.48453950881958008" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.28999999165534973" green="0.6119999885559082" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

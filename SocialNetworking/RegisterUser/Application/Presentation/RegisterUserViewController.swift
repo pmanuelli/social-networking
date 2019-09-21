@@ -34,6 +34,7 @@ class RegisterUserViewController: UIViewController {
 
         bindTextFields()
         bindRegisterButton()
+        bindRegisterErrorDescription()
     }
     
     private func bindTextFields() {
@@ -58,11 +59,35 @@ class RegisterUserViewController: UIViewController {
         viewModel.output.registerUserButtonEnabled
             .drive(onNext: { [weak self] in self?.registerUserButtonEnabledChanged($0) })
             .disposed(by: disposeBag)
+        
+        mainView.registerUserButton.addTarget(self, action: #selector(registerUserButtonTouched), for: .touchUpInside)
     }
     
     private func registerUserButtonEnabledChanged(_ enabled: Bool) {
         
         mainView.registerUserButton.isEnabled = enabled
         mainView.registerUserButton.applyAnimation(IsEnabledPropertyChangeAnimation())
+    }
+    
+    @objc
+    private func registerUserButtonTouched() {
+        viewModel.registerUserButtonTouched()
+    }
+    
+    private func bindRegisterErrorDescription() {
+        
+        viewModel.output.registerErrorDescription
+            .drive(onNext: { [weak self] in self?.registerErrorDescriptionChanged($0) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func registerErrorDescriptionChanged(_ description: String) {
+        
+        if description.isEmpty {
+            mainView.hideErrorLabel()
+        }
+        else {
+            mainView.showErrorLabel(description)
+        }
     }
 }

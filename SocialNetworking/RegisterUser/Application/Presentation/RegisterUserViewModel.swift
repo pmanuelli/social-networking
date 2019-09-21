@@ -17,6 +17,7 @@ class RegisterUserViewModel {
     struct Output {
         
         var registerUserButtonEnabled: Driver<Bool>
+        var registerErrorDescription: Driver<String>
         var didRegisterUser: Observable<User>
     }
     
@@ -25,6 +26,7 @@ class RegisterUserViewModel {
     
     private let registerUser: RegisterUser
     
+    private let registerErrorDescriptionSubject = PublishSubject<String>()
     private let didRegisterUserSubject = PublishSubject<User>()
     private let disposeBag = DisposeBag()
     
@@ -33,8 +35,10 @@ class RegisterUserViewModel {
     }
     
     private func createOutput() -> Output {
+        
         return Output(registerUserButtonEnabled: createRegisterUserButtonEnabledDriver(),
-                      didRegisterUser: createDidRegisterUser())
+                      registerErrorDescription: registerErrorDescriptionSubject.asDriver(onErrorJustReturn: ""),
+                      didRegisterUser: didRegisterUserSubject.asObserver())
     }
         
     private func createRegisterUserButtonEnabledDriver() -> Driver<Bool> {
@@ -48,10 +52,6 @@ class RegisterUserViewModel {
             .distinctUntilChanged()
     }
     
-    private func createDidRegisterUser() -> Observable<User> {
-        return didRegisterUserSubject.asObserver()
-    }
-    
     func registerUserButtonTouched() {
         
         let username = input.username.value
@@ -61,6 +61,8 @@ class RegisterUserViewModel {
         
         let execution = registerUser.execute(username: username, password: password,
                                              givenName: givenName, familyName: familyName)
+        
+        clearErrorDescription()
         
         execution
             .subscribe(onSuccess: { [weak self] in self?.registerUserSucceeded($0) },
@@ -73,6 +75,10 @@ class RegisterUserViewModel {
     }
     
     private func registerUserFailed(_ error: Error) {
-        
+        registerErrorDescriptionSubject.onNext(error.localizedDescription)
+    }
+    
+    private func clearErrorDescription() {
+        registerErrorDescriptionSubject.onNext("")
     }
 }

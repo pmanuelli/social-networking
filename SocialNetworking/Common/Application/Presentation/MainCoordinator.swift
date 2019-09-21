@@ -23,6 +23,13 @@ class MainCoordinator {
 private class RegisterUserDummy: RegisterUser {
     
     func execute(username: String, password: String, givenName: String, familyName: String) -> Single<User> {
-        abort()
+        
+        if username == "error" {
+            return .error(NSError(domain: "asd", code: 10, localizedDescription: "Caca pija error!"))
+
+        }
+        else {
+            return .just(User(username: username, givenName: givenName, familyName: familyName))
+        }
     }
 }

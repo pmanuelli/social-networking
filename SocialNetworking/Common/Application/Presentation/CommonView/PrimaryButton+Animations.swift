@@ -24,6 +24,5 @@ struct IsEnabledPropertyChangeAnimation: PrimaryButtonAnimation {
     private func changeButtonDesign(_ button: PrimaryButton, showAsEnabled: Bool) {
         
         button.alpha = showAsEnabled ? 1 : 0.2
-//        button.setTitleColor(showAsEnabled ? .white : ColorsCatalog.atLevelBackground)
     }
 }

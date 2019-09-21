@@ -11,6 +11,7 @@ class RegisterUserViewModelTests: XCTestCase {
     // RxTest elements
     private var scheduler: TestScheduler!
     private var registerUserButtonEnabledObserver: TestableObserver<Bool>!
+    private var registerErrorDescriptionObserver: TestableObserver<String>!
     private var didRegisterUserObserver: TestableObserver<User>!
     private let disposeBag = DisposeBag()
     
@@ -24,9 +25,10 @@ class RegisterUserViewModelTests: XCTestCase {
         
         scheduler = TestScheduler(initialClock: 0)
         registerUserButtonEnabledObserver = scheduler.createObserver(Bool.self)
+        registerErrorDescriptionObserver = scheduler.createObserver(String.self)
         didRegisterUserObserver = scheduler.createObserver(User.self)
     }
-    
+        
     func testInitiallyDisablesRegisterUserButton() {
         
         whenViewModelIsCreated()
@@ -38,8 +40,8 @@ class RegisterUserViewModelTests: XCTestCase {
         
         givenAViewModel()
         
-        whenFieldsAreSetTo(username: "tool", password: "FearInocolum$1",
-                           givenName: "Fear", familyName: "Inoculum")
+        whenFieldsAreSetTo(username: "username", password: "password",
+                           givenName: "givenName", familyName: "familyName")
         
         thenRegisterUserButtonIsEnabled()
     }
@@ -47,8 +49,8 @@ class RegisterUserViewModelTests: XCTestCase {
     func testDisablesRegisterUserButtonWhenAFieldIsEmpty() {
         
         givenAViewModel()
-        givenFieldsSetTo(username: "tool", password: "FearInocolum$1",
-                         givenName: "Fear", familyName: "Inoculum")
+        givenFieldsSetTo(username: "username", password: "password",
+                         givenName: "givenName", familyName: "familyName")
         
         whenUsernameChangesTo("")
         
@@ -56,39 +58,93 @@ class RegisterUserViewModelTests: XCTestCase {
     }
     
     func testRegistersNewUser() {
+                
+        givenARegisterUserAction()
+        givenAViewModel()
+        givenFieldsSetTo(username: "username", password: "password",
+                         givenName: "givenName", familyName: "familyName")
+        
+        whenRegisterUserButtonIsTouched()
+        
+        thenRegisterUserActionIsExecutedWith(username: "username", password: "password",
+                                             givenName: "givenName", familyName: "familyName")
+    }
+    
+    func testEmitsRegisteredUser() {
         
         let user = UserBuilder().build()
         
         givenARegisterUserAction(returning: user)
-        givenAViewModel()
-        givenFieldsSetTo(username: "tool", password: "FearInocolum$1",
-                         givenName: "Fear", familyName: "Inoculum")
+        givenAViewModelWithCompletedFields()
         
         whenRegisterUserButtonIsTouched()
         
-        thenRegisterUserActionIsExecutedWith(username: "tool", password: "FearInocolum$1",
-                                             givenName: "Fear", familyName: "Inoculum")
-        
-        thenEmittedUserIs(user)
+        thenUserIsEmmited(user)
     }
+    
+    func testShowsErrorDescriptionWhenRegisteringAUser() {
         
-    private func givenARegisterUserAction(returning user: User) {
+        let error = NSError(domain: "", code: 0,
+                            localizedDescription: "Error Description")
+        
+        givenARegisterUserAction(returning: error)
+        givenAViewModelWithCompletedFields()
+        
+        whenRegisterUserButtonIsTouched()
+        
+        thenErrorDescriptionShownIs("Error Description")
+    }
+    
+    // MARK: Given
+        
+    private func givenARegisterUserAction(returning user: User = UserBuilder().build()) {
                 
         Given(registerUser, .execute(username: .any, password: .any,
                                      givenName: .any, familyName: .any,
                                      willReturn: Single.just(user)))
     }
+    
+    private func givenARegisterUserAction(returning error: Error) {
+                
+        Given(registerUser, .execute(username: .any, password: .any,
+                                     givenName: .any, familyName: .any,
+                                     willReturn: Single.error(error)))
+    }
+    
     private func givenAViewModel() {
         
         viewModel = RegisterUserViewModel(registerUser: registerUser)
         
+        subscribeToRegisterUserButtonEnabled()
+        subscribeToRegisterErrorDescription()
+        subscribeToDidRegisterUser()
+    }
+    
+    private func subscribeToRegisterUserButtonEnabled() {
+        
         viewModel.output.registerUserButtonEnabled
             .drive(registerUserButtonEnabledObserver)
             .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToRegisterErrorDescription() {
+        
+        viewModel.output.registerErrorDescription
+            .drive(registerErrorDescriptionObserver)
+            .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToDidRegisterUser() {
         
         viewModel.output.didRegisterUser
             .subscribe(didRegisterUserObserver)
             .disposed(by: disposeBag)
+    }
+    
+    private func givenAViewModelWithCompletedFields() {
+        
+        givenAViewModel()
+        givenFieldsSetTo(username: "u", password: "p", givenName: "g", familyName: "f")
     }
     
     private func givenFieldsSetTo(username: String, password: String,
@@ -99,6 +155,8 @@ class RegisterUserViewModelTests: XCTestCase {
         viewModel.input.givenName.accept(givenName)
         viewModel.input.familyName.accept(familyName)
     }
+    
+    // MARK: When
         
     private func whenViewModelIsCreated() {
         givenAViewModel()
@@ -119,6 +177,8 @@ class RegisterUserViewModelTests: XCTestCase {
         viewModel.registerUserButtonTouched()
     }
     
+    // MARK: Then
+    
     private func thenRegisterUserButtonIsDisabled() {
         
         let lastValue = registerUserButtonEnabledObserver.events.last?.value.element
@@ -138,9 +198,15 @@ class RegisterUserViewModelTests: XCTestCase {
                                              givenName: .value(givenName), familyName: .value(familyName)))
     }
     
-    private func thenEmittedUserIs(_ user: User) {
+    private func thenUserIsEmmited(_ user: User) {
         
         let observedElements = didRegisterUserObserver.events.map { $0.value.element }
         XCTAssertEqual(observedElements, [user])
+    }
+    
+    private func thenErrorDescriptionShownIs(_ description: String) {
+        
+        let observedElements = registerErrorDescriptionObserver.events.map { $0.value.element }
+        XCTAssertEqual(observedElements, [description])
     }
 }
