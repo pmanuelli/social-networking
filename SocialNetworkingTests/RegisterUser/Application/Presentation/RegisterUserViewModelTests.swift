@@ -49,8 +49,7 @@ class RegisterUserViewModelTests: XCTestCase {
     func testDisablesRegisterUserButtonWhenAFieldIsEmpty() {
         
         givenAViewModel()
-        givenFieldsSetTo(username: "username", password: "password",
-                         givenName: "givenName", familyName: "familyName")
+        givenAViewModelWithCompletedFields()
         
         whenUsernameChangesTo("")
         
@@ -58,16 +57,18 @@ class RegisterUserViewModelTests: XCTestCase {
     }
     
     func testRegistersNewUser() {
-                
+        
+        let data = RegistrationData(username: "username", password: "password",
+                                    givenName: "givenName", familyName: "familyName")
+        
         givenARegisterUserAction()
         givenAViewModel()
-        givenFieldsSetTo(username: "username", password: "password",
-                         givenName: "givenName", familyName: "familyName")
+        givenFieldsSetTo(username: data.username, password: data.password,
+                         givenName: data.givenName, familyName: data.familyName)
         
         whenRegisterUserButtonIsTouched()
         
-        thenRegisterUserActionIsExecutedWith(username: "username", password: "password",
-                                             givenName: "givenName", familyName: "familyName")
+        thenRegisterUserActionIsExecutedWith(data)
     }
     
     func testEmitsRegisteredUser() {
@@ -92,23 +93,17 @@ class RegisterUserViewModelTests: XCTestCase {
         
         whenRegisterUserButtonIsTouched()
         
-        thenErrorDescriptionShownIs("Error Description")
+        thenErrorDescriptionShownIs(error.localizedDescription)
     }
     
     // MARK: Given
         
     private func givenARegisterUserAction(returning user: User = UserBuilder().build()) {
-                
-        Given(registerUser, .execute(username: .any, password: .any,
-                                     givenName: .any, familyName: .any,
-                                     willReturn: Single.just(user)))
+        Given(registerUser, .execute(data: .any, willReturn: Single.just(user)))
     }
     
     private func givenARegisterUserAction(returning error: Error) {
-                
-        Given(registerUser, .execute(username: .any, password: .any,
-                                     givenName: .any, familyName: .any,
-                                     willReturn: Single.error(error)))
+        Given(registerUser, .execute(data: .any, willReturn: Single.error(error)))
     }
     
     private func givenAViewModel() {
@@ -191,11 +186,8 @@ class RegisterUserViewModelTests: XCTestCase {
         XCTAssertEqual(lastValue, true)
     }
     
-    private func thenRegisterUserActionIsExecutedWith(username: String, password: String,
-                                                      givenName: String, familyName: String) {
-        
-        Verify(registerUser, .once, .execute(username: .value(username), password: .value(password),
-                                             givenName: .value(givenName), familyName: .value(familyName)))
+    private func thenRegisterUserActionIsExecutedWith(_ registrationData: RegistrationData) {
+        Verify(registerUser, .once, .execute(data: .value(registrationData)))
     }
     
     private func thenUserIsEmmited(_ user: User) {
@@ -207,6 +199,6 @@ class RegisterUserViewModelTests: XCTestCase {
     private func thenErrorDescriptionShownIs(_ description: String) {
         
         let observedElements = registerErrorDescriptionObserver.events.map { $0.value.element }
-        XCTAssertEqual(observedElements, [description])
+        XCTAssertEqual(observedElements, ["", description])
     }
 }

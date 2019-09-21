@@ -54,20 +54,19 @@ class RegisterUserViewModel {
     
     func registerUserButtonTouched() {
         
-        let username = input.username.value
-        let password = input.password.value
-        let givenName = input.givenName.value
-        let familyName = input.familyName.value
-        
-        let execution = registerUser.execute(username: username, password: password,
-                                             givenName: givenName, familyName: familyName)
-        
         clearErrorDescription()
-        
-        execution
+                
+        registerUser
+            .execute(data: createRegistrationData())
             .subscribe(onSuccess: { [weak self] in self?.registerUserSucceeded($0) },
                        onError: { [weak self] in self?.registerUserFailed($0) })
             .disposed(by: disposeBag)
+    }
+    
+    private func createRegistrationData() -> RegistrationData {
+        
+        return RegistrationData(username: input.username.value, password: input.password.value,
+                                givenName: input.givenName.value, familyName: input.familyName.value)
     }
     
     private func registerUserSucceeded(_ user: User) {
