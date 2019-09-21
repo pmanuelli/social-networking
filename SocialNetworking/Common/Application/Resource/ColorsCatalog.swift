@@ -14,4 +14,9 @@ class ColorsCatalog {
     static var aboveLevelBackground: UIColor { return UIColor(named: "Above Level Background")! }
     static var aboveLevelFont: UIColor { return UIColor(named: "Above Level Font")! }
     static var aboveLevellFontBody: UIColor { return UIColor(named: "Above Level Font Body")! }
+    
+    // Can't use named colors with @IBDesignable
+    
+    static var primary: UIColor { return UIColor(red: 0.290, green: 0.612, blue: 0.996, alpha: 1) }
+    static var secondary: UIColor { return UIColor(red: 0.255, green: 0.929, blue: 0.780, alpha: 1) }
 }

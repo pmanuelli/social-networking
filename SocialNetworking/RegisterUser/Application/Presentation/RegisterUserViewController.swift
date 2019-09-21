@@ -32,22 +32,37 @@ class RegisterUserViewController: UIViewController {
 
     private func bindViewModel() {
 
+        bindTextFields()
+        bindRegisterButton()
+    }
+    
+    private func bindTextFields() {
+        
         bind(mainView.usernameTextField, to: viewModel.username)
         bind(mainView.passwordTextField, to: viewModel.password)
         bind(mainView.givenNameTextField, to: viewModel.givenName)
         bind(mainView.familyNameTextField, to: viewModel.familyName)
-        
-        viewModel.registerUserButtonEnabled
-            .drive(mainView.registerUserButton.rx.isEnabled)
-            .disposed(by: disposeBag)
     }
     
-    private func bind(_ textField: UITextField, to relay: RxRelay.BehaviorRelay<String>) {
+    private func bind(_ textField: UITextField, to relay: BehaviorRelay<String>) {
         
         textField.rx.text
             .asObservable()
             .unwrap()
             .bind(to: relay)
             .disposed(by: disposeBag)
+    }
+    
+    private func bindRegisterButton() {
+                
+        viewModel.registerUserButtonEnabled
+            .drive(onNext: { [weak self] in self?.registerUserButtonEnabledChanged($0) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func registerUserButtonEnabledChanged(_ enabled: Bool) {
+        
+        mainView.registerUserButton.isEnabled = enabled
+        mainView.registerUserButton.applyAnimation(IsEnabledPropertyChangeAnimation())
     }
 }

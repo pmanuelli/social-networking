@@ -11,8 +11,7 @@ class RegisterUserView: UIView {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var givenNameTextField: UITextField!
     @IBOutlet var familyNameTextField: UITextField!
-    @IBOutlet var registerUserButton: UIButton!
-    @IBOutlet var registerUserButtonContainer: UIView!
+    @IBOutlet var registerUserButton: PrimaryButton!
     
     @IBOutlet var keyboardAdjustmentViewHeightConstraint: NSLayoutConstraint!
 
@@ -44,7 +43,7 @@ class RegisterUserView: UIView {
     }
     
     private func setupRegisterUserButton() {
-        registerUserButton.addTarget(self, action: #selector(RegisterUserButtonTouched), for: .touchUpInside)
+        registerUserButton.addTarget(self, action: #selector(registerUserButtonTouched), for: .touchUpInside)
     }
     
     private func observeKeyboardHeight() {
@@ -61,9 +60,9 @@ class RegisterUserView: UIView {
     }
     
     @objc
-    private func RegisterUserButtonTouched() {
+    private func registerUserButtonTouched() {
         
-        registerUserButtonContainer.applyAnimation(TouchUpInsideViewAnimation())
+        registerUserButton.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
 
