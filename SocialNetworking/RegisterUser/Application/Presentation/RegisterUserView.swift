@@ -61,7 +61,6 @@ class RegisterUserView: UIView {
     
     @objc
     private func registerUserButtonTouched() {
-        
         registerUserButton.applyAnimation(TouchUpInsideViewAnimation())
     }
 }

@@ -27,9 +27,13 @@ class PrimaryButton: UIButton {
 
     private func createBackgroundView() -> UIView {
                 
-        return GradientView(colorLocations: createGradientColorLocations(),
-                            startPoint: CGPoint(x: 0, y: 0.5),
-                            endPoint: CGPoint(x: 1, y: 0.5))
+        let view = GradientView(colorLocations: createGradientColorLocations(),
+                                startPoint: CGPoint(x: 0, y: 0.5),
+                                endPoint: CGPoint(x: 1, y: 0.5))
+        
+        view.isUserInteractionEnabled = false
+        
+        return view
     }
     
     private func createGradientColorLocations() -> [GradientView.ColorLocation] {

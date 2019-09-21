@@ -11,15 +11,27 @@ class RegisterUserViewModel {
     let givenName = BehaviorRelay<String>(value: "")
     let familyName = BehaviorRelay<String>(value: "")
     
-    lazy var registerUserButtonEnabled = combineAllFields()
+    var registerUserButtonEnabled: Driver<Bool>
+    private var registerUserButtonEnabledRelay = BehaviorRelay<Bool>(value: false)
+    
+    private let disposeBag = DisposeBag()
+    
+    init() {
         
-    private func combineAllFields() -> Driver<Bool> {
+        registerUserButtonEnabled = registerUserButtonEnabledRelay.asDriver(onErrorJustReturn: false)
+        
+        observeNotEmptyFields()
+    }
+        
+    private func observeNotEmptyFields() {
         
         let fields = [username, password, givenName, familyName]
         
-        return Observable
+        let notEmptyFields = Observable
             .combineLatest(fields) { return $0.allSatisfy { !$0.isEmpty } }
-            .asDriver(onErrorJustReturn: false)
             .distinctUntilChanged()
+        
+        notEmptyFields.bind(to: registerUserButtonEnabledRelay)
+            .disposed(by: disposeBag)
     }
 }
