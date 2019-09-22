@@ -20,6 +20,7 @@ target 'SocialNetworking' do
     inherit! :search_paths
     
     pod 'RxTest', '~> 5.0'
+    pod 'RxBlocking', '~> 5.0'
     pod 'SwiftyMocky'
     
   end

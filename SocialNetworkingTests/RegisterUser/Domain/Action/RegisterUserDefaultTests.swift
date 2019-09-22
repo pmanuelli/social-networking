@@ -6,11 +6,13 @@ import SwiftyMocky
 
 class RegisterUserDefaultTests: XCTestCase {
 
+    // Dependencies
     private let registrationData = RegistrationDataBuilder().build()
     private let userService = UserServiceMock()
     
+    // Object under test
     private var action: RegisterUserDefault!
-    
+        
     func testRegistersNewUser() {
             
         givenARegisterUserAction()

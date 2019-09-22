@@ -1,4 +1,6 @@
 PODS:
+  - RxBlocking (5.0.0):
+    - RxSwift (~> 5)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -26,6 +28,7 @@ PODS:
   - UIKitExtensions (1.0.0)
 
 DEPENDENCIES:
+  - RxBlocking (~> 5.0)
   - RxCocoa (~> 5.0)
   - RxKeyboard
   - RxSwift (~> 5.0)
@@ -36,6 +39,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - RxBlocking
     - RxCocoa
     - RxKeyboard
     - RxRelay
@@ -50,6 +54,7 @@ EXTERNAL SOURCES:
     :path: "../uikit-extensions"
 
 SPEC CHECKSUMS:
+  RxBlocking: c67185d26498ea3cbe3e121917c3c16739e43123
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
@@ -60,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftyMocky: 7e4e7088166c013559a26ccc8b8d6508c3730826
   UIKitExtensions: ba814ad4e8e26e018a9634aa7387f4cc9f2103a9
 
-PODFILE CHECKSUM: d24760e442bb9f963785fedabc07585b01a6f8f8
+PODFILE CHECKSUM: 92bd0648837c94f04947b191286c615e9f8cca65
 
 COCOAPODS: 1.7.4

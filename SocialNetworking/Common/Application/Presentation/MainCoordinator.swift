@@ -6,30 +6,15 @@ class MainCoordinator {
     
     private let navigationController: UINavigationController
     
+    private lazy var registerUserCoordinator = RegisterUserCoordinator(navigationController: navigationController)
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.isNavigationBarHidden = true
     }
     
     func start() {
         
-        let viewModel = RegisterUserViewModel(registerUser: RegisterUserDummy())
-        let viewController = RegisterUserViewController(viewModel: viewModel)
-        
-        navigationController.pushViewController(viewController, animated: true)
-        navigationController.isNavigationBarHidden = true
+        registerUserCoordinator.start()
     }    
-}
-
-private class RegisterUserDummy: RegisterUser {
-    
-    func execute(data: RegistrationData) -> Single<User> {
-        
-        if data.username == "error" {
-            return .error(NSError(domain: "asd", code: 10, localizedDescription: "Caca pija error!"))
-
-        }
-        else {
-            return .just(User(username: data.username, givenName: data.givenName, familyName: data.familyName))
-        }
-    }
 }
