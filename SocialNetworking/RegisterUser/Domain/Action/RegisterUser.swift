@@ -9,7 +9,13 @@ protocol RegisterUser {
 
 class RegisterUserDefault: RegisterUser {
     
+    private let userService: UserService
+    
+    init(userService: UserService) {
+        self.userService = userService
+    }
+    
     func execute(data: RegistrationData) -> Single<User> {
-        abort()
+        return userService.registerUser(data: data)
     }
 }

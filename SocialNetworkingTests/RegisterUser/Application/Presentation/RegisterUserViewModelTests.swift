@@ -58,8 +58,7 @@ class RegisterUserViewModelTests: XCTestCase {
     
     func testRegistersNewUser() {
         
-        let data = RegistrationData(username: "username", password: "password",
-                                    givenName: "givenName", familyName: "familyName")
+        let data = RegistrationDataBuilder().build()
         
         givenARegisterUserAction()
         givenAViewModel()
