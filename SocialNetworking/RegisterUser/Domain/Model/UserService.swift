@@ -21,17 +21,26 @@ class UserServiceDefault: UserService {
     
     func registerUser(data: RegistrationData) -> Single<User> {
         
-        let user = createUser(from: data)
-        
-        let addUserAsObservable = userRepository.add(user)
-            .asObservable()
-            .map { _ in user }
-        
-        let userAsObservable = Observable.of(user)
-        
-        return Observable.concat(addUserAsObservable, userAsObservable).asSingle()
+        return validateUsernameTaken(data.username)
+            .andThen(createAndSaveUser(data: data))
     }
     
+    private func validateUsernameTaken(_ username: String) -> Completable {
+        
+        return userRepository
+            .isUsernameTaken(username)
+            .flatMapCompletable { if $0 { throw UsernameAlreadyInUseError() } else { return .empty() } }
+    }
+        
+    private func createAndSaveUser(data: RegistrationData) -> Single<User> {
+        
+        let user = createUser(from: data)
+        
+        return userRepository
+            .add(user)
+            .andThen(.just(user))
+    }
+        
     private func createUser(from data: RegistrationData) -> User {
         
         return User(id: idGenerator.next(),

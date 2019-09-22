@@ -4,9 +4,17 @@
 import XCTest
 import RxSwift
 import RxBlocking
+import RxTest
 import SwiftyMocky
 
 class UserServiceDefaultTests: XCTestCase {
+    
+    // RxTest
+    private let testScheduler = TestScheduler(initialClock: 0)
+    private var addUserObservable: TestableObservable<Never>!
+    private var registerUserObserver: TestableObserver<User>!
+    private let disposeBag = DisposeBag()
+    
     
     private let id = UUID()
     private let username = "username"
@@ -23,18 +31,31 @@ class UserServiceDefaultTests: XCTestCase {
 
     // Object under test
     private var service: UserServiceDefault!
-    
-    private var registeredUser: User?
+        
+    override func setUp() {
+
+        givenAnIdGenerator(returning: id)
+        givenAUserService()
+    }
     
     func testRegistersAUser() {
         
-        givenAnIdGenerator(returning: id)
-        givenAUserService()
+        givenUsernameIsAlreadyInUse(false)
         
         whenUserIsRegisteredWith(data)
+
+        thenUserIsPersisted(user)
+        thenUserIsReturned(user)
+    }
+    
+    func testReturnAnErrorWhenUsernameIsInUse() {
         
-        thenPersistedUserIs(user)
-        thenRegisteredUserIs(user)
+        givenUsernameIsAlreadyInUse(true)
+
+        whenUserIsRegisteredWith(data)
+
+        thenUserIsNotPersisted()
+        thenUsernameAlreadyInUseErrorIsReturned()
     }
     
     // MARK: Given
@@ -43,25 +64,63 @@ class UserServiceDefaultTests: XCTestCase {
         Given(idGenerator, .next(willReturn: id))
     }
     
+    private func givenUsernameIsAlreadyInUse(_ inUse: Bool) {
+        Given(userRepository, .isUsernameTaken(.any, willReturn: .just(inUse)))
+    }
+    
     private func givenAUserService() {
-        Given(userRepository, .add(.any, willReturn: .empty()))
-        
+                
+        givenAUserRepository()
         service = UserServiceDefault(userRepository: userRepository, idGenerator: idGenerator)
     }
+    
+    private func givenAUserRepository() {
         
+        addUserObservable = testScheduler.createHotObservable([.completed(0)])
+        Given(userRepository, .add(.any, willReturn: addUserObservable.asCompletable()))
+    }
+    
     // MARK: When
     
     private func whenUserIsRegisteredWith(_ data: RegistrationData) {
-        registeredUser = try? service.registerUser(data: data).toBlocking().first()
+        
+        registerUserObserver = testScheduler.createObserver(User.self)
+        
+        service.registerUser(data: data)
+            .asObservable()
+            .subscribe(registerUserObserver)
+            .disposed(by: disposeBag)
+        
+        testScheduler.start()
     }
     
     // MARK: Then
     
-    private func thenPersistedUserIs(_ user: User) {
+    private func thenUserIsPersisted(_ user: User) {
         Verify(userRepository, .once, .add(.value(user)))
+        XCTAssertEqual(addUserObservable.subscriptions.count, 1)
     }
     
-    private func thenRegisteredUserIs(_ user: User) {
-         XCTAssertEqual(registeredUser, user)
+    private func thenUserIsReturned(_ user: User) {
+        assertEventsContainUser(user, events: registerUserObserver.events)
+    }
+    
+    private func thenUserIsNotPersisted() {
+        XCTAssertEqual(addUserObservable.subscriptions.count, 0)
+    }
+    
+    private func thenUsernameAlreadyInUseErrorIsReturned() {
+        assertEventsContainUsernameAlreadyInUseError(events: registerUserObserver.events)
+    }
+    
+    private func assertEventsContainUser(_ user: User, events: [Recorded<Event<User>>]) {
+        XCTAssertEqual(events.count, 2)
+        XCTAssertEqual(events[0].value.element, user)
+        XCTAssertTrue(events[1].value.isCompleted)
+    }
+    
+    private func assertEventsContainUsernameAlreadyInUseError(events: [Recorded<Event<User>>]) {
+        XCTAssertEqual(events.count, 1)
+        XCTAssertTrue(events[0].value.error is UsernameAlreadyInUseError)
     }
 }

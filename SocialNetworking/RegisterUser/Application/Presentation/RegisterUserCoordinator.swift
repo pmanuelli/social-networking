@@ -25,8 +25,12 @@ class RegisterUserCoordinator {
 }
 
 class DummyUserRepository: UserRepository {
-    
+
     func add(_ user: User) -> Completable {
-        return .error(NSError(domain: "hola", code: 1, userInfo: nil))
+        return .empty()
+    }
+    
+    func isUsernameTaken(_ username: String) -> Single<Bool> {
+        return .just(true)
     }
 }

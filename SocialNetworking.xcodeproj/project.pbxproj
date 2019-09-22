@@ -14,6 +14,7 @@
 		6E7DF8D92336941500F829FA /* mocky.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6E7DF8D82336941500F829FA /* mocky.yml */; };
 		6E7DF8DB2336949A00F829FA /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DF8DA2336949A00F829FA /* Mock.generated.swift */; };
 		6E9276C2233669A900069595 /* PrimaryButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9276C1233669A900069595 /* PrimaryButton+Animations.swift */; };
+		6EB82DCF23372DF50072947E /* UsernameAlreadyInUseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */; };
 		6ED0445723365DF600548E8F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0445623365DF600548E8F /* PrimaryButton.swift */; };
 		6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED72A842331C4FA00DE36F3 /* Colors.xcassets */; };
 		6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */; };
@@ -60,6 +61,7 @@
 		6E7DF8D82336941500F829FA /* mocky.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = mocky.yml; sourceTree = "<group>"; };
 		6E7DF8DA2336949A00F829FA /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		6E9276C1233669A900069595 /* PrimaryButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton+Animations.swift"; sourceTree = "<group>"; };
+		6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAlreadyInUseError.swift; sourceTree = "<group>"; };
 		6ED0445623365DF600548E8F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		6ED72A842331C4FA00DE36F3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCatalog.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
 				6EF9D6A52336EC710041803D /* RegistrationData.swift */,
 				6EF9D6B32336F9310041803D /* IdGenerator.swift */,
+				6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				6E9276C2233669A900069595 /* PrimaryButton+Animations.swift in Sources */,
 				6EE15C412336DA7D004AA235 /* NSError+Extensions.swift in Sources */,
 				E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */,
+				6EB82DCF23372DF50072947E /* UsernameAlreadyInUseError.swift in Sources */,
 				6E7DF8D6233679C300F829FA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

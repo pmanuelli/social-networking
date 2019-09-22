@@ -374,21 +374,41 @@ open class UserRepositoryMock: UserRepository, Mock {
 		return __value
     }
 
+    open func isUsernameTaken(_ username: String) -> Single<Bool> {
+        addInvocation(.m_isUsernameTaken__username(Parameter<String>.value(`username`)))
+		let perform = methodPerformValue(.m_isUsernameTaken__username(Parameter<String>.value(`username`))) as? (String) -> Void
+		perform?(`username`)
+		var __value: Single<Bool>
+		do {
+		    __value = try methodReturnValue(.m_isUsernameTaken__username(Parameter<String>.value(`username`))).casted()
+		} catch {
+			onFatalFailure("Stub return value not specified for isUsernameTaken(_ username: String). Use given")
+			Failure("Stub return value not specified for isUsernameTaken(_ username: String). Use given")
+		}
+		return __value
+    }
+
 
     fileprivate enum MethodType {
         case m_add__user(Parameter<User>)
+        case m_isUsernameTaken__username(Parameter<String>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
             case (.m_add__user(let lhsUser), .m_add__user(let rhsUser)):
                 guard Parameter.compare(lhs: lhsUser, rhs: rhsUser, with: matcher) else { return false } 
                 return true 
+            case (.m_isUsernameTaken__username(let lhsUsername), .m_isUsernameTaken__username(let rhsUsername)):
+                guard Parameter.compare(lhs: lhsUsername, rhs: rhsUsername, with: matcher) else { return false } 
+                return true 
+            default: return false
             }
         }
 
         func intValue() -> Int {
             switch self {
             case let .m_add__user(p0): return p0.intValue
+            case let .m_isUsernameTaken__username(p0): return p0.intValue
             }
         }
     }
@@ -405,10 +425,20 @@ open class UserRepositoryMock: UserRepository, Mock {
         public static func add(_ user: Parameter<User>, willReturn: Completable...) -> MethodStub {
             return Given(method: .m_add__user(`user`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
+        public static func isUsernameTaken(_ username: Parameter<String>, willReturn: Single<Bool>...) -> MethodStub {
+            return Given(method: .m_isUsernameTaken__username(`username`), products: willReturn.map({ StubProduct.return($0 as Any) }))
+        }
         public static func add(_ user: Parameter<User>, willProduce: (Stubber<Completable>) -> Void) -> MethodStub {
             let willReturn: [Completable] = []
 			let given: Given = { return Given(method: .m_add__user(`user`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
 			let stubber = given.stub(for: (Completable).self)
+			willProduce(stubber)
+			return given
+        }
+        public static func isUsernameTaken(_ username: Parameter<String>, willProduce: (Stubber<Single<Bool>>) -> Void) -> MethodStub {
+            let willReturn: [Single<Bool>] = []
+			let given: Given = { return Given(method: .m_isUsernameTaken__username(`username`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
+			let stubber = given.stub(for: (Single<Bool>).self)
 			willProduce(stubber)
 			return given
         }
@@ -418,6 +448,7 @@ open class UserRepositoryMock: UserRepository, Mock {
         fileprivate var method: MethodType
 
         public static func add(_ user: Parameter<User>) -> Verify { return Verify(method: .m_add__user(`user`))}
+        public static func isUsernameTaken(_ username: Parameter<String>) -> Verify { return Verify(method: .m_isUsernameTaken__username(`username`))}
     }
 
     public struct Perform {
@@ -426,6 +457,9 @@ open class UserRepositoryMock: UserRepository, Mock {
 
         public static func add(_ user: Parameter<User>, perform: @escaping (User) -> Void) -> Perform {
             return Perform(method: .m_add__user(`user`), performs: perform)
+        }
+        public static func isUsernameTaken(_ username: Parameter<String>, perform: @escaping (String) -> Void) -> Perform {
+            return Perform(method: .m_isUsernameTaken__username(`username`), performs: perform)
         }
     }
 
