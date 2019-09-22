@@ -17,20 +17,9 @@ class RegisterUserCoordinator {
     
     private func createViewController() -> UIViewController {
         
-        let userService = UserServiceDefault(userRepository: DummyUserRepository())
+        let userService = UserServiceDefault(userRepository: InMemoryUserRepository())
         let registerUser = RegisterUserDefault(userService: userService)
         let viewModel = RegisterUserViewModel(registerUser: registerUser)
         return RegisterUserViewController(viewModel: viewModel)
-    }
-}
-
-class DummyUserRepository: UserRepository {
-
-    func add(_ user: User) -> Completable {
-        return .empty()
-    }
-    
-    func isUsernameTaken(_ username: String) -> Single<Bool> {
-        return .just(true)
     }
 }
