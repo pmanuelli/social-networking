@@ -9,7 +9,7 @@ import SwiftyMocky
 class RegisterUserViewModelTests: XCTestCase {
 
     // RxTest elements
-    private var scheduler: TestScheduler!
+    private let scheduler = TestScheduler(initialClock: 0)
     private var registerUserButtonEnabledObserver: TestableObserver<Bool>!
     private var registerErrorDescriptionObserver: TestableObserver<String>!
     private var didRegisterUserObserver: TestableObserver<User>!
@@ -20,15 +20,7 @@ class RegisterUserViewModelTests: XCTestCase {
     
     // Object under test
     private var viewModel: RegisterUserViewModel!
-    
-    override func setUp() {
-        
-        scheduler = TestScheduler(initialClock: 0)
-        registerUserButtonEnabledObserver = scheduler.createObserver(Bool.self)
-        registerErrorDescriptionObserver = scheduler.createObserver(String.self)
-        didRegisterUserObserver = scheduler.createObserver(User.self)
-    }
-        
+            
     func testInitiallyDisablesRegisterUserButton() {
         
         whenViewModelIsCreated()
@@ -116,6 +108,8 @@ class RegisterUserViewModelTests: XCTestCase {
     
     private func subscribeToRegisterUserButtonEnabled() {
         
+        registerUserButtonEnabledObserver = scheduler.createObserver(Bool.self)
+        
         viewModel.output.registerUserButtonEnabled
             .drive(registerUserButtonEnabledObserver)
             .disposed(by: disposeBag)
@@ -123,12 +117,16 @@ class RegisterUserViewModelTests: XCTestCase {
     
     private func subscribeToRegisterErrorDescription() {
         
+        registerErrorDescriptionObserver = scheduler.createObserver(String.self)
+        
         viewModel.output.registerErrorDescription
             .drive(registerErrorDescriptionObserver)
             .disposed(by: disposeBag)
     }
     
     private func subscribeToDidRegisterUser() {
+        
+        didRegisterUserObserver = scheduler.createObserver(User.self)
         
         viewModel.output.didRegisterUser
             .subscribe(didRegisterUserObserver)
