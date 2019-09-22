@@ -29,7 +29,7 @@ class UserServiceDefault: UserService {
         
         return userRepository
             .isUsernameTaken(username)
-            .flatMapCompletable { if $0 { throw UsernameAlreadyInUseError() } else { return .empty() } }
+            .flatMapCompletable { if $0 { throw UsernameAlreadyInUseError(username: username) } else { return .empty() } }
     }
         
     private func createAndSaveUser(data: RegistrationData) -> Single<User> {
