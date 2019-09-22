@@ -23,6 +23,7 @@ class PrimaryButton: UIButton {
     
     private func postInit() {
         insertBackgroundView()
+        updateEnabledDesign()
     }
     
     private func insertBackgroundView() {

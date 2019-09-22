@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoginUserView" customModule="SocialNetworking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-Pf-erR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQE-aL-api" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsA-XN-Ped">
+                                    <rect key="frame" x="35" y="338" width="344" height="220"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHt-Ak-ilw">
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="90"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-P7-yGt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amr-YF-CDA" userLabel="Username Text Field">
+                                                            <rect key="frame" x="10" y="0.0" width="324" height="40"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="UrO-Bf-3Ww"/>
+                                                            </constraints>
+                                                            <color key="textColor" name="Above Level Font Body"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="username"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="Above Level Background"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Amr-YF-CDA" secondAttribute="bottom" id="CdB-VS-Hvz"/>
+                                                        <constraint firstItem="Amr-YF-CDA" firstAttribute="leading" secondItem="xgN-P7-yGt" secondAttribute="leading" constant="10" id="cmB-pm-kEq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Amr-YF-CDA" secondAttribute="trailing" constant="10" id="gG5-BW-e6k"/>
+                                                        <constraint firstItem="Amr-YF-CDA" firstAttribute="top" secondItem="xgN-P7-yGt" secondAttribute="top" id="mYM-Vf-7Xk"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo9-6y-Hrf">
+                                                    <rect key="frame" x="0.0" y="50" width="344" height="40"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUV-aT-u5d">
+                                                            <rect key="frame" x="10" y="0.0" width="324" height="40"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="3oM-N4-fx8"/>
+                                                            </constraints>
+                                                            <color key="textColor" name="Above Level Font Body"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="Above Level Background"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="cUV-aT-u5d" secondAttribute="bottom" id="bjj-kv-itG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cUV-aT-u5d" secondAttribute="trailing" constant="10" id="ntg-Pu-fJS"/>
+                                                        <constraint firstItem="cUV-aT-u5d" firstAttribute="leading" secondItem="Vo9-6y-Hrf" secondAttribute="leading" constant="10" id="sGc-ks-AVA"/>
+                                                        <constraint firstItem="cUV-aT-u5d" firstAttribute="top" secondItem="Vo9-6y-Hrf" secondAttribute="top" id="u4A-bp-8Wy"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXh-vX-O8F">
+                                                    <rect key="frame" x="0.0" y="90" width="344" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" name="Error"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTU-bc-XZq" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
+                                            <rect key="frame" x="47" y="110" width="250" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="6Hf-tH-o4N"/>
+                                                <constraint firstAttribute="height" constant="50" id="rRR-b7-3uh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <state key="normal" title="LOGIN">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrJ-gY-hh5" customClass="IBDesignableUIButton" customModule="UIKitExtensions">
+                                            <rect key="frame" x="47" y="170" width="250" height="50"/>
+                                            <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal" title="I don't have an account!">
+                                                <color key="titleColor" name="At Level Font Title"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                    <color key="value" name="At Level Font Title"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="YHt-Ak-ilw" firstAttribute="top" secondItem="fsA-XN-Ped" secondAttribute="top" id="2Ow-mD-w9C"/>
+                                        <constraint firstItem="rrJ-gY-hh5" firstAttribute="top" secondItem="HTU-bc-XZq" secondAttribute="bottom" constant="10" id="7TR-vD-m7E"/>
+                                        <constraint firstItem="HTU-bc-XZq" firstAttribute="top" secondItem="YHt-Ak-ilw" secondAttribute="bottom" constant="20" id="ADZ-fh-sTM"/>
+                                        <constraint firstItem="HTU-bc-XZq" firstAttribute="centerX" secondItem="fsA-XN-Ped" secondAttribute="centerX" id="DZb-jq-YMR"/>
+                                        <constraint firstItem="YHt-Ak-ilw" firstAttribute="leading" secondItem="fsA-XN-Ped" secondAttribute="leading" id="Dq8-iF-nDb"/>
+                                        <constraint firstAttribute="width" constant="344" id="HoV-LL-OSu"/>
+                                        <constraint firstAttribute="trailing" secondItem="YHt-Ak-ilw" secondAttribute="trailing" id="Nij-8i-XOw"/>
+                                        <constraint firstAttribute="bottom" secondItem="rrJ-gY-hh5" secondAttribute="bottom" id="eGP-om-XMz"/>
+                                        <constraint firstItem="rrJ-gY-hh5" firstAttribute="height" secondItem="HTU-bc-XZq" secondAttribute="height" id="hYA-Uu-lmm"/>
+                                        <constraint firstItem="rrJ-gY-hh5" firstAttribute="width" secondItem="HTU-bc-XZq" secondAttribute="width" id="jGq-vu-ANi"/>
+                                        <constraint firstItem="rrJ-gY-hh5" firstAttribute="centerX" secondItem="fsA-XN-Ped" secondAttribute="centerX" id="uoo-e7-5xD"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="fsA-XN-Ped" firstAttribute="centerX" secondItem="wQE-aL-api" secondAttribute="centerX" id="RNV-yc-4gS"/>
+                                <constraint firstItem="fsA-XN-Ped" firstAttribute="centerY" secondItem="wQE-aL-api" secondAttribute="centerY" id="gTv-cI-zQQ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wQE-aL-api" firstAttribute="width" secondItem="2zd-Pf-erR" secondAttribute="width" id="2Cy-XZ-JIc"/>
+                        <constraint firstAttribute="trailing" secondItem="wQE-aL-api" secondAttribute="trailing" id="AQt-OI-mba"/>
+                        <constraint firstAttribute="bottom" secondItem="wQE-aL-api" secondAttribute="bottom" id="Int-MD-qzg"/>
+                        <constraint firstItem="wQE-aL-api" firstAttribute="top" secondItem="2zd-Pf-erR" secondAttribute="top" id="WiD-NU-1pD"/>
+                        <constraint firstItem="wQE-aL-api" firstAttribute="leading" secondItem="2zd-Pf-erR" secondAttribute="leading" id="lz8-L9-2kQ"/>
+                        <constraint firstItem="wQE-aL-api" firstAttribute="height" secondItem="2zd-Pf-erR" secondAttribute="height" id="pdX-0j-SBW"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cG2-3o-aln" userLabel="Keyboard Adjustment View">
+                    <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="DHv-ay-E61"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="At Level Background"/>
+            <constraints>
+                <constraint firstItem="cG2-3o-aln" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BB9-11-cWn"/>
+                <constraint firstItem="2zd-Pf-erR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FBE-3e-IDe"/>
+                <constraint firstItem="cG2-3o-aln" firstAttribute="top" secondItem="2zd-Pf-erR" secondAttribute="bottom" id="G0l-vx-7pz"/>
+                <constraint firstAttribute="bottom" secondItem="cG2-3o-aln" secondAttribute="bottom" id="YMG-5p-6wQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2zd-Pf-erR" secondAttribute="trailing" id="YZW-b4-tbt"/>
+                <constraint firstItem="2zd-Pf-erR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uFy-XZ-Cdt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cG2-3o-aln" secondAttribute="trailing" id="uIK-wX-T7m"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="errorLabel" destination="SXh-vX-O8F" id="2HC-rY-WMo"/>
+                <outlet property="keyboardAdjustmentViewHeightConstraint" destination="DHv-ay-E61" id="zvO-l9-U4d"/>
+                <outlet property="loginUserButton" destination="HTU-bc-XZq" id="29b-J7-iw5"/>
+                <outlet property="passwordTextField" destination="cUV-aT-u5d" id="jCA-cz-xM4"/>
+                <outlet property="registerUserButton" destination="rrJ-gY-hh5" id="dXf-sY-hrM"/>
+                <outlet property="usernameTextField" destination="Amr-YF-CDA" id="wso-Gj-Or8"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Above Level Background">
+            <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Above Level Font Body">
+            <color white="0.89999997615814209" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="At Level Background">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="At Level Font Title">
+            <color white="0.79500001668930054" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="Error">
+            <color red="0.94900000095367432" green="0.51899999380111694" blue="0.48500001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

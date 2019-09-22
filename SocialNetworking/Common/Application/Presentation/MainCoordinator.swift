@@ -6,7 +6,7 @@ class MainCoordinator {
     
     private let navigationController: UINavigationController
     
-    private lazy var registerUserCoordinator = RegisterUserCoordinator(navigationController: navigationController)
+    private lazy var loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController)
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -15,6 +15,6 @@ class MainCoordinator {
     
     func start() {
         
-        registerUserCoordinator.start()
+        loginUserCoordinator.start()
     }    
 }
