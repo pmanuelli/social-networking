@@ -65,3 +65,25 @@ class LoginUserView: UIView {
         button.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
+
+extension LoginUserView: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        setNextResponder(current: textField)
+        return false
+    }
+    
+    private func setNextResponder(current textField: UITextField) {
+        
+        if let nextTextField = findNextTextField(of: textField) {
+            nextTextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+    }
+    
+    private func findNextTextField(of textField: UITextField) -> UITextField? {
+        return textFields.nextElement(after: textField)
+    }
+}
