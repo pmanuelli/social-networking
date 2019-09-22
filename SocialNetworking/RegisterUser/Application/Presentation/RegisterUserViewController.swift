@@ -33,7 +33,7 @@ class RegisterUserViewController: UIViewController {
     private func bindViewModel() {
 
         bindTextFields()
-        bindRegisterButton()
+        bindRegisterUserButton()
         bindRegisterErrorDescription()
     }
     
@@ -54,7 +54,7 @@ class RegisterUserViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindRegisterButton() {
+    private func bindRegisterUserButton() {
                 
         viewModel.output.registerUserButtonEnabled
             .drive(onNext: { [weak self] in self?.registerUserButtonEnabledChanged($0) })

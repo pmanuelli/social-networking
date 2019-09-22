@@ -26,5 +26,16 @@ class LoginUserViewController: UIViewController {
 
     private func bindViewModel() {
 
+        bindRegisterUserButton()
+    }
+    
+    private func bindRegisterUserButton() {
+        
+        mainView.registerUserButton.addTarget(self, action: #selector(registerUserButtonTouched), for: .touchUpInside)
+    }
+    
+    @objc
+    private func registerUserButtonTouched() {
+        viewModel.registerUserButtonTouched()
     }
 }
