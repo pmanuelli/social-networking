@@ -201,7 +201,7 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-MQ-RB8" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-MQ-RB8" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
                                             <rect key="frame" x="47" y="221" width="250" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="4PY-bP-j5e"/>
@@ -268,7 +268,6 @@
                 <outlet property="keyboardAdjustmentViewHeightConstraint" destination="Cf3-VB-avl" id="Hy0-wS-qjm"/>
                 <outlet property="passwordTextField" destination="4VJ-g1-Dkj" id="Q64-0I-TKI"/>
                 <outlet property="registerUserButton" destination="Pg5-MQ-RB8" id="REu-E8-vod"/>
-                <outlet property="scrollView" destination="x7r-k0-lBz" id="gZu-gy-peh"/>
                 <outlet property="usernameTextField" destination="fW9-Wj-z5a" id="ngV-qh-4Mk"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>

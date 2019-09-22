@@ -6,7 +6,6 @@ import RxKeyboard
 
 class RegisterUserView: UIView {
 
-    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var givenNameTextField: UITextField!

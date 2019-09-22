@@ -4,7 +4,11 @@ import UIKitExtensions
 
 @IBDesignable
 class PrimaryButton: UIButton {
-        
+    
+    override var isEnabled: Bool {
+        didSet { updateEnabledDesign() }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -52,5 +56,9 @@ class PrimaryButton: UIButton {
         
         cornerRadius = bounds.height / CGFloat(2)
         clipsToBounds = true
+    }
+    
+    private func updateEnabledDesign() {
+        alpha = isEnabled ? 1 : 0.25
     }
 }
