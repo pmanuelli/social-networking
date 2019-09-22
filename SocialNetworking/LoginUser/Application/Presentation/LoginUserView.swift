@@ -8,6 +8,7 @@ class LoginUserView: UIView {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var errorLabel: UILabel!
+    
     @IBOutlet var loginUserButton: PrimaryButton!
     @IBOutlet var registerUserButton: UIButton!
     

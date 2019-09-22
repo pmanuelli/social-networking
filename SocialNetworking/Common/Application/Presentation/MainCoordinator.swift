@@ -6,7 +6,10 @@ class MainCoordinator {
     
     private let navigationController: UINavigationController
     
-    private lazy var loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController)
+    private let userRepository = InMemoryUserRepository()
+    
+    private lazy var loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController,
+                                                                 userRepository: userRepository)
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

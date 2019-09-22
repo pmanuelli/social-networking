@@ -5,13 +5,16 @@ import RxSwift
 class LoginUserCoordinator {
     
     private let navigationController: UINavigationController
+    private let userRepository: UserRepository
     
-    private lazy var registerUserCoordinator = RegisterUserCoordinator(navigationController: navigationController)
+    private lazy var registerUserCoordinator = RegisterUserCoordinator(navigationController: navigationController,
+                                                                       userRepository: userRepository)
     
     private let disposeBag = DisposeBag()
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, userRepository: UserRepository) {
         self.navigationController = navigationController
+        self.userRepository = userRepository
     }
     
     func start() {
@@ -32,7 +35,6 @@ class LoginUserCoordinator {
     }
     
     private func startRegisterUserCoordinator() {
-        
         registerUserCoordinator.start()
     }
 }

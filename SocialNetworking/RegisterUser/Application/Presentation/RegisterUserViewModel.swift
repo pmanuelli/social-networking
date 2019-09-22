@@ -18,6 +18,7 @@ class RegisterUserViewModel {
         
         var registerUserButtonEnabled: Driver<Bool>
         var registerErrorDescription: Driver<String>
+        let loginUserButtonTouch: Observable<Void>
         var didRegisterUser: Observable<User>
     }
     
@@ -27,6 +28,7 @@ class RegisterUserViewModel {
     private let registerUser: RegisterUser
     
     private let registerErrorDescriptionSubject = PublishSubject<String>()
+    private let loginUserButtonTouchSubject = PublishSubject<Void>()
     private let didRegisterUserSubject = PublishSubject<User>()
     private let disposeBag = DisposeBag()
     
@@ -38,7 +40,8 @@ class RegisterUserViewModel {
         
         return Output(registerUserButtonEnabled: createRegisterUserButtonEnabledDriver(),
                       registerErrorDescription: registerErrorDescriptionSubject.asDriver(onErrorJustReturn: ""),
-                      didRegisterUser: didRegisterUserSubject.asObserver())
+                      loginUserButtonTouch: loginUserButtonTouchSubject,
+                      didRegisterUser: didRegisterUserSubject)
     }
         
     private func createRegisterUserButtonEnabledDriver() -> Driver<Bool> {
@@ -79,5 +82,9 @@ class RegisterUserViewModel {
     
     private func clearErrorDescription() {
         registerErrorDescriptionSubject.onNext("")
+    }
+    
+    func loginUserButtonTouched() {
+        loginUserButtonTouchSubject.onNext(Void())
     }
 }

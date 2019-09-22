@@ -34,6 +34,7 @@ class RegisterUserViewController: UIViewController {
 
         bindTextFields()
         bindRegisterUserButton()
+        bindLoginUserButton()
         bindRegisterErrorDescription()
     }
     
@@ -72,6 +73,16 @@ class RegisterUserViewController: UIViewController {
     @objc
     private func registerUserButtonTouched() {
         viewModel.registerUserButtonTouched()
+    }
+    
+    private func bindLoginUserButton() {
+        
+        mainView.loginUserButton.addTarget(self, action: #selector(loginUserButtonTouched), for: .touchUpInside)
+    }
+    
+    @objc
+    private func loginUserButtonTouched() {
+        viewModel.loginUserButtonTouched()
     }
     
     private func bindRegisterErrorDescription() {

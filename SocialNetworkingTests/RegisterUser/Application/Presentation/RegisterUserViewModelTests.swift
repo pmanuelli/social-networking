@@ -12,6 +12,7 @@ class RegisterUserViewModelTests: XCTestCase {
     private let scheduler = TestScheduler(initialClock: 0)
     private var registerUserButtonEnabledObserver: TestableObserver<Bool>!
     private var registerErrorDescriptionObserver: TestableObserver<String>!
+    private var loginUserButtonTouchObserver: TestableObserver<Void>!
     private var didRegisterUserObserver: TestableObserver<User>!
     private let disposeBag = DisposeBag()
     
@@ -87,6 +88,15 @@ class RegisterUserViewModelTests: XCTestCase {
         thenErrorDescriptionShownIs(error.localizedDescription)
     }
     
+    func testInformsWhenLoginUserButtonIsTouched() {
+        
+        givenAViewModel()
+        
+        whenLoginUserButtonIsTouched()
+        
+        thenLoginUserButtonTouchIsEmmited()
+    }
+    
     // MARK: Given
         
     private func givenARegisterUserAction(returning user: User = UserBuilder().build()) {
@@ -103,6 +113,7 @@ class RegisterUserViewModelTests: XCTestCase {
         
         subscribeToRegisterUserButtonEnabled()
         subscribeToRegisterErrorDescription()
+        subscribeToLoginButtonTouched()
         subscribeToDidRegisterUser()
     }
     
@@ -121,6 +132,15 @@ class RegisterUserViewModelTests: XCTestCase {
         
         viewModel.output.registerErrorDescription
             .drive(registerErrorDescriptionObserver)
+            .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToLoginButtonTouched() {
+        
+        loginUserButtonTouchObserver = scheduler.createObserver(Void.self)
+        
+        viewModel.output.loginUserButtonTouch
+            .subscribe(loginUserButtonTouchObserver)
             .disposed(by: disposeBag)
     }
     
@@ -169,6 +189,10 @@ class RegisterUserViewModelTests: XCTestCase {
         viewModel.registerUserButtonTouched()
     }
     
+    private func whenLoginUserButtonIsTouched() {
+        viewModel.loginUserButtonTouched()
+    }
+    
     // MARK: Then
     
     private func thenRegisterUserButtonIsDisabled() {
@@ -197,5 +221,9 @@ class RegisterUserViewModelTests: XCTestCase {
         
         let observedElements = registerErrorDescriptionObserver.events.map { $0.value.element }
         XCTAssertEqual(observedElements, ["", description])
+    }
+    
+    private func thenLoginUserButtonTouchIsEmmited() {
+        XCTAssertEqual(loginUserButtonTouchObserver.events.count, 1)
     }
 }

@@ -22,7 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waa-Tv-5DP">
-                                    <rect key="frame" x="35" y="312.5" width="344" height="271"/>
+                                    <rect key="frame" x="35" y="282.5" width="344" height="331"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-3z-wAs">
                                             <rect key="frame" x="0.0" y="0.0" width="344" height="201"/>
@@ -212,11 +212,34 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVu-Xq-Be5" customClass="IBDesignableUIButton" customModule="UIKitExtensions">
+                                            <rect key="frame" x="47" y="281" width="250" height="50"/>
+                                            <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal" title="I already have an account">
+                                                <color key="titleColor" name="At Level Font Title"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                    <color key="value" name="At Level Font Title"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Pg5-MQ-RB8" secondAttribute="bottom" id="49M-da-HY3"/>
+                                        <constraint firstItem="TVu-Xq-Be5" firstAttribute="height" secondItem="Pg5-MQ-RB8" secondAttribute="height" id="1IZ-WV-Mo6"/>
+                                        <constraint firstItem="TVu-Xq-Be5" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="1TG-x3-8aq"/>
+                                        <constraint firstItem="TVu-Xq-Be5" firstAttribute="top" secondItem="Pg5-MQ-RB8" secondAttribute="bottom" constant="10" id="7rF-On-Dj4"/>
                                         <constraint firstAttribute="width" constant="344" id="8R8-5H-8mi"/>
+                                        <constraint firstAttribute="bottom" secondItem="TVu-Xq-Be5" secondAttribute="bottom" id="Ebf-Cb-g7f"/>
+                                        <constraint firstItem="TVu-Xq-Be5" firstAttribute="width" secondItem="Pg5-MQ-RB8" secondAttribute="width" id="Fjz-Av-rfE"/>
                                         <constraint firstAttribute="trailing" secondItem="m1x-3z-wAs" secondAttribute="trailing" id="N61-2c-zsH"/>
                                         <constraint firstItem="Pg5-MQ-RB8" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="NJp-gi-WNJ"/>
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="leading" secondItem="waa-Tv-5DP" secondAttribute="leading" id="Rza-iv-SXC"/>
@@ -266,6 +289,7 @@
                 <outlet property="familyNameTextField" destination="W8O-Zv-98Z" id="Bse-ZI-6mR"/>
                 <outlet property="givenNameTextField" destination="xLY-T7-cGp" id="bL3-Vk-glA"/>
                 <outlet property="keyboardAdjustmentViewHeightConstraint" destination="Cf3-VB-avl" id="Hy0-wS-qjm"/>
+                <outlet property="loginUserButton" destination="TVu-Xq-Be5" id="qWP-mc-wWR"/>
                 <outlet property="passwordTextField" destination="4VJ-g1-Dkj" id="Q64-0I-TKI"/>
                 <outlet property="registerUserButton" destination="Pg5-MQ-RB8" id="REu-E8-vod"/>
                 <outlet property="usernameTextField" destination="fW9-Wj-z5a" id="ngV-qh-4Mk"/>
@@ -282,6 +306,9 @@
         </namedColor>
         <namedColor name="At Level Background">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="At Level Font Title">
+            <color white="0.79500001668930054" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="Error">
             <color red="0.94900000095367432" green="0.51899999380111694" blue="0.48500001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

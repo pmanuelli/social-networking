@@ -5,21 +5,35 @@ import RxSwift
 class RegisterUserCoordinator {
 
     private let navigationController: UINavigationController
+    private let userRepository: UserRepository
     
-    init(navigationController: UINavigationController) {
+    private let disposeBag = DisposeBag()
+    
+    init(navigationController: UINavigationController, userRepository: UserRepository) {
         self.navigationController = navigationController
+        self.userRepository = userRepository
     }
     
     func start() {
         
-        navigationController.pushViewController(createViewController(), animated: true)
-    }
-    
-    private func createViewController() -> UIViewController {
-        
-        let userService = UserServiceDefault(userRepository: InMemoryUserRepository())
+        let userService = UserServiceDefault(userRepository: userRepository)
         let registerUser = RegisterUserDefault(userService: userService)
         let viewModel = RegisterUserViewModel(registerUser: registerUser)
-        return RegisterUserViewController(viewModel: viewModel)
+        let viewController = RegisterUserViewController(viewModel: viewModel)
+        
+        subscribe(to: viewModel)
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
+        
+    private func subscribe(to viewModel: RegisterUserViewModel) {
+        
+        viewModel.output.loginUserButtonTouch
+            .subscribe(onNext: { [weak self] _ in self?.popViewController() })
+            .disposed(by: disposeBag)
+    }
+    
+    private func popViewController() {
+        navigationController.popViewController(animated: true)
     }
 }
