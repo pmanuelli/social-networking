@@ -23,6 +23,7 @@ class LoginUserViewModel {
     
     private let loginErrorDescriptionSubject = PublishSubject<String>()
     private let registerUserButtonTouchSubject = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
     
     private let loginUser: LoginUser
     
@@ -30,15 +31,8 @@ class LoginUserViewModel {
         self.loginUser = loginUser
     }
     
-    func loginUserButtonTouched() {
-        
-        let credentials = UserCredentials(username: input.username.value,
-                                          password: input.password.value)
-        
-        loginUser.execute(credentials: credentials)
-    }
-    
     private func createOutput() -> Output {
+        
         return Output(loginUserButtonEnabled: createLoginUserButtonEnabledDriver(),
                       loginErrorDescription: loginErrorDescriptionSubject.asDriver(onErrorJustReturn: ""),
                       registerUserButtonTouch: registerUserButtonTouchSubject)
@@ -52,6 +46,31 @@ class LoginUserViewModel {
             .combineLatest(fields) { return $0.allSatisfy { !$0.isEmpty } }
             .asDriver(onErrorJustReturn: false)
             .distinctUntilChanged()
+    }
+    
+    func loginUserButtonTouched() {
+        
+        let credentials = UserCredentials(username: input.username.value,
+                                          password: input.password.value)
+        
+        clearErrorDescription()
+        
+        loginUser.execute(credentials: credentials)
+            .subscribe(onSuccess: { [weak self] in self?.loginUserSucceeded($0) },
+                       onError: { [weak self] in self?.loginUserFailed($0) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func loginUserSucceeded(_ user: User) {
+        
+    }
+    
+    private func loginUserFailed(_ error: Error) {
+        loginErrorDescriptionSubject.onNext(error.localizedDescription)
+    }
+    
+    private func clearErrorDescription() {
+        loginErrorDescriptionSubject.onNext("")
     }
     
     func registerUserButtonTouched() {

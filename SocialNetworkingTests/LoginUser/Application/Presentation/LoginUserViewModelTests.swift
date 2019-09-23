@@ -69,6 +69,19 @@ class LoginUserViewModelTests: XCTestCase {
         thenLoginUserActionIsExecutedWith(credentials)
     }
     
+    func testShowsErrorDescriptionWhenLoginAUser() {
+        
+        let error = NSError(domain: "", code: 0,
+                            localizedDescription: "Error Description")
+        
+        givenALoginUserAction(returning: error)
+        givenAViewModelWithCompletedFields()
+        
+        whenLoginUserButtonIsTouched()
+        
+        thenErrorDescriptionShownIs(error.localizedDescription)
+    }
+    
     // MARK: Given
     
     private func givenALoginUserAction(returning user: User = UserBuilder().build()) {
@@ -170,5 +183,11 @@ class LoginUserViewModelTests: XCTestCase {
     
     private func thenRegisterUserButtonTouchIsEmmited() {
         XCTAssertEqual(registerUserButtonTouchObserver.events.count, 1)
+    }
+        
+    private func thenErrorDescriptionShownIs(_ description: String) {
+        
+        let observedElements = loginErrorDescriptionObserver.events.map { $0.value.element }
+        XCTAssertEqual(observedElements, ["", description])
     }
 }
