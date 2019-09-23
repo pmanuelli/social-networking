@@ -2,14 +2,15 @@
 import Foundation
 import RxSwift
 
+//sourcery: AutoMockable
 protocol LoginUser {
     
-    func execute(data: RegistrationData) -> Single<User>
+    func execute(credentials: UserCredentials) -> Single<User>
 }
 
 class LoginUserDefault: LoginUser {
     
-    func execute(data: RegistrationData) -> Single<User> {
+    func execute(credentials: UserCredentials) -> Single<User> {
         abort()
     }
 }

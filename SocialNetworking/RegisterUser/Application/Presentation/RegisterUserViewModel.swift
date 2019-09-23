@@ -24,13 +24,13 @@ class RegisterUserViewModel {
     
     let input = Input()
     private(set) lazy var output = createOutput()
-    
-    private let registerUser: RegisterUser
-    
+        
     private let registerErrorDescriptionSubject = PublishSubject<String>()
     private let loginUserButtonTouchSubject = PublishSubject<Void>()
     private let didRegisterUserSubject = PublishSubject<User>()
     private let disposeBag = DisposeBag()
+    
+    private let registerUser: RegisterUser
     
     init(registerUser: RegisterUser) {
         self.registerUser = registerUser

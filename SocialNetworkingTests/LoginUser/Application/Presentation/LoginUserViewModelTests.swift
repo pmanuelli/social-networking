@@ -4,14 +4,19 @@
 import XCTest
 import RxTest
 import RxSwift
+import SwiftyMocky
 
 class LoginUserViewModelTests: XCTestCase {
 
     // RxTest elements
     private let scheduler = TestScheduler(initialClock: 0)
     private var loginUserButtonEnabledObserver: TestableObserver<Bool>!
+    private var loginErrorDescriptionObserver: TestableObserver<String>!
     private var registerUserButtonTouchObserver: TestableObserver<Void>!
     private let disposeBag = DisposeBag()
+    
+    // Dependencies
+    private var loginUser = LoginUserMock()
     
     // Object under test
     private var viewModel: LoginUserViewModel!
@@ -51,13 +56,35 @@ class LoginUserViewModelTests: XCTestCase {
         thenRegisterUserButtonTouchIsEmmited()
     }
     
+    func testLoginAUser() {
+        
+        let credentials = UserCredentialsBuilder().build()
+        
+        givenALoginUserAction()
+        givenAViewModelWithFieldsSetTo(username: credentials.username,
+                                       password: credentials.password)
+        
+        whenLoginUserButtonIsTouched()
+        
+        thenLoginUserActionIsExecutedWith(credentials)
+    }
+    
     // MARK: Given
+    
+    private func givenALoginUserAction(returning user: User = UserBuilder().build()) {
+        Given(loginUser, .execute(credentials: .any, willReturn: .just(user)))
+    }
+    
+    private func givenALoginUserAction(returning error: Error) {
+        Given(loginUser, .execute(credentials: .any, willReturn: .error(error)))
+    }
     
     private func givenAViewModel() {
         
-        viewModel = LoginUserViewModel()
+        viewModel = LoginUserViewModel(loginUser: loginUser)
         
         subscribeToLoginButtonEnabled()
+        subscribeToLoginErrorDescription()
         subscribeToRegisterUserButtonTouch()
     }
     
@@ -70,6 +97,15 @@ class LoginUserViewModelTests: XCTestCase {
             .disposed(by: disposeBag)
     }
     
+    private func subscribeToLoginErrorDescription() {
+        
+        loginErrorDescriptionObserver = scheduler.createObserver(String.self)
+        
+        viewModel.output.loginErrorDescription
+            .drive(loginErrorDescriptionObserver)
+            .disposed(by: disposeBag)
+    }
+    
     private func subscribeToRegisterUserButtonTouch() {
         
         registerUserButtonTouchObserver = scheduler.createObserver(Void.self)
@@ -79,16 +115,16 @@ class LoginUserViewModelTests: XCTestCase {
             .disposed(by: disposeBag)
     }
     
-    private func givenFieldsSetTo(username: String, password: String) {
+    private func givenAViewModelWithFieldsSetTo(username: String, password: String) {
         
+        givenAViewModel()
         viewModel.input.username.accept(username)
         viewModel.input.password.accept(password)
     }
     
     private func givenAViewModelWithCompletedFields() {
         
-        givenAViewModel()
-        givenFieldsSetTo(username: "u", password: "p")
+        givenAViewModelWithFieldsSetTo(username: "u", password: "p")
     }
 
     // MARK: When
@@ -98,11 +134,16 @@ class LoginUserViewModelTests: XCTestCase {
     }
     
     private func whenFieldsAreSetTo(username: String, password: String) {
-        givenFieldsSetTo(username: username, password: password)
+        viewModel.input.username.accept(username)
+        viewModel.input.password.accept(password)
     }
     
     private func whenUsernameChangesTo(_ text: String) {
         viewModel.input.username.accept(text)
+    }
+    
+    private func whenLoginUserButtonIsTouched() {
+        viewModel.loginUserButtonTouched()
     }
     
     private func whenRegisterUserButtonIsTouched() {
@@ -121,6 +162,10 @@ class LoginUserViewModelTests: XCTestCase {
         
         let lastValue = loginUserButtonEnabledObserver.events.last?.value.element
         XCTAssertEqual(lastValue, false)
+    }
+    
+    private func thenLoginUserActionIsExecutedWith(_ credentials: UserCredentials) {
+        Verify(loginUser, .once, .execute(credentials: .value(credentials)))
     }
     
     private func thenRegisterUserButtonTouchIsEmmited() {

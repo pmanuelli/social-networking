@@ -14,21 +14,33 @@ class LoginUserViewModel {
     struct Output {
         
         let loginUserButtonEnabled: Driver<Bool>
+        let loginErrorDescription: Driver<String>
         let registerUserButtonTouch: Observable<Void>
     }
     
     let input = Input()
     lazy var output = createOutput()
     
+    private let loginErrorDescriptionSubject = PublishSubject<String>()
     private let registerUserButtonTouchSubject = PublishSubject<Void>()
     
+    private let loginUser: LoginUser
     
-    func registerUserButtonTouched() {
-        registerUserButtonTouchSubject.onNext(Void())
+    init(loginUser: LoginUser) {
+        self.loginUser = loginUser
+    }
+    
+    func loginUserButtonTouched() {
+        
+        let credentials = UserCredentials(username: input.username.value,
+                                          password: input.password.value)
+        
+        loginUser.execute(credentials: credentials)
     }
     
     private func createOutput() -> Output {
         return Output(loginUserButtonEnabled: createLoginUserButtonEnabledDriver(),
+                      loginErrorDescription: loginErrorDescriptionSubject.asDriver(onErrorJustReturn: ""),
                       registerUserButtonTouch: registerUserButtonTouchSubject)
     }
     
@@ -40,5 +52,9 @@ class LoginUserViewModel {
             .combineLatest(fields) { return $0.allSatisfy { !$0.isEmpty } }
             .asDriver(onErrorJustReturn: false)
             .distinctUntilChanged()
+    }
+    
+    func registerUserButtonTouched() {
+        registerUserButtonTouchSubject.onNext(Void())
     }
 }
