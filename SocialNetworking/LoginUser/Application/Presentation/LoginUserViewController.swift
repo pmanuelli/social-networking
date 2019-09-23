@@ -33,6 +33,7 @@ class LoginUserViewController: UIViewController {
         bindTextFields()
         bindLoginUserButton()
         bindRegisterUserButton()
+        bindLoginErrorDescription()
     }
     
     private func bindTextFields() {
@@ -71,5 +72,22 @@ class LoginUserViewController: UIViewController {
     @objc
     private func registerUserButtonTouched() {
         viewModel.registerUserButtonTouched()
+    }
+    
+    private func bindLoginErrorDescription() {
+        
+        viewModel.output.loginErrorDescription
+            .drive(onNext: { [weak self] in self?.loginErrorDescriptionChanged($0) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func loginErrorDescriptionChanged(_ description: String) {
+        
+        if description.isEmpty {
+            mainView.hideErrorLabel()
+        }
+        else {
+            mainView.showErrorLabel(description)
+        }
     }
 }

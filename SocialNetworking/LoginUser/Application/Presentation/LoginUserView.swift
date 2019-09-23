@@ -87,3 +87,23 @@ extension LoginUserView: UITextFieldDelegate {
         return textFields.nextElement(after: textField)
     }
 }
+
+extension LoginUserView {
+    
+    func showErrorLabel(_ text: String) {
+        guard errorLabel.isHidden else { return }
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.errorLabel.text = text
+            self.errorLabel.alpha = 1
+            self.errorLabel.isHidden = false })
+    }
+    
+    func hideErrorLabel() {
+        guard !errorLabel.isHidden else { return }
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.errorLabel.alpha = 0
+            self.errorLabel.isHidden = true })
+    }
+}
