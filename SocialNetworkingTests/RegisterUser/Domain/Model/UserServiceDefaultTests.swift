@@ -12,7 +12,8 @@ class UserServiceDefaultTests: XCTestCase {
     // RxTest
     private let testScheduler = TestScheduler(initialClock: 0)
     private var addUserObservable: TestableObservable<Never>!
-    private var registerUserObserver: TestableObserver<User>!
+    private var userObserver: TestableObserver<User>!
+    private var loginUserObserver: TestableObserver<User>!
     private let disposeBag = DisposeBag()
     
     
@@ -24,6 +25,7 @@ class UserServiceDefaultTests: XCTestCase {
     
     private lazy var data = RegistrationData(username: username, password: password, givenName: givenName, familyName: familyName)
     private lazy var user = User(id: id, username: username, givenName: givenName, familyName: familyName)
+    private lazy var userCredentials = UserCredentials(username: username, password: password)
     
     // Dependencies
     private let userRepository = UserRepositoryMock()
@@ -58,6 +60,16 @@ class UserServiceDefaultTests: XCTestCase {
         thenUsernameAlreadyInUseErrorIsReturned()
     }
     
+    func testLoginAUser() {
+        
+        givenAUserForCredentials(user)
+        
+        whenUserIsLoggedInWithCredentials(userCredentials)
+        
+        thenUserIsRequestedForCredentials(userCredentials)
+        thenUserIsReturned(user)
+    }
+    
     // MARK: Given
      
     private func givenAnIdGenerator(returning id: UUID) {
@@ -80,18 +92,32 @@ class UserServiceDefaultTests: XCTestCase {
         Given(userRepository, .add(.any, willReturn: addUserObservable.asCompletable()))
     }
     
+    private func givenAUserForCredentials(_ user: User) {
+        Given(userRepository, .user(for: .any, willReturn: .just(user)))
+    }
+    
     // MARK: When
     
     private func whenUserIsRegisteredWith(_ data: RegistrationData) {
         
-        registerUserObserver = testScheduler.createObserver(User.self)
+        userObserver = testScheduler.createObserver(User.self)
         
         service.registerUser(data: data)
             .asObservable()
-            .subscribe(registerUserObserver)
+            .subscribe(userObserver)
             .disposed(by: disposeBag)
         
         testScheduler.start()
+    }
+    
+    private func whenUserIsLoggedInWithCredentials(_ credentials: UserCredentials) {
+        
+        userObserver = testScheduler.createObserver(User.self)
+        
+        service.loginUser(credentials: credentials)
+            .asObservable()
+            .subscribe(userObserver)
+            .disposed(by: disposeBag)
     }
     
     // MARK: Then
@@ -102,7 +128,7 @@ class UserServiceDefaultTests: XCTestCase {
     }
     
     private func thenUserIsReturned(_ user: User) {
-        assertEventsContainUser(user, events: registerUserObserver.events)
+        assertEventsContainUser(user, events: userObserver.events)
     }
     
     private func thenUserIsNotPersisted() {
@@ -110,7 +136,7 @@ class UserServiceDefaultTests: XCTestCase {
     }
     
     private func thenUsernameAlreadyInUseErrorIsReturned() {
-        assertEventsContainUsernameAlreadyInUseError(events: registerUserObserver.events)
+        assertEventsContainUsernameAlreadyInUseError(events: userObserver.events)
     }
     
     private func assertEventsContainUser(_ user: User, events: [Recorded<Event<User>>]) {
@@ -122,5 +148,9 @@ class UserServiceDefaultTests: XCTestCase {
     private func assertEventsContainUsernameAlreadyInUseError(events: [Recorded<Event<User>>]) {
         XCTAssertEqual(events.count, 1)
         XCTAssertTrue(events[0].value.error is UsernameAlreadyInUseError)
+    }
+    
+    private func thenUserIsRequestedForCredentials(_ credentials: UserCredentials) {
+        Verify(userRepository, .once, .user(for: .value(credentials)))
     }
 }

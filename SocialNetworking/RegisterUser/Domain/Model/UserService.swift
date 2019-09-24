@@ -51,6 +51,6 @@ class UserServiceDefault: UserService {
     }
     
     func loginUser(credentials: UserCredentials) -> Single<User> {
-        abort()
+        return userRepository.user(for: credentials).map { $0! }
     }
 }

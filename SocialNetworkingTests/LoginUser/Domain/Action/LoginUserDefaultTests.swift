@@ -12,7 +12,7 @@ class LoginUserDefaultTests: XCTestCase {
     // Object under test
     private var action: LoginUserDefault!
     
-    func testLogsInAUser() {
+    func testLoginAUser() {
              
          givenALoginUserAction()
                  
