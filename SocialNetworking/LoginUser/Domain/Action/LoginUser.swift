@@ -10,7 +10,13 @@ protocol LoginUser {
 
 class LoginUserDefault: LoginUser {
     
+    private let userService: UserService
+    
+    init(userService: UserService) {
+        self.userService = userService
+    }
+    
     func execute(credentials: UserCredentials) -> Single<User> {
-        abort()
+        userService.loginUser(credentials: credentials)
     }
 }

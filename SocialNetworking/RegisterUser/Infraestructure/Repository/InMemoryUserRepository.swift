@@ -3,7 +3,7 @@ import Foundation
 import RxSwift
 
 class InMemoryUserRepository: UserRepository {
-    
+
     private var users: [User] = []
     
     func add(_ user: User) -> Completable {
@@ -28,5 +28,9 @@ class InMemoryUserRepository: UserRepository {
             
             return Disposables.create()
         }
+    }
+    
+    func user(for credentials: UserCredentials) -> Single<User?> {
+        abort()
     }
 }

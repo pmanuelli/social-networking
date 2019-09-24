@@ -5,10 +5,11 @@ import RxSwift
 protocol UserService {
     
     func registerUser(data: RegistrationData) -> Single<User>
+    func loginUser(credentials: UserCredentials) -> Single<User>
 }
 
 class UserServiceDefault: UserService {
-    
+
     private let userRepository: UserRepository
     private let idGenerator: IdGenerator
     
@@ -47,5 +48,9 @@ class UserServiceDefault: UserService {
                     username: data.username,
                     givenName: data.givenName,
                     familyName: data.familyName)
+    }
+    
+    func loginUser(credentials: UserCredentials) -> Single<User> {
+        abort()
     }
 }

@@ -546,10 +546,25 @@ open class UserRepositoryMock: UserRepository, Mock {
 		return __value
     }
 
+    open func user(for credentials: UserCredentials) -> Single<User?> {
+        addInvocation(.m_user__for_credentials(Parameter<UserCredentials>.value(`credentials`)))
+		let perform = methodPerformValue(.m_user__for_credentials(Parameter<UserCredentials>.value(`credentials`))) as? (UserCredentials) -> Void
+		perform?(`credentials`)
+		var __value: Single<User?>
+		do {
+		    __value = try methodReturnValue(.m_user__for_credentials(Parameter<UserCredentials>.value(`credentials`))).casted()
+		} catch {
+			onFatalFailure("Stub return value not specified for user(for credentials: UserCredentials). Use given")
+			Failure("Stub return value not specified for user(for credentials: UserCredentials). Use given")
+		}
+		return __value
+    }
+
 
     fileprivate enum MethodType {
         case m_add__user(Parameter<User>)
         case m_isUsernameTaken__username(Parameter<String>)
+        case m_user__for_credentials(Parameter<UserCredentials>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
@@ -559,6 +574,9 @@ open class UserRepositoryMock: UserRepository, Mock {
             case (.m_isUsernameTaken__username(let lhsUsername), .m_isUsernameTaken__username(let rhsUsername)):
                 guard Parameter.compare(lhs: lhsUsername, rhs: rhsUsername, with: matcher) else { return false } 
                 return true 
+            case (.m_user__for_credentials(let lhsCredentials), .m_user__for_credentials(let rhsCredentials)):
+                guard Parameter.compare(lhs: lhsCredentials, rhs: rhsCredentials, with: matcher) else { return false } 
+                return true 
             default: return false
             }
         }
@@ -567,6 +585,7 @@ open class UserRepositoryMock: UserRepository, Mock {
             switch self {
             case let .m_add__user(p0): return p0.intValue
             case let .m_isUsernameTaken__username(p0): return p0.intValue
+            case let .m_user__for_credentials(p0): return p0.intValue
             }
         }
     }
@@ -586,6 +605,9 @@ open class UserRepositoryMock: UserRepository, Mock {
         public static func isUsernameTaken(_ username: Parameter<String>, willReturn: Single<Bool>...) -> MethodStub {
             return Given(method: .m_isUsernameTaken__username(`username`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
+        public static func user(for credentials: Parameter<UserCredentials>, willReturn: Single<User?>...) -> MethodStub {
+            return Given(method: .m_user__for_credentials(`credentials`), products: willReturn.map({ StubProduct.return($0 as Any) }))
+        }
         public static func add(_ user: Parameter<User>, willProduce: (Stubber<Completable>) -> Void) -> MethodStub {
             let willReturn: [Completable] = []
 			let given: Given = { return Given(method: .m_add__user(`user`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
@@ -600,6 +622,13 @@ open class UserRepositoryMock: UserRepository, Mock {
 			willProduce(stubber)
 			return given
         }
+        public static func user(for credentials: Parameter<UserCredentials>, willProduce: (Stubber<Single<User?>>) -> Void) -> MethodStub {
+            let willReturn: [Single<User?>] = []
+			let given: Given = { return Given(method: .m_user__for_credentials(`credentials`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
+			let stubber = given.stub(for: (Single<User?>).self)
+			willProduce(stubber)
+			return given
+        }
     }
 
     public struct Verify {
@@ -607,6 +636,7 @@ open class UserRepositoryMock: UserRepository, Mock {
 
         public static func add(_ user: Parameter<User>) -> Verify { return Verify(method: .m_add__user(`user`))}
         public static func isUsernameTaken(_ username: Parameter<String>) -> Verify { return Verify(method: .m_isUsernameTaken__username(`username`))}
+        public static func user(for credentials: Parameter<UserCredentials>) -> Verify { return Verify(method: .m_user__for_credentials(`credentials`))}
     }
 
     public struct Perform {
@@ -618,6 +648,9 @@ open class UserRepositoryMock: UserRepository, Mock {
         }
         public static func isUsernameTaken(_ username: Parameter<String>, perform: @escaping (String) -> Void) -> Perform {
             return Perform(method: .m_isUsernameTaken__username(`username`), performs: perform)
+        }
+        public static func user(for credentials: Parameter<UserCredentials>, perform: @escaping (UserCredentials) -> Void) -> Perform {
+            return Perform(method: .m_user__for_credentials(`credentials`), performs: perform)
         }
     }
 
@@ -724,21 +757,41 @@ open class UserServiceMock: UserService, Mock {
 		return __value
     }
 
+    open func loginUser(credentials: UserCredentials) -> Single<User> {
+        addInvocation(.m_loginUser__credentials_credentials(Parameter<UserCredentials>.value(`credentials`)))
+		let perform = methodPerformValue(.m_loginUser__credentials_credentials(Parameter<UserCredentials>.value(`credentials`))) as? (UserCredentials) -> Void
+		perform?(`credentials`)
+		var __value: Single<User>
+		do {
+		    __value = try methodReturnValue(.m_loginUser__credentials_credentials(Parameter<UserCredentials>.value(`credentials`))).casted()
+		} catch {
+			onFatalFailure("Stub return value not specified for loginUser(credentials: UserCredentials). Use given")
+			Failure("Stub return value not specified for loginUser(credentials: UserCredentials). Use given")
+		}
+		return __value
+    }
+
 
     fileprivate enum MethodType {
         case m_registerUser__data_data(Parameter<RegistrationData>)
+        case m_loginUser__credentials_credentials(Parameter<UserCredentials>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
             case (.m_registerUser__data_data(let lhsData), .m_registerUser__data_data(let rhsData)):
                 guard Parameter.compare(lhs: lhsData, rhs: rhsData, with: matcher) else { return false } 
                 return true 
+            case (.m_loginUser__credentials_credentials(let lhsCredentials), .m_loginUser__credentials_credentials(let rhsCredentials)):
+                guard Parameter.compare(lhs: lhsCredentials, rhs: rhsCredentials, with: matcher) else { return false } 
+                return true 
+            default: return false
             }
         }
 
         func intValue() -> Int {
             switch self {
             case let .m_registerUser__data_data(p0): return p0.intValue
+            case let .m_loginUser__credentials_credentials(p0): return p0.intValue
             }
         }
     }
@@ -755,9 +808,19 @@ open class UserServiceMock: UserService, Mock {
         public static func registerUser(data: Parameter<RegistrationData>, willReturn: Single<User>...) -> MethodStub {
             return Given(method: .m_registerUser__data_data(`data`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
+        public static func loginUser(credentials: Parameter<UserCredentials>, willReturn: Single<User>...) -> MethodStub {
+            return Given(method: .m_loginUser__credentials_credentials(`credentials`), products: willReturn.map({ StubProduct.return($0 as Any) }))
+        }
         public static func registerUser(data: Parameter<RegistrationData>, willProduce: (Stubber<Single<User>>) -> Void) -> MethodStub {
             let willReturn: [Single<User>] = []
 			let given: Given = { return Given(method: .m_registerUser__data_data(`data`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
+			let stubber = given.stub(for: (Single<User>).self)
+			willProduce(stubber)
+			return given
+        }
+        public static func loginUser(credentials: Parameter<UserCredentials>, willProduce: (Stubber<Single<User>>) -> Void) -> MethodStub {
+            let willReturn: [Single<User>] = []
+			let given: Given = { return Given(method: .m_loginUser__credentials_credentials(`credentials`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
 			let stubber = given.stub(for: (Single<User>).self)
 			willProduce(stubber)
 			return given
@@ -768,6 +831,7 @@ open class UserServiceMock: UserService, Mock {
         fileprivate var method: MethodType
 
         public static func registerUser(data: Parameter<RegistrationData>) -> Verify { return Verify(method: .m_registerUser__data_data(`data`))}
+        public static func loginUser(credentials: Parameter<UserCredentials>) -> Verify { return Verify(method: .m_loginUser__credentials_credentials(`credentials`))}
     }
 
     public struct Perform {
@@ -776,6 +840,9 @@ open class UserServiceMock: UserService, Mock {
 
         public static func registerUser(data: Parameter<RegistrationData>, perform: @escaping (RegistrationData) -> Void) -> Perform {
             return Perform(method: .m_registerUser__data_data(`data`), performs: perform)
+        }
+        public static func loginUser(credentials: Parameter<UserCredentials>, perform: @escaping (UserCredentials) -> Void) -> Perform {
+            return Perform(method: .m_loginUser__credentials_credentials(`credentials`), performs: perform)
         }
     }
 
