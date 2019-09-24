@@ -31,6 +31,14 @@ class InMemoryUserRepository: UserRepository {
     }
     
     func user(for credentials: UserCredentials) -> Single<User?> {
-        abort()
+        
+        Single.create { subscribeBlock in
+            
+            let user = self.users.first { credentials.matches(for: $0) }
+            
+            subscribeBlock(.success(user))
+            
+            return Disposables.create()
+        }
     }
 }

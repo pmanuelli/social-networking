@@ -46,6 +46,7 @@ class UserServiceDefault: UserService {
         
         return User(id: idGenerator.next(),
                     username: data.username,
+                    password: data.password,
                     givenName: data.givenName,
                     familyName: data.familyName)
     }

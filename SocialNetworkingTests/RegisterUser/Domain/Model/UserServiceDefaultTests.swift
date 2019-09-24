@@ -24,7 +24,7 @@ class UserServiceDefaultTests: XCTestCase {
     private let familyName = "familyName"
     
     private lazy var data = RegistrationData(username: username, password: password, givenName: givenName, familyName: familyName)
-    private lazy var user = User(id: id, username: username, givenName: givenName, familyName: familyName)
+    private lazy var user = User(id: id, username: username, password: password, givenName: givenName, familyName: familyName)
     private lazy var userCredentials = UserCredentials(username: username, password: password)
     
     // Dependencies

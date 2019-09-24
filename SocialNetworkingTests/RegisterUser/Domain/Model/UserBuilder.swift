@@ -13,6 +13,9 @@ class UserBuilder {
     }
             
     func build() -> User {
-        return User(id: UUID(), username: username, givenName: "Maynard James", familyName: "Keenan")
+        
+        return User(id: UUID(),
+                    username: username, password: "password",
+                    givenName: "Maynard James", familyName: "Keenan")
     }
 }
