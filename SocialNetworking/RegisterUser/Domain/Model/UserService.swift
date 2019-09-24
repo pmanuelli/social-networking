@@ -51,6 +51,12 @@ class UserServiceDefault: UserService {
     }
     
     func loginUser(credentials: UserCredentials) -> Single<User> {
-        return userRepository.user(for: credentials).map { $0! }
+        
+        return userRepository.user(for: credentials).map { userOrNil in
+            
+            guard let user = userOrNil else { throw InvalidLoginCredentialsError(username: credentials.username )}
+            
+            return user
+        }
     }
 }

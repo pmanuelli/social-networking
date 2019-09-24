@@ -50,7 +50,7 @@ class UserServiceDefaultTests: XCTestCase {
         thenUserIsReturned(user)
     }
     
-    func testReturnAnErrorWhenUsernameIsInUse() {
+    func testReturnsAnErrorWhenUsernameIsInUse() {
         
         givenUsernameIsAlreadyInUse(true)
 
@@ -68,6 +68,15 @@ class UserServiceDefaultTests: XCTestCase {
         
         thenUserIsRequestedForCredentials(userCredentials)
         thenUserIsReturned(user)
+    }
+    
+    func testReturnsAnErrorWhenCredentialsAreInvalid() {
+        
+        givenAUserForCredentials(nil)
+        
+        whenUserIsLoggedInWithCredentials(userCredentials)
+        
+        thenInvalidLoginCredentialsErrorIsReturned()
     }
     
     // MARK: Given
@@ -92,7 +101,7 @@ class UserServiceDefaultTests: XCTestCase {
         Given(userRepository, .add(.any, willReturn: addUserObservable.asCompletable()))
     }
     
-    private func givenAUserForCredentials(_ user: User) {
+    private func givenAUserForCredentials(_ user: User?) {
         Given(userRepository, .user(for: .any, willReturn: .just(user)))
     }
     
@@ -152,5 +161,14 @@ class UserServiceDefaultTests: XCTestCase {
     
     private func thenUserIsRequestedForCredentials(_ credentials: UserCredentials) {
         Verify(userRepository, .once, .user(for: .value(credentials)))
+    }
+    
+    private func thenInvalidLoginCredentialsErrorIsReturned() {
+        assertEventsContainInvalidLoginCredentialsError(events: userObserver.events)
+    }
+    
+    private func assertEventsContainInvalidLoginCredentialsError(events: [Recorded<Event<User>>]) {
+        XCTAssertEqual(events.count, 1)
+        XCTAssertTrue(events[0].value.error is InvalidLoginCredentialsError)
     }
 }
