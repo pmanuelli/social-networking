@@ -13,6 +13,7 @@ class LoginUserViewModelTests: XCTestCase {
     private var loginUserButtonEnabledObserver: TestableObserver<Bool>!
     private var loginErrorDescriptionObserver: TestableObserver<String>!
     private var registerUserButtonTouchObserver: TestableObserver<Void>!
+    private var didLoginUserObserver: TestableObserver<User>!
     private let disposeBag = DisposeBag()
     
     // Dependencies
@@ -69,6 +70,18 @@ class LoginUserViewModelTests: XCTestCase {
         thenLoginUserActionIsExecutedWith(credentials)
     }
     
+    func testEmitsLogedInUser() {
+        
+        let user = UserBuilder().build()
+        
+        givenALoginUserAction(returning: user)
+        givenAViewModelWithCompletedFields()
+        
+        whenLoginUserButtonIsTouched()
+        
+        thenUserIsEmmited(user)
+    }
+    
     func testShowsErrorDescriptionWhenLoginAUser() {
         
         let error = NSError(domain: "", code: 0,
@@ -98,6 +111,7 @@ class LoginUserViewModelTests: XCTestCase {
         
         subscribeToLoginButtonEnabled()
         subscribeToLoginErrorDescription()
+        subscribeToDidLoginUser()
         subscribeToRegisterUserButtonTouch()
     }
     
@@ -116,6 +130,15 @@ class LoginUserViewModelTests: XCTestCase {
         
         viewModel.output.loginErrorDescription
             .drive(loginErrorDescriptionObserver)
+            .disposed(by: disposeBag)
+    }
+    
+    private func subscribeToDidLoginUser() {
+        
+        didLoginUserObserver = scheduler.createObserver(User.self)
+        
+        viewModel.output.didLoginUser
+            .subscribe(didLoginUserObserver)
             .disposed(by: disposeBag)
     }
     
@@ -179,6 +202,12 @@ class LoginUserViewModelTests: XCTestCase {
     
     private func thenLoginUserActionIsExecutedWith(_ credentials: UserCredentials) {
         Verify(loginUser, .once, .execute(credentials: .value(credentials)))
+    }
+    
+    private func thenUserIsEmmited(_ user: User) {
+        
+        let observedElements = didLoginUserObserver.events.map { $0.value.element }
+        XCTAssertEqual(observedElements, [user])
     }
     
     private func thenRegisterUserButtonTouchIsEmmited() {

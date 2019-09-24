@@ -16,6 +16,7 @@ class LoginUserViewModel {
         let loginUserButtonEnabled: Driver<Bool>
         let loginErrorDescription: Driver<String>
         let registerUserButtonTouch: Observable<Void>
+        var didLoginUser: Observable<User>
     }
     
     let input = Input()
@@ -23,6 +24,8 @@ class LoginUserViewModel {
     
     private let loginErrorDescriptionSubject = PublishSubject<String>()
     private let registerUserButtonTouchSubject = PublishSubject<Void>()
+    private let didLoginUserSubject = PublishSubject<User>()
+
     private let disposeBag = DisposeBag()
     
     private let loginUser: LoginUser
@@ -35,7 +38,8 @@ class LoginUserViewModel {
         
         return Output(loginUserButtonEnabled: createLoginUserButtonEnabledDriver(),
                       loginErrorDescription: loginErrorDescriptionSubject.asDriver(onErrorJustReturn: ""),
-                      registerUserButtonTouch: registerUserButtonTouchSubject)
+                      registerUserButtonTouch: registerUserButtonTouchSubject,
+                      didLoginUser: didLoginUserSubject)
     }
     
     private func createLoginUserButtonEnabledDriver() -> Driver<Bool> {
@@ -62,7 +66,7 @@ class LoginUserViewModel {
     }
     
     private func loginUserSucceeded(_ user: User) {
-        
+        didLoginUserSubject.onNext(user)
     }
     
     private func loginUserFailed(_ error: Error) {
