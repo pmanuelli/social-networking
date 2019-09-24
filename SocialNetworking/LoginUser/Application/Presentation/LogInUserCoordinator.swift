@@ -19,7 +19,9 @@ class LoginUserCoordinator {
     
     func start() {
         
-        let viewModel = LoginUserViewModel(loginUser: DummyLoginUser())
+        let userService = UserServiceDefault(userRepository: userRepository)
+        let loginUser = LoginUserDefault(userService: userService)
+        let viewModel = LoginUserViewModel(loginUser: loginUser)
         let viewController = LoginUserViewController(viewModel: viewModel)
         
         subscribe(to: viewModel)
@@ -37,14 +39,4 @@ class LoginUserCoordinator {
     private func startRegisterUserCoordinator() {
         registerUserCoordinator.start()
     }
-}
-
-class DummyLoginUser: LoginUser {
-    
-    
-    func execute(credentials: UserCredentials) -> Single<User> {
-        return .error(NSError(domain: "pija", code: 1, localizedDescription: "Ohoohhh"))
-    }
-    
-    
 }
