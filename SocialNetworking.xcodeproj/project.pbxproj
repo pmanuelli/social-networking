@@ -380,12 +380,12 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		6E88F400233EDFEC00866CCA /* UserWall */ = {
+		6E88F400233EDFEC00866CCA /* UserTimeline */ = {
 			isa = PBXGroup;
 			children = (
 				6E88F401233EE00400866CCA /* Domain */,
 			);
-			path = UserWall;
+			path = UserTimeline;
 			sourceTree = "<group>";
 		};
 		6E88F401233EE00400866CCA /* Domain */ = {
@@ -425,12 +425,12 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		6E88F40B233EE1DE00866CCA /* UserWall */ = {
+		6E88F40B233EE1DE00866CCA /* UserTimeline */ = {
 			isa = PBXGroup;
 			children = (
 				6E88F40C233EE1EB00866CCA /* Domain */,
 			);
-			path = UserWall;
+			path = UserTimeline;
 			sourceTree = "<group>";
 		};
 		6E88F40C233EE1EB00866CCA /* Domain */ = {
@@ -573,7 +573,7 @@
 				6E88F414233EE85600866CCA /* TODO.md */,
 				6E0C14312333005E000D1524 /* Common */,
 				6E1CA93A23380FE00045E066 /* LoginUser */,
-				6E88F400233EDFEC00866CCA /* UserWall */,
+				6E88F400233EDFEC00866CCA /* UserTimeline */,
 			);
 			path = SocialNetworking;
 			sourceTree = "<group>";
@@ -585,7 +585,7 @@
 				6E7DF8D82336941500F829FA /* mocky.yml */,
 				6E7DF8DA2336949A00F829FA /* Mock.generated.swift */,
 				6E0C143A23332657000D1524 /* LoginUser */,
-				6E88F40B233EE1DE00866CCA /* UserWall */,
+				6E88F40B233EE1DE00866CCA /* UserTimeline */,
 			);
 			path = SocialNetworkingTests;
 			sourceTree = "<group>";
