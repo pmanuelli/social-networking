@@ -11,7 +11,7 @@
 		6E0C143E23332688000D1524 /* RegisterUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C143D23332688000D1524 /* RegisterUserViewModelTests.swift */; };
 		6E1CA935233801E70045E066 /* InMemoryUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA934233801E70045E066 /* InMemoryUserRepository.swift */; };
 		6E1CA9392338028D0045E066 /* InMemoryUserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA9382338028D0045E066 /* InMemoryUserRepositoryTests.swift */; };
-		6E1CA942233810210045E066 /* LogInUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA93D233810210045E066 /* LogInUserCoordinator.swift */; };
+		6E1CA942233810210045E066 /* LoginUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA93D233810210045E066 /* LoginUserCoordinator.swift */; };
 		6E1CA943233810210045E066 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA93E233810210045E066 /* LoginUserViewController.swift */; };
 		6E1CA944233810210045E066 /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA93F233810210045E066 /* LoginUserView.swift */; };
 		6E1CA945233810210045E066 /* LoginUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CA940233810210045E066 /* LoginUserViewModel.swift */; };
@@ -40,7 +40,6 @@
 		6EF9D6B02336F4510041803D /* UserServiceDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6AF2336F4510041803D /* UserServiceDefaultTests.swift */; };
 		6EF9D6B22336F49A0041803D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6B12336F49A0041803D /* UserRepository.swift */; };
 		6EF9D6B42336F9310041803D /* IdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6B32336F9310041803D /* IdGenerator.swift */; };
-		6EF9D6B62337267F0041803D /* RegisterUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6B52337267F0041803D /* RegisterUserCoordinator.swift */; };
 		84306CEEA0D79A51E3C4AD6C /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140625F3EA405F4A3EC244CB /* Pods_SocialNetworking.framework */; };
 		A142D0E05FB7B9B9BF719631 /* Pods_SocialNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */; };
 		E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656423307CF10015CF99 /* RegisterUserViewController.swift */; };
@@ -71,7 +70,7 @@
 		6E0C143D23332688000D1524 /* RegisterUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModelTests.swift; sourceTree = "<group>"; };
 		6E1CA934233801E70045E066 /* InMemoryUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryUserRepository.swift; sourceTree = "<group>"; };
 		6E1CA9382338028D0045E066 /* InMemoryUserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryUserRepositoryTests.swift; sourceTree = "<group>"; };
-		6E1CA93D233810210045E066 /* LogInUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUserCoordinator.swift; sourceTree = "<group>"; };
+		6E1CA93D233810210045E066 /* LoginUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserCoordinator.swift; sourceTree = "<group>"; };
 		6E1CA93E233810210045E066 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		6E1CA93F233810210045E066 /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
 		6E1CA940233810210045E066 /* LoginUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewModel.swift; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		6EF9D6AF2336F4510041803D /* UserServiceDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceDefaultTests.swift; sourceTree = "<group>"; };
 		6EF9D6B12336F49A0041803D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		6EF9D6B32336F9310041803D /* IdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdGenerator.swift; sourceTree = "<group>"; };
-		6EF9D6B52337267F0041803D /* RegisterUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserCoordinator.swift; sourceTree = "<group>"; };
 		9AFB8FA4A3C3E3E289F6B653 /* Pods-SocialNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkingTests/Pods-SocialNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C49EC2F9AB51B19F1BD5AAF /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD93863C26ABF88FC2B4823 /* Pods_SocialNetworkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,35 +153,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		6E0C143223330081000D1524 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				6E7DF8D723367A5400F829FA /* Action */,
-				6E7DF8D3233679A500F829FA /* Model */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		6E0C14332333008E000D1524 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				6E0C1434233300B9000D1524 /* Presentation */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		6E0C1434233300B9000D1524 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				6EF9D6B52337267F0041803D /* RegisterUserCoordinator.swift */,
-				E913656623307CF10015CF99 /* RegisterUserViewModel.swift */,
-				E913656423307CF10015CF99 /* RegisterUserViewController.swift */,
-				E913656523307CF10015CF99 /* RegisterUserView.swift */,
-				E913656723307CF10015CF99 /* RegisterUserView.xib */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		6E0C1435233300C7000D1524 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,14 +182,14 @@
 			path = UIKitExtension;
 			sourceTree = "<group>";
 		};
-		6E0C143A23332657000D1524 /* RegisterUser */ = {
+		6E0C143A23332657000D1524 /* LoginUser */ = {
 			isa = PBXGroup;
 			children = (
 				6EF9D6AB2336F1280041803D /* Domain */,
 				6E1CA936233802680045E066 /* Infraestructure */,
 				6E0C143B23332665000D1524 /* Application */,
 			);
-			path = RegisterUser;
+			path = LoginUser;
 			sourceTree = "<group>";
 		};
 		6E0C143B23332665000D1524 /* Application */ = {
@@ -234,17 +203,10 @@
 		6E0C143C2333266D000D1524 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				6E0C143D23332688000D1524 /* RegisterUserViewModelTests.swift */,
+				6E88F3FD233EDAFC00866CCA /* Login */,
+				6E88F3FC233EDAF400866CCA /* Register */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		6E1CA932233801BE0045E066 /* Infraestructure */ = {
-			isa = PBXGroup;
-			children = (
-				6E1CA933233801CC0045E066 /* Repository */,
-			);
-			path = Infraestructure;
 			sourceTree = "<group>";
 		};
 		6E1CA933233801CC0045E066 /* Repository */ = {
@@ -275,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				6E8213C52338319B005EC9DC /* Domain */,
+				6E88F3F9233EDA6100866CCA /* Infraestructute */,
 				6E1CA93B23380FF30045E066 /* Application */,
 			);
 			path = LoginUser;
@@ -291,42 +254,10 @@
 		6E1CA93C23380FFA0045E066 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				6E1CA93D233810210045E066 /* LogInUserCoordinator.swift */,
-				6E1CA940233810210045E066 /* LoginUserViewModel.swift */,
-				6E1CA93E233810210045E066 /* LoginUserViewController.swift */,
-				6E1CA93F233810210045E066 /* LoginUserView.swift */,
-				6E1CA941233810210045E066 /* LoginUserView.xib */,
+				6E88F3FA233EDA8000866CCA /* Login */,
+				6E88F3FB233EDA8500866CCA /* Register */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		6E7586622339AF3F00976AE0 /* Action */ = {
-			isa = PBXGroup;
-			children = (
-				6E7586632339AFE500976AE0 /* LoginUserDefaultTests.swift */,
-			);
-			path = Action;
-			sourceTree = "<group>";
-		};
-		6E7DF8D3233679A500F829FA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6E7DF8D5233679C300F829FA /* User.swift */,
-				6EF9D6A32336EBE20041803D /* UserService.swift */,
-				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
-				6EF9D6A52336EC710041803D /* RegistrationData.swift */,
-				6EF9D6B32336F9310041803D /* IdGenerator.swift */,
-				6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6E7DF8D723367A5400F829FA /* Action */ = {
-			isa = PBXGroup;
-			children = (
-				6E7DF8D12336796400F829FA /* RegisterUser.swift */,
-			);
-			path = Action;
 			sourceTree = "<group>";
 		};
 		6E8213C52338319B005EC9DC /* Domain */ = {
@@ -341,6 +272,7 @@
 		6E8213C6233831AD005EC9DC /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				6E7DF8D12336796400F829FA /* RegisterUser.swift */,
 				6E8213C723383247005EC9DC /* LoginUser.swift */,
 			);
 			path = Action;
@@ -349,52 +281,63 @@
 		6E8213C92338648E005EC9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E7DF8D5233679C300F829FA /* User.swift */,
+				6EF9D6A32336EBE20041803D /* UserService.swift */,
+				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
 				6E8213CA233864A6005EC9DC /* UserCredentials.swift */,
+				6EF9D6A52336EC710041803D /* RegistrationData.swift */,
 				6E7586652339B6E900976AE0 /* InvalidLoginCredentialsError.swift */,
+				6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */,
+				6EF9D6B32336F9310041803D /* IdGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6E8213CC23386541005EC9DC /* Domain */ = {
+		6E88F3F9233EDA6100866CCA /* Infraestructute */ = {
 			isa = PBXGroup;
 			children = (
-				6E7586622339AF3F00976AE0 /* Action */,
-				6E8213CD2338654F005EC9DC /* Model */,
+				6E1CA933233801CC0045E066 /* Repository */,
 			);
-			path = Domain;
+			path = Infraestructute;
 			sourceTree = "<group>";
 		};
-		6E8213CD2338654F005EC9DC /* Model */ = {
+		6E88F3FA233EDA8000866CCA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6E8213CE23386563005EC9DC /* UserCredentialsBuilder.swift */,
+				6E1CA93D233810210045E066 /* LoginUserCoordinator.swift */,
+				6E1CA940233810210045E066 /* LoginUserViewModel.swift */,
+				6E1CA93E233810210045E066 /* LoginUserViewController.swift */,
+				6E1CA93F233810210045E066 /* LoginUserView.swift */,
+				6E1CA941233810210045E066 /* LoginUserView.xib */,
 			);
-			path = Model;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		6E9FE28C233822AE008111C8 /* LoginUser */ = {
+		6E88F3FB233EDA8500866CCA /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				6E8213CC23386541005EC9DC /* Domain */,
-				6E9FE28D233822C0008111C8 /* Application */,
+				E913656623307CF10015CF99 /* RegisterUserViewModel.swift */,
+				E913656423307CF10015CF99 /* RegisterUserViewController.swift */,
+				E913656523307CF10015CF99 /* RegisterUserView.swift */,
+				E913656723307CF10015CF99 /* RegisterUserView.xib */,
 			);
-			path = LoginUser;
+			path = Register;
 			sourceTree = "<group>";
 		};
-		6E9FE28D233822C0008111C8 /* Application */ = {
+		6E88F3FC233EDAF400866CCA /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				6E9FE28E233822C5008111C8 /* Presentation */,
+				6E0C143D23332688000D1524 /* RegisterUserViewModelTests.swift */,
 			);
-			path = Application;
+			path = Register;
 			sourceTree = "<group>";
 		};
-		6E9FE28E233822C5008111C8 /* Presentation */ = {
+		6E88F3FD233EDAFC00866CCA /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */,
 			);
-			path = Presentation;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		6ED0445523365DA400548E8F /* CommonView */ = {
@@ -426,6 +369,7 @@
 		6EF9D6A72336F0630041803D /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				6E7586632339AFE500976AE0 /* LoginUserDefaultTests.swift */,
 				6EF9D6A82336F0820041803D /* RegisterUserDefaultTests.swift */,
 			);
 			path = Action;
@@ -437,6 +381,7 @@
 				6EF9D6AF2336F4510041803D /* UserServiceDefaultTests.swift */,
 				6EE15C3C2336CA5D004AA235 /* UserBuilder.swift */,
 				6EF9D6AD2336F1450041803D /* RegistrationDataBuilder.swift */,
+				6E8213CE23386563005EC9DC /* UserCredentialsBuilder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,16 +404,6 @@
 				9AFB8FA4A3C3E3E289F6B653 /* Pods-SocialNetworkingTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E913656323307CBF0015CF99 /* RegisterUser */ = {
-			isa = PBXGroup;
-			children = (
-				6E0C143223330081000D1524 /* Domain */,
-				6E1CA932233801BE0045E066 /* Infraestructure */,
-				6E0C14332333008E000D1524 /* Application */,
-			);
-			path = RegisterUser;
 			sourceTree = "<group>";
 		};
 		E985DD99232DE7DF009C2C32 = {
@@ -495,7 +430,6 @@
 			isa = PBXGroup;
 			children = (
 				6E0C14312333005E000D1524 /* Common */,
-				E913656323307CBF0015CF99 /* RegisterUser */,
 				6E1CA93A23380FE00045E066 /* LoginUser */,
 			);
 			path = SocialNetworking;
@@ -507,8 +441,7 @@
 				E985DDBE232DE7E0009C2C32 /* Info.plist */,
 				6E7DF8D82336941500F829FA /* mocky.yml */,
 				6E7DF8DA2336949A00F829FA /* Mock.generated.swift */,
-				6E0C143A23332657000D1524 /* RegisterUser */,
-				6E9FE28C233822AE008111C8 /* LoginUser */,
+				6E0C143A23332657000D1524 /* LoginUser */,
 			);
 			path = SocialNetworkingTests;
 			sourceTree = "<group>";
@@ -718,7 +651,6 @@
 				E9F5A7FD232E823200CE8BEF /* MainCoordinator.swift in Sources */,
 				6E0C143923330162000D1524 /* UIView+Animations.swift in Sources */,
 				6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */,
-				6EF9D6B62337267F0041803D /* RegisterUserCoordinator.swift in Sources */,
 				E913656923307CF10015CF99 /* RegisterUserView.swift in Sources */,
 				6E7586662339B6E900976AE0 /* InvalidLoginCredentialsError.swift in Sources */,
 				E913656A23307CF10015CF99 /* RegisterUserViewModel.swift in Sources */,
@@ -735,7 +667,7 @@
 				6E1CA945233810210045E066 /* LoginUserViewModel.swift in Sources */,
 				6E8213C823383247005EC9DC /* LoginUser.swift in Sources */,
 				E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */,
-				6E1CA942233810210045E066 /* LogInUserCoordinator.swift in Sources */,
+				6E1CA942233810210045E066 /* LoginUserCoordinator.swift in Sources */,
 				6EB82DCF23372DF50072947E /* UsernameAlreadyInUseError.swift in Sources */,
 				6E7DF8D6233679C300F829FA /* User.swift in Sources */,
 				6E1CA944233810210045E066 /* LoginUserView.swift in Sources */,
