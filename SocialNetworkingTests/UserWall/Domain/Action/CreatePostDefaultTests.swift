@@ -21,6 +21,7 @@ class CreatePostDefaultTests: XCTestCase {
     private var action: CreatePostDefault!
     
     private var createdPost: Post?
+    private var error: Error?
     
     override func setUp() {
         
@@ -35,11 +36,20 @@ class CreatePostDefaultTests: XCTestCase {
         thenPostIsCreatedWith(userId: userId, text: text)
     }
     
-    func returnsCreatedPost() {
+    func testReturnsCreatedPost() {
         
         whenActionIsExecutedWith(userId: userId, text: text)
         
         thenCreatedPostIs(post)
+    }
+    
+    func testReturnsAnErrorWhenCreatingAPostWithInappropiateLanguage() {
+        
+        givenAPostService(returning: InappropriateLanguageError())
+        
+        whenActionIsExecutedWith(userId: userId, text: text)
+        
+        thenInappropriateLanguageErrorIsReturned()
     }
     
     // MARK: Given
@@ -52,12 +62,19 @@ class CreatePostDefaultTests: XCTestCase {
         Given(postService, .createPost(userId: .any, text: .any, willReturn: .just(post)))
     }
     
+    private func givenAPostService(returning error: InappropriateLanguageError) {
+        Given(postService, .createPost(userId: .any, text: .any, willReturn: .error(error)))
+    }
+    
     // MARK: When
     
     private func whenActionIsExecutedWith(userId: UUID, text: String) {
-        createdPost = try? action.execute(userId: userId, text: text)
-            .toBlocking()
-            .first()
+        
+        do {
+            createdPost = try action.execute(userId: userId, text: text).toBlocking().first()
+        } catch {
+            self.error = error
+        }
     }
 
     // MARK: Then
@@ -68,5 +85,9 @@ class CreatePostDefaultTests: XCTestCase {
     
     private func thenCreatedPostIs(_ expectedPost: Post) {
         XCTAssertEqual(createdPost, expectedPost)
+    }
+    
+    private func thenInappropriateLanguageErrorIsReturned() {
+        XCTAssertTrue(error is InappropriateLanguageError)
     }
 }
