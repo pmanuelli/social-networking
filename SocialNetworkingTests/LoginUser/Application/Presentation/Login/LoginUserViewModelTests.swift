@@ -8,7 +8,7 @@ import SwiftyMocky
 
 class LoginUserViewModelTests: XCTestCase {
 
-    // RxTest elements
+    // RxTest objects
     private let scheduler = TestScheduler(initialClock: 0)
     private var loginUserButtonEnabledObserver: TestableObserver<Bool>!
     private var loginErrorDescriptionObserver: TestableObserver<String>!
