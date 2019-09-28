@@ -23,7 +23,7 @@ class UserServiceDefault: UserService {
     func registerUser(data: RegistrationData) -> Single<User> {
         
         return validateUsernameTaken(data.username)
-            .andThen(createAndSaveUser(data: data))
+            .andThen(registerNewUser(data: data))
     }
     
     private func validateUsernameTaken(_ username: String) -> Completable {
@@ -33,7 +33,7 @@ class UserServiceDefault: UserService {
             .flatMapCompletable { if $0 { throw UsernameAlreadyInUseError(username: username) } else { return .empty() } }
     }
         
-    private func createAndSaveUser(data: RegistrationData) -> Single<User> {
+    private func registerNewUser(data: RegistrationData) -> Single<User> {
         
         let user = createUser(from: data)
         
