@@ -281,14 +281,7 @@
 		6E8213C92338648E005EC9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E7DF8D5233679C300F829FA /* User.swift */,
-				6EF9D6A32336EBE20041803D /* UserService.swift */,
-				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
-				6E8213CA233864A6005EC9DC /* UserCredentials.swift */,
-				6EF9D6A52336EC710041803D /* RegistrationData.swift */,
-				6E7586652339B6E900976AE0 /* InvalidLoginCredentialsError.swift */,
-				6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */,
-				6EF9D6B32336F9310041803D /* IdGenerator.swift */,
+				6E88F3FE233EDF2A00866CCA /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +331,21 @@
 				6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		6E88F3FE233EDF2A00866CCA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6E7DF8D5233679C300F829FA /* User.swift */,
+				6EF9D6A32336EBE20041803D /* UserService.swift */,
+				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
+				6E8213CA233864A6005EC9DC /* UserCredentials.swift */,
+				6EF9D6A52336EC710041803D /* RegistrationData.swift */,
+				6E7586652339B6E900976AE0 /* InvalidLoginCredentialsError.swift */,
+				6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */,
+				6EF9D6B32336F9310041803D /* IdGenerator.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		6ED0445523365DA400548E8F /* CommonView */ = {
