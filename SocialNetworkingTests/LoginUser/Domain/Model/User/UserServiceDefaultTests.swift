@@ -16,7 +16,6 @@ class UserServiceDefaultTests: XCTestCase {
     private var loginUserObserver: TestableObserver<User>!
     private let disposeBag = DisposeBag()
     
-    
     private let id = UUID()
     private let username = "username"
     private let password = "password"
