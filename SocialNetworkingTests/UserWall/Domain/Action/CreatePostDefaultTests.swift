@@ -82,7 +82,7 @@ class CreatePostDefaultTests: XCTestCase {
     private func thenPostIsCreatedWith(userId: UUID, text: String) {
         Verify(postService, .createPost(userId: .value(userId), text: .value(text)))
     }
-    
+        
     private func thenCreatedPostIs(_ expectedPost: Post) {
         XCTAssertEqual(createdPost, expectedPost)
     }

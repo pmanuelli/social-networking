@@ -16,6 +16,7 @@ class PostServiceDefaultTests: XCTestCase {
 
     // Dependencies
     private let postRepository = PostRepositoryMock()
+    private let languageService = LanguageServiceMock()
     private let idGenerator = IdGeneratorMock()
     private let clock = ClockMock()
     
@@ -23,16 +24,19 @@ class PostServiceDefaultTests: XCTestCase {
     private var postService: PostServiceDefault!
     
     private var createdPost: Post?
+    private var error: Error?
     
     override func setUp() {
         givenAPostRepository()
+        givenAnIdGeneratorReturning(postId)
+        givenAClockReturning(date)
+        
         givenAPostService()
     }
     
     func testCreateAPost() {
         
-        givenAnIdGeneratorReturning(postId)
-        givenAClockReturning(date)
+        givenPostDoesNotContainInappropriateLanguage()
         
         whenPostIsCreated(userId: userId, text: text)
         
@@ -40,10 +44,23 @@ class PostServiceDefaultTests: XCTestCase {
         thenCreatedPostIs(post)
     }
     
+    func testReturnAnErrorWhenCreatingPostWithInappropriateLanguage() {
+        
+        givenPostContainsInappropriateLanguage()
+        
+        whenPostIsCreated(userId: userId, text: text)
+        
+        thenPostIsNotPersisted()
+        thenInappropriateLanguageErrorIsReturned()
+    }
+    
     // MARK: Given
     
     private func givenAPostService() {
-        postService = PostServiceDefault(postRepository: postRepository, idGenerator: idGenerator, clock: clock)
+        postService = PostServiceDefault(postRepository: postRepository,
+                                         languageService: languageService,
+                                         idGenerator: idGenerator,
+                                         clock: clock)
     }
     
     private func givenAPostRepository() {
@@ -58,10 +75,23 @@ class PostServiceDefaultTests: XCTestCase {
         Given(clock, .now(willReturn: date))
     }
     
+    private func givenPostDoesNotContainInappropriateLanguage() {
+        Given(languageService, .isInappropriate(.any, willReturn: false))
+    }
+    
+    private func givenPostContainsInappropriateLanguage() {
+        Given(languageService, .isInappropriate(.any, willReturn: true))
+    }
+    
     // MARK: When
     
     private func whenPostIsCreated(userId: UUID, text: String) {
-        createdPost = try? postService.createPost(userId: userId, text: text).toBlocking().first()
+        
+        do {
+            createdPost = try postService.createPost(userId: userId, text: text).toBlocking().first()
+        } catch {
+            self.error = error
+        }
     }
     
     // MARK: Then
@@ -70,7 +100,15 @@ class PostServiceDefaultTests: XCTestCase {
         Verify(postRepository, .once, .add(.value(post)))
     }
     
+    private func thenPostIsNotPersisted() {
+        Verify(postRepository, .never, .add(.any))
+    }
+    
     private func thenCreatedPostIs(_ post: Post) {
         XCTAssertEqual(createdPost, post)
+    }
+    
+    private func thenInappropriateLanguageErrorIsReturned() {
+        XCTAssertTrue(error is InappropriateLanguageError)
     }
 }
