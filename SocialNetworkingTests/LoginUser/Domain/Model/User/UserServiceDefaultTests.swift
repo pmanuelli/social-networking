@@ -9,7 +9,7 @@ import SwiftyMocky
 
 class UserServiceDefaultTests: XCTestCase {
     
-    // RxTest
+    // RxTest objects
     private let testScheduler = TestScheduler(initialClock: 0)
     private var addUserObservable: TestableObservable<Never>!
     private var userObserver: TestableObserver<User>!
@@ -40,19 +40,27 @@ class UserServiceDefaultTests: XCTestCase {
         givenAUserService()
     }
     
-    func testRegistersAUser() {
+    func testRegisterAUser() {
         
-        givenUsernameIsAlreadyInUse(false)
+        givenAnAvailableUsername(data.username)
         
         whenUserIsRegisteredWith(data)
 
-        thenUserIsPersisted(user)
-        thenUserIsReturned(user)
+        thenRegisteredUserIs(user)
     }
     
-    func testReturnsAnErrorWhenUsernameIsInUse() {
+    func testReturnRegisteredUser() {
         
-        givenUsernameIsAlreadyInUse(true)
+        givenAnAvailableUsername(data.username)
+        
+        whenUserIsRegisteredWith(data)
+
+        thenReturnedUserIs(user)
+    }
+    
+    func testReturnAnErrorWhenUsernameIsInUse() {
+        
+        givenAnAlreadyInUseUsername(data.username)
 
         whenUserIsRegisteredWith(data)
 
@@ -62,17 +70,17 @@ class UserServiceDefaultTests: XCTestCase {
     
     func testLoginAUser() {
         
-        givenAUserForCredentials(user)
+        givenAUser(user, forCredentials: userCredentials)
         
         whenUserIsLoggedInWithCredentials(userCredentials)
         
         thenUserIsRequestedForCredentials(userCredentials)
-        thenUserIsReturned(user)
+        thenReturnedUserIs(user)
     }
     
-    func testReturnsAnErrorWhenCredentialsAreInvalid() {
+    func testReturnAnErrorWhenCredentialsAreInvalid() {
         
-        givenAUserForCredentials(nil)
+        givenAUser(nil, forCredentials: userCredentials)
         
         whenUserIsLoggedInWithCredentials(userCredentials)
         
@@ -85,10 +93,14 @@ class UserServiceDefaultTests: XCTestCase {
         Given(idGenerator, .next(willReturn: id))
     }
     
-    private func givenUsernameIsAlreadyInUse(_ inUse: Bool) {
-        Given(userRepository, .isUsernameTaken(.any, willReturn: .just(inUse)))
+    private func givenAnAvailableUsername(_ username: String) {
+        Given(userRepository, .isUsernameTaken(.value(username), willReturn: .just(false)))
     }
     
+    private func givenAnAlreadyInUseUsername(_ username: String) {
+        Given(userRepository, .isUsernameTaken(.value(username), willReturn: .just(true)))
+    }
+
     private func givenAUserService() {
                 
         givenAUserRepository()
@@ -101,8 +113,8 @@ class UserServiceDefaultTests: XCTestCase {
         Given(userRepository, .add(.any, willReturn: addUserObservable.asCompletable()))
     }
     
-    private func givenAUserForCredentials(_ user: User?) {
-        Given(userRepository, .user(for: .any, willReturn: .just(user)))
+    private func givenAUser(_ user: User?, forCredentials credentials: UserCredentials) {
+        Given(userRepository, .user(for: .value(credentials), willReturn: .just(user)))
     }
     
     // MARK: When
@@ -131,12 +143,12 @@ class UserServiceDefaultTests: XCTestCase {
     
     // MARK: Then
     
-    private func thenUserIsPersisted(_ user: User) {
+    private func thenRegisteredUserIs(_ user: User) {
         Verify(userRepository, .once, .add(.value(user)))
         XCTAssertEqual(addUserObservable.subscriptions.count, 1)
     }
     
-    private func thenUserIsReturned(_ user: User) {
+    private func thenReturnedUserIs(_ user: User) {
         assertEventsContainUser(user, events: userObserver.events)
     }
     
