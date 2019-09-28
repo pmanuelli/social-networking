@@ -34,17 +34,17 @@ class LoginUserDefaultTests: XCTestCase {
         
         whenActionIsExecutedWith(userCredentials)
         
-        thenReturnedUserIs(user)
+        thenLoggedUserIs(user)
     }
     
     // MARK: Given
     
-    private func givenALoginUserAction() {
-        action = LoginUserDefault(userService: userService)
-    }
-    
     private func givenAUserService(returning user: User) {
         Given(userService, .loginUser(credentials: .any, willReturn: .just(user)))
+    }
+    
+    private func givenALoginUserAction() {
+        action = LoginUserDefault(userService: userService)
     }
     
     // MARK: When
@@ -59,7 +59,7 @@ class LoginUserDefaultTests: XCTestCase {
         Verify(userService, .loginUser(credentials: .value(UserCredentials)))
     }
     
-    private func thenReturnedUserIs(_ expectedUser: User) {
+    private func thenLoggedUserIs(_ expectedUser: User) {
         XCTAssertEqual(loggedUser, expectedUser)
     }
 }

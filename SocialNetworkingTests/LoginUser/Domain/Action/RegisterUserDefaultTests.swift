@@ -3,46 +3,64 @@
 
 import XCTest
 import SwiftyMocky
+import RxBlocking
 
 class RegisterUserDefaultTests: XCTestCase {
 
-    // Dependencies
     private let registrationData = RegistrationDataBuilder().build()
+    private let user = UserBuilder().build()
+    
+    // Dependencies
     private let userService = UserServiceMock()
     
     // Object under test
     private var action: RegisterUserDefault!
+    
+    private var registeredUser: User?
         
-    func testRegistersNewUser() {
-            
+    override func setUp() {
+     
+        givenAUserService(returning: user)
         givenARegisterUserAction()
+    }
+    
+    func testRegistersNewUser() {
                 
         whenActionIsExecutedWith(registrationData)
         
         thenUserIsRegisteredWith(registrationData)
     }
     
-    // MARK: Given
-
-    private func givenARegisterUserAction() {
+    func testReturnsRegisteredUser() {
         
-        givenAUserService()
-        action = RegisterUserDefault(userService: userService)
+        whenActionIsExecutedWith(registrationData)
+        
+        thenRegisteredUserIs(user)
     }
     
-    private func givenAUserService() {
-        Given(userService, .registerUser(data: .any, willReturn: .just(UserBuilder().build())))
+    // MARK: Given
+
+    private func givenAUserService(returning user: User) {
+         Given(userService, .registerUser(data: .any, willReturn: .just(user)))
+    }
+    
+    private func givenARegisterUserAction() {
+        action = RegisterUserDefault(userService: userService)
     }
     
     // MARK: When
     
     private func whenActionIsExecutedWith(_ data: RegistrationData) {
-        _ = action.execute(data: data)
+        registeredUser = try? action.execute(data: data).toBlocking().first()
     }
     
     // MARK: Then
     
     private func thenUserIsRegisteredWith(_ data: RegistrationData) {
         Verify(userService, .registerUser(data: .value(data)))
+    }
+    
+    private func thenRegisteredUserIs(_ expectedUser: User) {
+        XCTAssertEqual(registeredUser, expectedUser)
     }
 }
