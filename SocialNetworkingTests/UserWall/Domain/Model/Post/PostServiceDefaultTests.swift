@@ -19,17 +19,58 @@ class PostServiceDefaultTests: XCTestCase {
     private let idGenerator = IdGeneratorMock()
     private let clock = ClockMock()
     
+    // Object Under Test
+    private var postService: PostServiceDefault!
+    
+    private var createdPost: Post?
+    
+    override func setUp() {
+        givenAPostRepository()
+        givenAPostService()
+    }
+    
     func testCreateAPost() {
         
+        givenAnIdGeneratorReturning(postId)
+        givenAClockReturning(date)
+        
+        whenPostIsCreated(userId: userId, text: text)
+        
+        thenPostIsPersisted(post)
+        thenCreatedPostIs(post)
+    }
+    
+    // MARK: Given
+    
+    private func givenAPostService() {
+        postService = PostServiceDefault(postRepository: postRepository, idGenerator: idGenerator, clock: clock)
+    }
+    
+    private func givenAPostRepository() {
         Given(postRepository, .add(.any, willReturn: .empty()))
-        Given(idGenerator, .next(willReturn: postId))
+    }
+    
+    private func givenAnIdGeneratorReturning(_ id: UUID){
+        Given(idGenerator, .next(willReturn: id))
+    }
+    
+    private func givenAClockReturning(_ date: Date) {
         Given(clock, .now(willReturn: date))
-        
-        let postService = PostServiceDefault(postRepository: postRepository, idGenerator: idGenerator, clock: clock)
-        
-        let createdPost = try? postService.createPost(userId: userId, text: text).toBlocking().first()
-        
+    }
+    
+    // MARK: When
+    
+    private func whenPostIsCreated(userId: UUID, text: String) {
+        createdPost = try? postService.createPost(userId: userId, text: text).toBlocking().first()
+    }
+    
+    // MARK: Then
+    
+    private func thenPostIsPersisted(_ post: Post) {
         Verify(postRepository, .once, .add(.value(post)))
+    }
+    
+    private func thenCreatedPostIs(_ post: Post) {
         XCTAssertEqual(createdPost, post)
     }
 }
