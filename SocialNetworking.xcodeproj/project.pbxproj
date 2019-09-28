@@ -348,6 +348,17 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		6E88F3FF233EDFB700866CCA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6EF9D6AF2336F4510041803D /* UserServiceDefaultTests.swift */,
+				6EE15C3C2336CA5D004AA235 /* UserBuilder.swift */,
+				6EF9D6AD2336F1450041803D /* RegistrationDataBuilder.swift */,
+				6E8213CE23386563005EC9DC /* UserCredentialsBuilder.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		6ED0445523365DA400548E8F /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,10 +397,7 @@
 		6EF9D6AA2336F11B0041803D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6EF9D6AF2336F4510041803D /* UserServiceDefaultTests.swift */,
-				6EE15C3C2336CA5D004AA235 /* UserBuilder.swift */,
-				6EF9D6AD2336F1450041803D /* RegistrationDataBuilder.swift */,
-				6E8213CE23386563005EC9DC /* UserCredentialsBuilder.swift */,
+				6E88F3FF233EDFB700866CCA /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
