@@ -11,7 +11,7 @@ class LoginUserCoordinator {
     private lazy var loginUser = LoginUserDefault(userService: userService)
     private lazy var registerUser = RegisterUserDefault(userService: userService)
     
-    private lazy var userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController)
+    private var userTimelineCoordinator: UserTimelineCoordinator?
     
     private let disposeBag = DisposeBag()
     
@@ -42,7 +42,7 @@ class LoginUserCoordinator {
             .disposed(by: disposeBag)
         
         viewModel.output.didLoginUser
-            .subscribe(onNext: { [weak self] _ in self?.goToUserTimeline() })
+            .subscribe(onNext: { [weak self] in self?.goToUserTimeline(user: $0) })
             .disposed(by: disposeBag)
     }
     
@@ -63,7 +63,7 @@ class LoginUserCoordinator {
             .disposed(by: disposeBag)
         
         viewModel.output.didRegisterUser
-            .subscribe(onNext: { [weak self] _ in self?.goToUserTimeline() })
+            .subscribe(onNext: { [weak self] in self?.goToUserTimeline(user: $0) })
             .disposed(by: disposeBag)
     }
     
@@ -75,7 +75,9 @@ class LoginUserCoordinator {
         navigationController.popViewController(animated: true)
     }
     
-    private func goToUserTimeline() {
-        userTimelineCoordinator.start()
+    private func goToUserTimeline(user: User) {
+        
+        userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
+        userTimelineCoordinator?.start()
     }
 }

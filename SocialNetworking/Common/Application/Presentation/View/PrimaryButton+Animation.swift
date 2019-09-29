@@ -16,7 +16,7 @@ protocol PrimaryButtonAnimation {
 struct IsEnabledPropertyChangeAnimation: PrimaryButtonAnimation {
     
     func apply(to button: PrimaryButton) {
-                
+        
         UIView.transition(with: button, duration: 0.5, options: .transitionCrossDissolve,
                           animations: { self.changeButtonDesign(button, showAsEnabled: button.isEnabled) })
     }

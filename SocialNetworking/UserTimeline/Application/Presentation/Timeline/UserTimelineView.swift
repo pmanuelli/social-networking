@@ -25,6 +25,7 @@ class UserTimelineView: UIView {
     
     private func setupButton() {
         publishButton.animateOnTouchUpInside()
+        publishButton.isEnabled = false
     }
 
     private func setNonPlaceholderStyle(_ textView: UITextView) {
@@ -42,6 +43,20 @@ extension UserTimelineView: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         setNonPlaceholderStyle(textView)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        let shouldEnablePublishButton = !textView.text.isEmpty
+        
+        if publishButton.isEnabled != shouldEnablePublishButton {
+            changePublishButtonIsEnabled(to: shouldEnablePublishButton)
+        }
+    }
+    
+    private func changePublishButtonIsEnabled(to enabled: Bool) {
+        publishButton.isEnabled = enabled
+        publishButton.applyAnimation(IsEnabledPropertyChangeAnimation())
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
