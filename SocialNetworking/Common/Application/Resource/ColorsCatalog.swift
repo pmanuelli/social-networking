@@ -13,7 +13,7 @@ class ColorsCatalog {
 
     static var aboveLevelBackground: UIColor { return UIColor(named: "Above Level Background")! }
     static var aboveLevelFont: UIColor { return UIColor(named: "Above Level Font")! }
-    static var aboveLevellFontBody: UIColor { return UIColor(named: "Above Level Font Body")! }
+    static var aboveLevelFontBody: UIColor { return UIColor(named: "Above Level Font Body")! }
     
     // Can't use named colors with @IBDesignable
     
