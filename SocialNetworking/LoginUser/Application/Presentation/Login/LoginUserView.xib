@@ -27,7 +27,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YHt-Ak-ilw">
                                             <rect key="frame" x="0.0" y="0.0" width="344" height="90"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-P7-yGt">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-P7-yGt" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amr-YF-CDA" userLabel="Username Text Field">
@@ -62,7 +62,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo9-6y-Hrf">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo9-6y-Hrf" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="50" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUV-aT-u5d">

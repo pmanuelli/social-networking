@@ -27,7 +27,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-3z-wAs">
                                             <rect key="frame" x="0.0" y="0.0" width="344" height="201"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-so-0kX">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-so-0kX" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-Wj-z5a" userLabel="Username Text Field">
@@ -62,7 +62,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-9Y-FPP">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-9Y-FPP" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="50" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4VJ-g1-Dkj">
@@ -123,7 +123,7 @@
                                                         <constraint firstItem="g48-4m-exR" firstAttribute="centerX" secondItem="qWP-PE-T3b" secondAttribute="centerX" id="oFj-GI-hgs"/>
                                                     </constraints>
                                                 </view>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-VC-EgP">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-VC-EgP" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="111" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Given Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-T7-cGp">
@@ -158,7 +158,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-Mi-HaN">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-Mi-HaN" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="161" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Family Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8O-Zv-98Z">
