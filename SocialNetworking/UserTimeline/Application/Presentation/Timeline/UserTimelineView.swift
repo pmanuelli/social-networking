@@ -24,7 +24,7 @@ class UserTimelineView: UIView {
     }
     
     private func setupButton() {
-        publishButton.addTarget(self, action: #selector(buttonTouched(_:)), for: .touchUpInside)
+        publishButton.animateOnTouchUpInside()
     }
 
     private func setNonPlaceholderStyle(_ textView: UITextView) {
@@ -35,11 +35,6 @@ class UserTimelineView: UIView {
     private func setPlaceholderStyle(_ textView: UITextView) {
         textView.text = "What is going on?"
         textView.textColor = ColorsCatalog.atLevelBackground
-    }
-    
-    @objc
-    private func buttonTouched(_ button: UIButton) {
-        button.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
 

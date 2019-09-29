@@ -46,8 +46,8 @@ class RegisterUserView: UIView {
     
     private func setupButtons() {
         
-        let buttons: [UIButton] = [loginUserButton, registerUserButton]
-        buttons.forEach { $0.addTarget(self, action: #selector(buttonTouched(_:)), for: .touchUpInside) }
+        [loginUserButton, registerUserButton]
+            .forEach { $0.animateOnTouchUpInside() }
     }
     
     private func observeKeyboardHeight() {
@@ -61,11 +61,6 @@ class RegisterUserView: UIView {
         
         keyboardAdjustmentViewHeightConstraint.constant = height
         layoutIfNeeded()
-    }
-    
-    @objc
-    private func buttonTouched(_ button: UIButton) {
-        button.applyAnimation(TouchUpInsideViewAnimation())
     }
 }
 
