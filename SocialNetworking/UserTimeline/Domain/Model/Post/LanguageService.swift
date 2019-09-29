@@ -9,7 +9,16 @@ protocol LanguageService {
 
 class LanguageServiceDefault: LanguageService {
     
+    private let inappropriateWords = ["android", "google"]
+    
     func isInappropriate(_ text: String) -> Bool {
-        abort()
+        return text.lowercased().containsAny(inappropriateWords)
+    }
+}
+
+extension String {
+    
+    func containsAny(_ collection: [String]) -> Bool {
+        collection.contains { contains($0) }
     }
 }
