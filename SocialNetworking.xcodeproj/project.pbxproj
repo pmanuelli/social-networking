@@ -190,7 +190,7 @@
 			children = (
 				E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */,
 				E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */,
-				6ED0445523365DA400548E8F /* CommonView */,
+				6ED0445523365DA400548E8F /* View */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -523,13 +523,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6ED0445523365DA400548E8F /* CommonView */ = {
+		6ED0445523365DA400548E8F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				6ED0445623365DF600548E8F /* PrimaryButton.swift */,
 				6E9276C1233669A900069595 /* PrimaryButton+Animations.swift */,
 			);
-			path = CommonView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		6EE15C3E2336DA40004AA235 /* Infraestructure */ = {

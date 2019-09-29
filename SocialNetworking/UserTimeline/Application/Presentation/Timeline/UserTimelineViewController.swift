@@ -1,11 +1,11 @@
 
 import UIKit
-import P2Views
+import UIKitExtensions
 
 class UserTimelineViewController: UIViewController {
     
     let viewModel: UserTimelineViewModel
-    let mainView = UserTimelineView.loadNib()
+    lazy var mainView = UserTimelineView.initFromNib()
 
     init(viewModel: UserTimelineViewModel) {
         self.viewModel = viewModel
