@@ -22,7 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="364" height="150"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" name="Below Level Background"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -45,17 +45,22 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUt-Qx-6kK" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
-                    <rect key="frame" x="298" y="227" width="88" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUt-Qx-6kK" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
+                    <rect key="frame" x="264" y="227" width="125" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="mHr-Gn-erz"/>
+                        <constraint firstAttribute="width" constant="125" id="vvA-aB-bMd"/>
+                    </constraints>
+                    <state key="normal" title="PUBLISH"/>
                 </button>
             </subviews>
             <color key="backgroundColor" name="At Level Background"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gSs-A2-Y9K" secondAttribute="trailing" constant="25" id="9ed-yA-mVX"/>
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="fax-ST-ntN"/>
+                <constraint firstItem="tUt-Qx-6kK" firstAttribute="trailing" secondItem="gSs-A2-Y9K" secondAttribute="trailing" id="n0p-hJ-oNE"/>
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="oay-BP-bgJ"/>
+                <constraint firstItem="tUt-Qx-6kK" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="8" symbolic="YES" id="sUo-Td-SH6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
