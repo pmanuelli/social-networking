@@ -104,6 +104,9 @@
                 <constraint firstItem="FWY-SK-PQZ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XYf-6l-vwa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="createPostButton" destination="1Wv-kt-tzN" id="PUQ-X5-Sdw"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
