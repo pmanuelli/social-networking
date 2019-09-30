@@ -94,17 +94,27 @@
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <state key="normal" title="PUBLISH"/>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yi2-H4-6RE">
+                    <rect key="frame" x="25" y="179" width="229" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" name="Error"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" name="At Level Background"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gSs-A2-Y9K" secondAttribute="trailing" constant="25" id="9ed-yA-mVX"/>
+                <constraint firstItem="tUt-Qx-6kK" firstAttribute="leading" secondItem="Yi2-H4-6RE" secondAttribute="trailing" constant="10" id="KQa-r3-BMD"/>
+                <constraint firstItem="Yi2-H4-6RE" firstAttribute="leading" secondItem="gSs-A2-Y9K" secondAttribute="leading" id="Uuo-RL-CGj"/>
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="fax-ST-ntN"/>
                 <constraint firstItem="tUt-Qx-6kK" firstAttribute="trailing" secondItem="gSs-A2-Y9K" secondAttribute="trailing" id="n0p-hJ-oNE"/>
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="oay-BP-bgJ"/>
                 <constraint firstItem="tUt-Qx-6kK" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="10" id="sUo-Td-SH6"/>
+                <constraint firstItem="Yi2-H4-6RE" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="10" id="spJ-mY-zri"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="errorLabel" destination="Yi2-H4-6RE" id="n3m-Rw-eaM"/>
                 <outlet property="postTextView" destination="hzE-1l-EG6" id="VvS-Zy-Nfy"/>
                 <outlet property="publishButton" destination="tUt-Qx-6kK" id="Vm6-VR-aSG"/>
             </connections>
@@ -120,6 +130,9 @@
         </namedColor>
         <namedColor name="Below Level Background">
             <color red="0.14900000393390656" green="0.14900000393390656" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Error">
+            <color red="0.94900000095367432" green="0.51899999380111694" blue="0.48500001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
