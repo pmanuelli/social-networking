@@ -18,7 +18,7 @@ class UserTimelineCoordinator {
     
     func start() {
         
-        let viewModel = UserTimelineViewModel(userId: userId, createPost: createPost)
+        let viewModel = UserTimelineViewModel()
         let viewController = UserTimelineViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
