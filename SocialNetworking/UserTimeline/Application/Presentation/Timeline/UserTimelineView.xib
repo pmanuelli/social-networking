@@ -16,13 +16,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-SK-PQZ" customClass="IBDesignableUIView" customModule="UIKitExtensions">
-                    <rect key="frame" x="167" y="413" width="80" height="80"/>
+                    <rect key="frame" x="318" y="766" width="76" height="76"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wE-ZY-gaE" customClass="TwoColorsGradientView" customModule="UIKitExtensions">
-                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-L7-3Pf" userLabel="Icon Container">
-                                    <rect key="frame" x="21.5" y="21.5" width="37.5" height="37.5"/>
+                                    <rect key="frame" x="19.5" y="19.5" width="37.5" height="37.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PV0-cd-rSo">
                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -75,7 +75,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-kt-tzN">
-                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -85,7 +85,7 @@
                         <constraint firstItem="1Wv-kt-tzN" firstAttribute="top" secondItem="FWY-SK-PQZ" secondAttribute="top" id="8db-pB-c8d"/>
                         <constraint firstItem="7wE-ZY-gaE" firstAttribute="leading" secondItem="FWY-SK-PQZ" secondAttribute="leading" id="K11-YA-AH5"/>
                         <constraint firstAttribute="trailing" secondItem="7wE-ZY-gaE" secondAttribute="trailing" id="Mnb-Bh-mKq"/>
-                        <constraint firstAttribute="height" constant="80" id="T6b-9g-xHa"/>
+                        <constraint firstAttribute="height" constant="76" id="T6b-9g-xHa"/>
                         <constraint firstAttribute="width" secondItem="FWY-SK-PQZ" secondAttribute="height" multiplier="1:1" id="Z1l-dO-Id4"/>
                         <constraint firstAttribute="bottom" secondItem="7wE-ZY-gaE" secondAttribute="bottom" id="diQ-i2-aNJ"/>
                         <constraint firstAttribute="bottom" secondItem="1Wv-kt-tzN" secondAttribute="bottom" id="fBR-67-GFM"/>
@@ -93,15 +93,15 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="40"/>
+                            <real key="value" value="38"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" name="At Level Background"/>
             <constraints>
-                <constraint firstItem="FWY-SK-PQZ" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="HdP-FS-aya"/>
-                <constraint firstItem="FWY-SK-PQZ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XYf-6l-vwa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FWY-SK-PQZ" secondAttribute="bottom" constant="20" id="vaa-Jy-whI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FWY-SK-PQZ" secondAttribute="trailing" constant="20" id="yPU-st-53C"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

@@ -11,6 +11,8 @@ class InMemoryPostRepository: PostRepository {
             
             self.posts.append(post)
             
+            subscribeBlock(.completed)
+            
             return Disposables.create()
         }
     }
