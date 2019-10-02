@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-A2-Y9K" customClass="IBDesignableUIView" customModule="UIKitExtensions">
-                    <rect key="frame" x="25" y="69" width="364" height="100"/>
+                    <rect key="frame" x="25" y="69" width="364" height="150"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What is going on?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hzE-1l-EG6">
-                            <rect key="frame" x="10" y="0.0" width="354" height="100"/>
+                            <rect key="frame" x="10" y="0.0" width="354" height="150"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                             <color key="textColor" name="Below Level Background"/>
@@ -50,7 +50,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hig-fK-hWI" customClass="TwoColorsGradientView" customModule="UIKitExtensions">
-                            <rect key="frame" x="0.0" y="90" width="364" height="10"/>
+                            <rect key="frame" x="0.0" y="140" width="364" height="10"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="riZ-Cx-o1W"/>
@@ -72,7 +72,7 @@
                         <constraint firstItem="hig-fK-hWI" firstAttribute="leading" secondItem="gSs-A2-Y9K" secondAttribute="leading" id="5MT-29-3mB"/>
                         <constraint firstItem="hzE-1l-EG6" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="top" id="7Lh-uH-rd7"/>
                         <constraint firstAttribute="trailing" secondItem="hig-fK-hWI" secondAttribute="trailing" id="AH8-63-eEO"/>
-                        <constraint firstAttribute="height" constant="100" id="IrM-7U-Yeh"/>
+                        <constraint firstAttribute="height" constant="150" id="IrM-7U-Yeh"/>
                         <constraint firstAttribute="bottom" secondItem="hzE-1l-EG6" secondAttribute="bottom" id="Jne-fy-WwD"/>
                         <constraint firstAttribute="bottom" secondItem="hig-fK-hWI" secondAttribute="bottom" id="MSf-6N-ZhM"/>
                         <constraint firstItem="hzE-1l-EG6" firstAttribute="leading" secondItem="gSs-A2-Y9K" secondAttribute="leading" constant="10" id="chn-Ry-c5F"/>
@@ -86,7 +86,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUt-Qx-6kK" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
-                    <rect key="frame" x="264" y="179" width="125" height="40"/>
+                    <rect key="frame" x="264" y="239" width="125" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="mHr-Gn-erz"/>
                         <constraint firstAttribute="width" constant="125" id="vvA-aB-bMd"/>
@@ -95,7 +95,7 @@
                     <state key="normal" title="PUBLISH"/>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yi2-H4-6RE">
-                    <rect key="frame" x="25" y="179" width="229" height="21.5"/>
+                    <rect key="frame" x="25" y="239" width="229" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" name="Error"/>
                     <nil key="highlightedColor"/>
@@ -109,8 +109,8 @@
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="fax-ST-ntN"/>
                 <constraint firstItem="tUt-Qx-6kK" firstAttribute="trailing" secondItem="gSs-A2-Y9K" secondAttribute="trailing" id="n0p-hJ-oNE"/>
                 <constraint firstItem="gSs-A2-Y9K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="oay-BP-bgJ"/>
-                <constraint firstItem="tUt-Qx-6kK" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="10" id="sUo-Td-SH6"/>
-                <constraint firstItem="Yi2-H4-6RE" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="10" id="spJ-mY-zri"/>
+                <constraint firstItem="tUt-Qx-6kK" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="20" id="sUo-Td-SH6"/>
+                <constraint firstItem="Yi2-H4-6RE" firstAttribute="top" secondItem="gSs-A2-Y9K" secondAttribute="bottom" constant="20" id="spJ-mY-zri"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
