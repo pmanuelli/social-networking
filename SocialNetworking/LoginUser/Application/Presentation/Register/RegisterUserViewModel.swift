@@ -84,6 +84,6 @@ class RegisterUserViewModel {
     }
     
     func loginUserButtonTouched() {
-        loginUserButtonTouchSubject.onNext(Void())
+        loginUserButtonTouchSubject.onNext()
     }
 }

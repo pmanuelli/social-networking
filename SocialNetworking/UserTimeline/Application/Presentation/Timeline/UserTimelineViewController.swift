@@ -1,12 +1,14 @@
 
 import UIKit
 import UIKitExtensions
+import RxSwift
+import RxCocoa
 
 class UserTimelineViewController: UIViewController {
 
     private let viewModel: UserTimelineViewModel
     private lazy var mainView = UserTimelineView.initFromNib()
-        
+            
     init(viewModel: UserTimelineViewModel) {
         self.viewModel = viewModel
         super.init(nibName: .none, bundle: .none)
@@ -26,5 +28,17 @@ class UserTimelineViewController: UIViewController {
     
     private func bindViewModel() {
     
+        bindCreatePostButton()
+    }
+    
+    private func bindCreatePostButton() {
+        
+        mainView.createPostButton.addTarget(self, action: #selector(createPostButtonTouched), for: .touchUpInside)
+    }
+    
+    @objc
+    private func createPostButtonTouched() {
+        mainView.createPostButtonContainer.applyTouchUpInsideAnimation()
+        viewModel.createPostButtonTouched()
     }
 }

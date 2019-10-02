@@ -106,6 +106,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="createPostButton" destination="1Wv-kt-tzN" id="PUQ-X5-Sdw"/>
+                <outlet property="createPostButtonContainer" destination="FWY-SK-PQZ" id="L15-YH-u8Y"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>

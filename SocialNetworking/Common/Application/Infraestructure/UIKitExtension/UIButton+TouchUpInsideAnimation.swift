@@ -18,6 +18,6 @@ class UIButtonTouchUpInsideAnimator {
 
     @objc
     private func buttonTouched(_ button: UIButton) {
-        button.applyAnimation(TouchUpInsideViewAnimation())
+        button.applyTouchUpInsideAnimation()
     }
 }

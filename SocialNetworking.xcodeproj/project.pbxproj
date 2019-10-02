@@ -50,11 +50,12 @@
 		6E9276C2233669A900069595 /* PrimaryButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9276C1233669A900069595 /* PrimaryButton+Animation.swift */; };
 		6E9FE292233823EA008111C8 /* LoginUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */; };
 		6EB82DCF23372DF50072947E /* UsernameAlreadyInUseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */; };
+		6EC4722623442E1500D6AFBC /* PublishSubject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4722523442E1500D6AFBC /* PublishSubject+Extension.swift */; };
 		6ED0445723365DF600548E8F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0445623365DF600548E8F /* PrimaryButton.swift */; };
 		6ED72A852331C4FA00DE36F3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED72A842331C4FA00DE36F3 /* Colors.xcassets */; };
 		6ED72A872331E52400DE36F3 /* ColorsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */; };
 		6EE15C3D2336CA5D004AA235 /* UserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE15C3C2336CA5D004AA235 /* UserBuilder.swift */; };
-		6EE15C412336DA7D004AA235 /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE15C402336DA7D004AA235 /* NSError+Extensions.swift */; };
+		6EE15C412336DA7D004AA235 /* NSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE15C402336DA7D004AA235 /* NSError+Extension.swift */; };
 		6EF9D6A42336EBE20041803D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6A32336EBE20041803D /* UserService.swift */; };
 		6EF9D6A62336EC710041803D /* RegistrationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6A52336EC710041803D /* RegistrationData.swift */; };
 		6EF9D6A92336F0820041803D /* RegisterUserDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D6A82336F0820041803D /* RegisterUserDefaultTests.swift */; };
@@ -132,11 +133,12 @@
 		6E9276C1233669A900069595 /* PrimaryButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton+Animation.swift"; sourceTree = "<group>"; };
 		6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserViewModelTests.swift; sourceTree = "<group>"; };
 		6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAlreadyInUseError.swift; sourceTree = "<group>"; };
+		6EC4722523442E1500D6AFBC /* PublishSubject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublishSubject+Extension.swift"; sourceTree = "<group>"; };
 		6ED0445623365DF600548E8F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		6ED72A842331C4FA00DE36F3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6ED72A862331E52400DE36F3 /* ColorsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCatalog.swift; sourceTree = "<group>"; };
 		6EE15C3C2336CA5D004AA235 /* UserBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
-		6EE15C402336DA7D004AA235 /* NSError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extensions.swift"; sourceTree = "<group>"; };
+		6EE15C402336DA7D004AA235 /* NSError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extension.swift"; sourceTree = "<group>"; };
 		6EF9D6A32336EBE20041803D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6EF9D6A52336EC710041803D /* RegistrationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationData.swift; sourceTree = "<group>"; };
 		6EF9D6A82336F0820041803D /* RegisterUserDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDefaultTests.swift; sourceTree = "<group>"; };
@@ -568,6 +570,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6EC4722423442DED00D6AFBC /* RxSwiftExtension */ = {
+			isa = PBXGroup;
+			children = (
+				6EC4722523442E1500D6AFBC /* PublishSubject+Extension.swift */,
+			);
+			path = RxSwiftExtension;
+			sourceTree = "<group>";
+		};
 		6ED0445523365DA400548E8F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +590,7 @@
 		6EE15C3E2336DA40004AA235 /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
+				6EC4722423442DED00D6AFBC /* RxSwiftExtension */,
 				6E0C14372333013C000D1524 /* UIKitExtension */,
 				6EE15C3F2336DA5D004AA235 /* FoundationExtension */,
 			);
@@ -589,7 +600,7 @@
 		6EE15C3F2336DA5D004AA235 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
-				6EE15C402336DA7D004AA235 /* NSError+Extensions.swift */,
+				6EE15C402336DA7D004AA235 /* NSError+Extension.swift */,
 			);
 			path = FoundationExtension;
 			sourceTree = "<group>";
@@ -896,6 +907,7 @@
 				6E8213CB233864A6005EC9DC /* UserCredentials.swift in Sources */,
 				6E1CA943233810210045E066 /* LoginUserViewController.swift in Sources */,
 				6E534DD023415F03008A5BD7 /* InMemoryPostRepository.swift in Sources */,
+				6EC4722623442E1500D6AFBC /* PublishSubject+Extension.swift in Sources */,
 				6E1E0239234013FB00306025 /* Clock.swift in Sources */,
 				6EF9D6A42336EBE20041803D /* UserService.swift in Sources */,
 				6E1CA935233801E70045E066 /* InMemoryUserRepository.swift in Sources */,
@@ -906,7 +918,7 @@
 				6E9276C2233669A900069595 /* PrimaryButton+Animation.swift in Sources */,
 				6E88F405233EE02400866CCA /* CreatePost.swift in Sources */,
 				6E88F41A233EEA5000866CCA /* InappropriateLanguageError.swift in Sources */,
-				6EE15C412336DA7D004AA235 /* NSError+Extensions.swift in Sources */,
+				6EE15C412336DA7D004AA235 /* NSError+Extension.swift in Sources */,
 				6E1CA945233810210045E066 /* LoginUserViewModel.swift in Sources */,
 				6E8213C823383247005EC9DC /* LoginUser.swift in Sources */,
 				E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */,

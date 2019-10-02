@@ -7,6 +7,10 @@ extension UIView {
     func applyAnimation(_ animation: ViewAnimation) {
         animation.apply(to: self)
     }
+    
+    func applyTouchUpInsideAnimation() {
+        applyAnimation(TouchUpInsideViewAnimation())
+    }
 }
 
 protocol ViewAnimation {
