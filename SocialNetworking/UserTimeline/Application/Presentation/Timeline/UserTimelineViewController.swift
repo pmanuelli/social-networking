@@ -38,7 +38,9 @@ class UserTimelineViewController: UIViewController {
     
     @objc
     private func createPostButtonTouched() {
-        mainView.createPostButtonContainer.applyTouchUpInsideAnimation()
-        viewModel.createPostButtonTouched()
+        
+        mainView.createPostButtonContainer.applyTouchUpInsideAnimation() {
+            self.viewModel.createPostButtonTouched()
+        }
     }
 }

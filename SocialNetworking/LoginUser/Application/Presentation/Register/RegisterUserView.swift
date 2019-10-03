@@ -27,7 +27,6 @@ class RegisterUserView: UIView {
         observeKeyboardHeight()
 
         setupTextFields()
-        setupButtons()
     }
     
     private func setupTextFields() {
@@ -43,13 +42,7 @@ class RegisterUserView: UIView {
                 
         textField.attributedPlaceholder = NSAttributedString(string: string, attributes: attributes)
     }
-    
-    private func setupButtons() {
         
-        [loginUserButton, registerUserButton]
-            .forEach { $0.animateOnTouchUpInside() }
-    }
-    
     private func observeKeyboardHeight() {
         
         RxKeyboard.instance.visibleHeight

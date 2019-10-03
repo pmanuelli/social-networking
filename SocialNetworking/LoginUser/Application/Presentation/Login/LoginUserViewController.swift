@@ -57,7 +57,9 @@ class LoginUserViewController: UIViewController {
             .drive(onNext: { [weak self] in self?.loginUserButtonEnabledChanged($0) })
             .disposed(by: disposeBag)
         
-        mainView.loginUserButton.addTarget(self, action: #selector(loginUserButtonTouched), for: .touchUpInside)
+        mainView.loginUserButton.rx.tap
+            .bind(onNext: { [weak self] in self?.loginUserButtonTouched() })
+            .disposed(by: disposeBag)
     }
     
     private func loginUserButtonEnabledChanged(_ enabled: Bool) {
@@ -66,19 +68,25 @@ class LoginUserViewController: UIViewController {
         mainView.loginUserButton.applyAnimation(IsEnabledPropertyChangeAnimation())
     }
     
-    @objc
     private func loginUserButtonTouched() {
-        viewModel.loginUserButtonTouched()
+        
+        mainView.loginUserButton.applyTouchUpInsideAnimation() {
+            self.viewModel.loginUserButtonTouched()
+        }
     }
     
     private func bindRegisterUserButton() {
         
-        mainView.registerUserButton.addTarget(self, action: #selector(registerUserButtonTouched), for: .touchUpInside)
+        mainView.registerUserButton.rx.tap
+            .bind(onNext: { [weak self] in self?.registerUserButtonTouched() })
+            .disposed(by: disposeBag)
     }
     
-    @objc
     private func registerUserButtonTouched() {
-        viewModel.registerUserButtonTouched()
+        
+        mainView.registerUserButton.applyTouchUpInsideAnimation {
+            self.viewModel.registerUserButtonTouched()
+        }
     }
     
     private func bindLoginErrorDescription() {
