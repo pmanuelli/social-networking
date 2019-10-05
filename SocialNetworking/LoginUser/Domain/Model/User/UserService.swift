@@ -32,14 +32,17 @@ class UserServiceDefault: UserService {
             .isUsernameTaken(username)
             .flatMapCompletable { if $0 { throw UsernameAlreadyInUseError(username: username) } else { return .empty() } }
     }
-        
+            
     private func registerNewUser(data: RegistrationData) -> Single<User> {
         
-        let user = createUser(from: data)
-        
-        return userRepository
-            .add(user)
-            .andThen(.just(user))
+        Single.deferred {
+            
+            let user = self.createUser(from: data)
+            
+            return self.userRepository
+                .add(user)
+                .andThen(.just(user))
+        }
     }
         
     private func createUser(from data: RegistrationData) -> User {

@@ -4,18 +4,10 @@
 import XCTest
 import RxSwift
 import RxBlocking
-import RxTest
 import SwiftyMocky
 
 class UserServiceDefaultTests: XCTestCase {
-    
-    // RxTest objects
-    private let testScheduler = TestScheduler(initialClock: 0)
-    private var addUserObservable: TestableObservable<Never>!
-    private var userObserver: TestableObserver<User>!
-    private var loginUserObserver: TestableObserver<User>!
-    private let disposeBag = DisposeBag()
-    
+        
     private let id = UUID()
     private let username = "username"
     private let password = "password"
@@ -32,6 +24,9 @@ class UserServiceDefaultTests: XCTestCase {
 
     // Object under test
     private var service: UserServiceDefault!
+    
+    private var returnedUser: User?
+    private var error: Error?
         
     override func setUp() {
 
@@ -107,9 +102,7 @@ class UserServiceDefaultTests: XCTestCase {
     }
     
     private func givenAUserRepository() {
-        
-        addUserObservable = testScheduler.createHotObservable([.completed(0)])
-        Given(userRepository, .add(.any, willReturn: addUserObservable.asCompletable()))
+        Given(userRepository, .add(.any, willReturn: .empty()))
     }
     
     private func givenAUser(_ user: User?, forCredentials credentials: UserCredentials) {
@@ -120,54 +113,32 @@ class UserServiceDefaultTests: XCTestCase {
     
     private func whenUserIsRegisteredWith(_ data: RegistrationData) {
         
-        userObserver = testScheduler.createObserver(User.self)
-        
-        service.registerUser(data: data)
-            .asObservable()
-            .subscribe(userObserver)
-            .disposed(by: disposeBag)
-        
-        testScheduler.start()
+        do { returnedUser = try service.registerUser(data: data).toBlocking().first() }
+        catch { self.error = error }
     }
     
     private func whenUserIsLoggedInWithCredentials(_ credentials: UserCredentials) {
         
-        userObserver = testScheduler.createObserver(User.self)
-        
-        service.loginUser(credentials: credentials)
-            .asObservable()
-            .subscribe(userObserver)
-            .disposed(by: disposeBag)
+        do { returnedUser = try service.loginUser(credentials: credentials).toBlocking().first() }
+        catch { self.error = error }
     }
     
     // MARK: Then
     
     private func thenRegisteredUserIs(_ user: User) {
         Verify(userRepository, .once, .add(.value(user)))
-        XCTAssertEqual(addUserObservable.subscriptions.count, 1)
     }
     
-    private func thenReturnedUserIs(_ user: User) {
-        assertEventsContainUser(user, events: userObserver.events)
+    private func thenReturnedUserIs(_ expectedUser: User) {
+        XCTAssertEqual(user, expectedUser)
     }
     
     private func thenUserIsNotPersisted() {
-        XCTAssertEqual(addUserObservable.subscriptions.count, 0)
+        Verify(userRepository, .never, .add(.value(user)))
     }
     
     private func thenUsernameAlreadyInUseErrorIsReturned() {
-        assertEventsContainUsernameAlreadyInUseError(events: userObserver.events)
-    }
-    
-    private func assertEventsContainUser(_ user: User, events: [Recorded<Event<User>>]) {
-        XCTAssertEqual(events.count, 2)
-        XCTAssertEqual(events[0].value.element, user)
-        XCTAssertTrue(events[1].value.isCompleted)
-    }
-    
-    private func assertEventsContainUsernameAlreadyInUseError(events: [Recorded<Event<User>>]) {
-        XCTAssertEqual(events.count, 1)
-        XCTAssertTrue(events[0].value.error is UsernameAlreadyInUseError)
+        XCTAssertTrue(error is UsernameAlreadyInUseError)
     }
     
     private func thenUserIsRequestedForCredentials(_ credentials: UserCredentials) {
@@ -175,11 +146,6 @@ class UserServiceDefaultTests: XCTestCase {
     }
     
     private func thenInvalidLoginCredentialsErrorIsReturned() {
-        assertEventsContainInvalidLoginCredentialsError(events: userObserver.events)
-    }
-    
-    private func assertEventsContainInvalidLoginCredentialsError(events: [Recorded<Event<User>>]) {
-        XCTAssertEqual(events.count, 1)
-        XCTAssertTrue(events[0].value.error is InvalidLoginCredentialsError)
+        XCTAssertTrue(error is InvalidLoginCredentialsError)
     }
 }
