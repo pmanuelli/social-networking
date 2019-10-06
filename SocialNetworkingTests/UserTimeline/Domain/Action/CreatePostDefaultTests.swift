@@ -70,11 +70,8 @@ class CreatePostDefaultTests: XCTestCase {
     
     private func whenActionIsExecutedWith(userId: UUID, text: String) {
         
-        do {
-            createdPost = try action.execute(userId: userId, text: text).toBlocking().first()
-        } catch {
-            self.error = error
-        }
+        do { createdPost = try action.execute(userId: userId, text: text).toBlocking().first() }
+        catch { self.error = error }
     }
 
     // MARK: Then

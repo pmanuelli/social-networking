@@ -5,6 +5,7 @@ import RxSwift
 protocol PostService {
     
     func createPost(userId: UUID, text: String) -> Single<Post>
+    func posts(by userId: UUID) -> Single<[Post]>
 }
 
 class PostServiceDefault: PostService {
@@ -43,5 +44,9 @@ class PostServiceDefault: PostService {
     
     private func createNewPost(userId: UUID, text: String) -> Post {
         return Post(id: idGenerator.next(), userId: userId, text: text, date: clock.now())
+    }
+    
+    func posts(by userId: UUID) -> Single<[Post]> {
+        abort()
     }
 }
