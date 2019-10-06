@@ -471,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				6E88F401233EE00400866CCA /* Domain */,
+				6E534DCD23415EDB008A5BD7 /* Infraestructure */,
 				6E1E023C2340466200306025 /* Application */,
 			);
 			path = UserTimeline;
@@ -480,7 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				6E88F403233EE01200866CCA /* Action */,
-				6E534DCD23415EDB008A5BD7 /* Infraestructure */,
 				6E88F402233EE00900866CCA /* Model */,
 			);
 			path = Domain;
