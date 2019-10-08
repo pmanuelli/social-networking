@@ -11,7 +11,6 @@ class PostServiceDefaultTests: XCTestCase {
     private let userId = UUID()
     private let text = "Post text"
     private let date = Date(timeIntervalSince1970: 1569628800)
-    
     private lazy var post = Post(id: postId, userId: userId, text: text, date: date)
 
     // Dependencies

@@ -7,17 +7,19 @@ class InMemoryPostRepository: PostRepository {
     
     func add(_ post: Post) -> Completable {
         
-        Completable.create { subscribeBlock in
+        Completable.deferred {
             
             self.posts.append(post)
-            
-            subscribeBlock(.completed)
-            
-            return Disposables.create()
+            return .empty()
         }
     }
     
     func posts(by userId: UUID) -> Single<[Post]> {
-        abort()
+        
+        Single.deferred {
+            
+            let userPosts = self.posts.filter { $0.userId == userId }
+            return .just(userPosts)
+        }
     }
 }
