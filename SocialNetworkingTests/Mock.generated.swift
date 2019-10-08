@@ -1006,21 +1006,41 @@ open class PostRepositoryMock: PostRepository, Mock {
 		return __value
     }
 
+    open func posts(by userId: UUID) -> Single<[Post]> {
+        addInvocation(.m_posts__by_userId(Parameter<UUID>.value(`userId`)))
+		let perform = methodPerformValue(.m_posts__by_userId(Parameter<UUID>.value(`userId`))) as? (UUID) -> Void
+		perform?(`userId`)
+		var __value: Single<[Post]>
+		do {
+		    __value = try methodReturnValue(.m_posts__by_userId(Parameter<UUID>.value(`userId`))).casted()
+		} catch {
+			onFatalFailure("Stub return value not specified for posts(by userId: UUID). Use given")
+			Failure("Stub return value not specified for posts(by userId: UUID). Use given")
+		}
+		return __value
+    }
+
 
     fileprivate enum MethodType {
         case m_add__post(Parameter<Post>)
+        case m_posts__by_userId(Parameter<UUID>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
             case (.m_add__post(let lhsPost), .m_add__post(let rhsPost)):
                 guard Parameter.compare(lhs: lhsPost, rhs: rhsPost, with: matcher) else { return false } 
                 return true 
+            case (.m_posts__by_userId(let lhsUserid), .m_posts__by_userId(let rhsUserid)):
+                guard Parameter.compare(lhs: lhsUserid, rhs: rhsUserid, with: matcher) else { return false } 
+                return true 
+            default: return false
             }
         }
 
         func intValue() -> Int {
             switch self {
             case let .m_add__post(p0): return p0.intValue
+            case let .m_posts__by_userId(p0): return p0.intValue
             }
         }
     }
@@ -1037,10 +1057,20 @@ open class PostRepositoryMock: PostRepository, Mock {
         public static func add(_ post: Parameter<Post>, willReturn: Completable...) -> MethodStub {
             return Given(method: .m_add__post(`post`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
+        public static func posts(by userId: Parameter<UUID>, willReturn: Single<[Post]>...) -> MethodStub {
+            return Given(method: .m_posts__by_userId(`userId`), products: willReturn.map({ StubProduct.return($0 as Any) }))
+        }
         public static func add(_ post: Parameter<Post>, willProduce: (Stubber<Completable>) -> Void) -> MethodStub {
             let willReturn: [Completable] = []
 			let given: Given = { return Given(method: .m_add__post(`post`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
 			let stubber = given.stub(for: (Completable).self)
+			willProduce(stubber)
+			return given
+        }
+        public static func posts(by userId: Parameter<UUID>, willProduce: (Stubber<Single<[Post]>>) -> Void) -> MethodStub {
+            let willReturn: [Single<[Post]>] = []
+			let given: Given = { return Given(method: .m_posts__by_userId(`userId`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
+			let stubber = given.stub(for: (Single<[Post]>).self)
 			willProduce(stubber)
 			return given
         }
@@ -1050,6 +1080,7 @@ open class PostRepositoryMock: PostRepository, Mock {
         fileprivate var method: MethodType
 
         public static func add(_ post: Parameter<Post>) -> Verify { return Verify(method: .m_add__post(`post`))}
+        public static func posts(by userId: Parameter<UUID>) -> Verify { return Verify(method: .m_posts__by_userId(`userId`))}
     }
 
     public struct Perform {
@@ -1058,6 +1089,9 @@ open class PostRepositoryMock: PostRepository, Mock {
 
         public static func add(_ post: Parameter<Post>, perform: @escaping (Post) -> Void) -> Perform {
             return Perform(method: .m_add__post(`post`), performs: perform)
+        }
+        public static func posts(by userId: Parameter<UUID>, perform: @escaping (UUID) -> Void) -> Perform {
+            return Perform(method: .m_posts__by_userId(`userId`), performs: perform)
         }
     }
 

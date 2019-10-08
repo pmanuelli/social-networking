@@ -47,6 +47,11 @@ class PostServiceDefault: PostService {
     }
     
     func posts(by userId: UUID) -> Single<[Post]> {
-        abort()
+        return postRepository.posts(by: userId)
+            .map { self.sortPostsInReverseChronologicalOrder($0) }
+    }
+    
+    private func sortPostsInReverseChronologicalOrder(_ posts: [Post]) -> [Post] {
+        return posts.sorted { $0.date > $1.date }
     }
 }

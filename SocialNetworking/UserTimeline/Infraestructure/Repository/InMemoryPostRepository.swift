@@ -16,4 +16,8 @@ class InMemoryPostRepository: PostRepository {
             return Disposables.create()
         }
     }
+    
+    func posts(by userId: UUID) -> Single<[Post]> {
+        abort()
+    }
 }

@@ -24,6 +24,7 @@ class PostServiceDefaultTests: XCTestCase {
     private var postService: PostServiceDefault!
     
     private var createdPost: Post?
+    private var returnedPosts: [Post]?
     private var error: Error?
     
     override func setUp() {
@@ -52,6 +53,19 @@ class PostServiceDefaultTests: XCTestCase {
         
         thenPostIsNotPersisted()
         thenInappropriateLanguageErrorIsReturned()
+    }
+    
+    func testReturnsPostOfAUserInReverseChronologicalOrder() {
+        
+        let post1 = PostBuilder().withUserId(userId).build()
+        let post2 = PostBuilder().withUserId(userId).build()
+        let post3 = PostBuilder().withUserId(userId).build()
+        
+        givenAPostRepositoryReturningPosts(post1, post3, post2)
+        
+        whenPostsAreRequestedForUserWithId(userId)
+        
+        thenRetrievedPostsAre(post3, post2, post1)
     }
     
     // MARK: Given
@@ -83,15 +97,20 @@ class PostServiceDefaultTests: XCTestCase {
         Given(languageService, .isInappropriate(.any, willReturn: true))
     }
     
+    private func givenAPostRepositoryReturningPosts(_ posts: Post...) {
+        Given(postRepository, .posts(by: .value(userId), willReturn: .just(posts)))
+    }
+    
     // MARK: When
     
     private func whenPostIsCreated(userId: UUID, text: String) {
-        
-        do {
-            createdPost = try postService.createPost(userId: userId, text: text).toBlocking().first()
-        } catch {
-            self.error = error
-        }
+        do { createdPost = try postService.createPost(userId: userId, text: text).toBlocking().first() }
+        catch { self.error = error }
+    }
+    
+    private func whenPostsAreRequestedForUserWithId(_ userId: UUID) {
+        do { returnedPosts = try postService.posts(by: userId).toBlocking().first() }
+        catch { self.error = error }
     }
     
     // MARK: Then
@@ -110,5 +129,9 @@ class PostServiceDefaultTests: XCTestCase {
     
     private func thenInappropriateLanguageErrorIsReturned() {
         XCTAssertTrue(error is InappropriateLanguageError)
+    }
+    
+    private func thenRetrievedPostsAre(_ posts: Post...) {
+        XCTAssertEqual(posts, returnedPosts)
     }
 }
