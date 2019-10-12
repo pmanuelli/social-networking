@@ -2,7 +2,7 @@
 import UIKit
 import RxSwift
 
-class MainCoordinator {
+class ApplicationCoordinator {
     
     private let navigationController: UINavigationController
     

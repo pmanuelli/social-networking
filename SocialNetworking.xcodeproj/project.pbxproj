@@ -75,7 +75,7 @@
 		E985DDA6232DE7DF009C2C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */; };
 		E985DDAF232DE7E0009C2C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985DDAE232DE7E0009C2C32 /* Assets.xcassets */; };
 		E985DDB2232DE7E0009C2C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */; };
-		E9F5A7FD232E823200CE8BEF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */; };
+		E9F5A7FD232E823200CE8BEF /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5A7FC232E823200CE8BEF /* ApplicationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,7 +166,7 @@
 		E985DDB3232DE7E0009C2C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E985DDB8232DE7E0009C2C32 /* SocialNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985DDBE232DE7E0009C2C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		E9F5A7FC232E823200CE8BEF /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +226,7 @@
 		6E0C1435233300C7000D1524 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E9F5A7FC232E823200CE8BEF /* MainCoordinator.swift */,
+				E9F5A7FC232E823200CE8BEF /* ApplicationCoordinator.swift */,
 				E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */,
 				6ED0445523365DA400548E8F /* View */,
 			);
@@ -915,7 +915,7 @@
 				6EF9D6B42336F9310041803D /* IdGenerator.swift in Sources */,
 				6E1E023723400D5200306025 /* PostRepository.swift in Sources */,
 				6EF9D6A62336EC710041803D /* RegistrationData.swift in Sources */,
-				E9F5A7FD232E823200CE8BEF /* MainCoordinator.swift in Sources */,
+				E9F5A7FD232E823200CE8BEF /* ApplicationCoordinator.swift in Sources */,
 				6E534DC823414824008A5BD7 /* UIButton+TouchUpInsideAnimation.swift in Sources */,
 				6E0C143923330162000D1524 /* UIView+Animation.swift in Sources */,
 				6E1E02462340493200306025 /* CreatePostView.swift in Sources */,

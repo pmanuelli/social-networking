@@ -5,7 +5,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var mainCoordinator: MainCoordinator?
+    var mainCoordinator: ApplicationCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupCoordinator(navigationController: UINavigationController) {
-        mainCoordinator = MainCoordinator(navigationController: navigationController)
+        mainCoordinator = ApplicationCoordinator(navigationController: navigationController)
         mainCoordinator?.start()
     }
 }
