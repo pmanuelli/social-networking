@@ -8,8 +8,8 @@ class ApplicationCoordinator {
     
     private let userRepository = InMemoryUserRepository()
     
-    private lazy var loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController,
-                                                                 userRepository: userRepository)
+    private var loginUserCoordinator: LoginUserCoordinator?
+    private var userTimelineCoordinator: UserTimelineCoordinator?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -18,6 +18,22 @@ class ApplicationCoordinator {
     
     func start() {
         
-        loginUserCoordinator.start()
-    }    
+        goToLogin()
+    }
+    
+    private func goToLogin() {
+        
+        loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController, userRepository: userRepository)
+        
+        loginUserCoordinator?.onFinish = { [weak self] in self?.goToTimeline($0) }
+        loginUserCoordinator?.start()
+    }
+    
+    private func goToTimeline(_ user: User) {
+        
+        userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
+        
+        userTimelineCoordinator?.onFinish = { [weak self] in self?.goToLogin() }
+        userTimelineCoordinator?.start()
+    }
 }

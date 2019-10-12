@@ -5,8 +5,7 @@ import RxCocoa
 
 class UserTimelineCoordinator {
     
-    lazy var logoutButtonTouch: Driver<Void> = logoutButtonTouchSubject.asDriver()
-    private let logoutButtonTouchSubject = PublishSubject<Void>()
+    var onFinish: (() -> Void)?
     
     private let navigationController: UINavigationController
     private let userId: UUID
@@ -45,7 +44,7 @@ class UserTimelineCoordinator {
             .disposed(by: disposeBag)
         
         viewModel.output.logoutButtonTouch
-            .drive(logoutButtonTouchSubject)
+            .drive(onNext: { [weak self] _ in self?.onFinish?() })
             .disposed(by: disposeBag)
     }
     

@@ -4,6 +4,8 @@ import RxSwift
 
 class LoginUserCoordinator {
     
+    var onFinish: ((User) -> Void)?
+    
     private let navigationController: UINavigationController
     private let userRepository: UserRepository
     
@@ -32,7 +34,8 @@ class LoginUserCoordinator {
         
         subscribe(to: viewModel)
         
-        pushViewController(viewController)
+        navigationController.setViewControllers([viewController], animated: true)
+//        pushViewController(viewController)
     }
     
     private func subscribe(to viewModel: LoginUserViewModel) {
@@ -42,7 +45,7 @@ class LoginUserCoordinator {
             .disposed(by: disposeBag)
         
         viewModel.output.didLoginUser
-            .subscribe(onNext: { [weak self] in self?.goToUserTimeline(user: $0) })
+            .subscribe(onNext: { [weak self] in self?.userDidLogin(user: $0) })
             .disposed(by: disposeBag)
     }
     
@@ -63,7 +66,7 @@ class LoginUserCoordinator {
             .disposed(by: disposeBag)
         
         viewModel.output.didRegisterUser
-            .subscribe(onNext: { [weak self] in self?.goToUserTimeline(user: $0) })
+            .subscribe(onNext: { [weak self] in self?.userDidLogin(user: $0) })
             .disposed(by: disposeBag)
     }
     
@@ -75,22 +78,7 @@ class LoginUserCoordinator {
         navigationController.popViewController(animated: true)
     }
     
-    private func goToUserTimeline(user: User) {
-                
-        let coordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
-        
-        coordinator.logoutButtonTouch
-            .drive(onNext: { [weak self] _ in self?.logoutButtonTouched() })
-            .disposed(by: disposeBag)
-        
-        coordinator.start()
-        
-        userTimelineCoordinator = coordinator
-    }
-    
-    private func logoutButtonTouched() {
-        
-        navigationController.viewControllers = []
-        start()
+    private func userDidLogin(user: User) {
+        onFinish?(user)
     }
 }
