@@ -5,6 +5,9 @@ import RxCocoa
 
 class UserTimelineCoordinator {
     
+    lazy var logoutButtonTouch: Driver<Void> = logoutButtonTouchSubject.asDriver()
+    private let logoutButtonTouchSubject = PublishSubject<Void>()
+    
     private let navigationController: UINavigationController
     private let userId: UUID
     
@@ -40,6 +43,10 @@ class UserTimelineCoordinator {
         viewModel.output.createPostButtonTouch
             .drive(onNext: { [weak self] _ in self?.goToCreatePost() })
             .disposed(by: disposeBag)
+        
+        viewModel.output.logoutButtonTouch
+            .drive(logoutButtonTouchSubject)
+            .disposed(by: disposeBag)
     }
     
     private func goToCreatePost() {
@@ -51,7 +58,7 @@ class UserTimelineCoordinator {
         
         navigationController.present(viewController, animated: true)
     }
-    
+        
     private func observe(_ viewModel: CreatePostViewModel) {
         
         viewModel.output.didCreatePost

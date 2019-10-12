@@ -29,6 +29,7 @@ class UserTimelineViewController: UIViewController {
     private func bindViewModel() {
     
         bindCreatePostButton()
+        bindLogoutButton()
     }
     
     private func bindCreatePostButton() {
@@ -36,11 +37,24 @@ class UserTimelineViewController: UIViewController {
         mainView.createPostButton.addTarget(self, action: #selector(createPostButtonTouched), for: .touchUpInside)
     }
     
+    private func bindLogoutButton() {
+        
+        mainView.logoutButton.addTarget(self, action: #selector(logoutButtonTouched), for: .touchUpInside)
+    }
+    
     @objc
     private func createPostButtonTouched() {
         
         mainView.createPostButtonContainer.applyTouchUpInsideAnimation() {
             self.viewModel.createPostButtonTouched()
+        }
+    }
+    
+    @objc
+    private func logoutButtonTouched() {
+        
+        mainView.logoutButton.applyTouchUpInsideAnimation() {
+            self.viewModel.logoutButtonTouched()
         }
     }
 }

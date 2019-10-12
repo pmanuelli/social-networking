@@ -76,8 +76,21 @@ class LoginUserCoordinator {
     }
     
     private func goToUserTimeline(user: User) {
+                
+        let coordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
         
-        userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
-        userTimelineCoordinator?.start()
+        coordinator.logoutButtonTouch
+            .drive(onNext: { [weak self] _ in self?.logoutButtonTouched() })
+            .disposed(by: disposeBag)
+        
+        coordinator.start()
+        
+        userTimelineCoordinator = coordinator
+    }
+    
+    private func logoutButtonTouched() {
+        
+        navigationController.viewControllers = []
+        start()
     }
 }
