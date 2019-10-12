@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="SocialNetworking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="161"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="416" height="161"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMQ-gM-XQe" customClass="IBDesignableUIView" customModule="UIKitExtensions">
+                        <rect key="frame" x="15" y="15" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GU-PR-iLT">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" name="At Level Font Title"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Above Level Background"/>
+                        <constraints>
+                            <constraint firstItem="1GU-PR-iLT" firstAttribute="top" secondItem="SMQ-gM-XQe" secondAttribute="top" id="1Xh-wG-6NR"/>
+                            <constraint firstItem="1GU-PR-iLT" firstAttribute="leading" secondItem="SMQ-gM-XQe" secondAttribute="leading" id="2zY-fu-KNM"/>
+                            <constraint firstAttribute="trailing" secondItem="1GU-PR-iLT" secondAttribute="trailing" id="gHJ-pV-U3u"/>
+                            <constraint firstAttribute="bottom" secondItem="1GU-PR-iLT" secondAttribute="bottom" id="j9j-la-TVn"/>
+                            <constraint firstAttribute="height" constant="50" id="lwD-OU-0e2"/>
+                            <constraint firstAttribute="width" secondItem="SMQ-gM-XQe" secondAttribute="height" multiplier="1:1" id="pYK-oC-gTp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                <color key="value" name="At Level Font Title"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUg-0n-vVz">
+                        <rect key="frame" x="75" y="15" width="331" height="122"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" name="At Level Font Body"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-2b-6jQ" userLabel="Line">
+                        <rect key="frame" x="10" y="160" width="396" height="1"/>
+                        <color key="backgroundColor" name="Below Level Background"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="zRn-ds-Tgv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="At Level Background"/>
+                <constraints>
+                    <constraint firstItem="S2C-2b-6jQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FUg-0n-vVz" secondAttribute="bottom" constant="15" id="1Z2-yn-CCN"/>
+                    <constraint firstAttribute="trailing" secondItem="S2C-2b-6jQ" secondAttribute="trailing" constant="10" id="A9E-f2-QRa"/>
+                    <constraint firstAttribute="bottom" secondItem="S2C-2b-6jQ" secondAttribute="bottom" id="B8l-2G-68b"/>
+                    <constraint firstItem="SMQ-gM-XQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="K4w-Ji-Hyh"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SMQ-gM-XQe" secondAttribute="bottom" constant="15" id="OJL-rC-MI5"/>
+                    <constraint firstItem="FUg-0n-vVz" firstAttribute="top" secondItem="SMQ-gM-XQe" secondAttribute="top" id="PuS-Oj-27S"/>
+                    <constraint firstItem="SMQ-gM-XQe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="TpU-UA-QfX"/>
+                    <constraint firstItem="S2C-2b-6jQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Z6n-ei-uD5"/>
+                    <constraint firstAttribute="trailing" secondItem="FUg-0n-vVz" secondAttribute="trailing" constant="10" id="Z8l-4G-Clj"/>
+                    <constraint firstItem="FUg-0n-vVz" firstAttribute="leading" secondItem="SMQ-gM-XQe" secondAttribute="trailing" constant="10" id="mum-xx-EBG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="postAuthorNameLabel" destination="1GU-PR-iLT" id="qhG-fm-7KC"/>
+                <outlet property="postTextLabel" destination="FUg-0n-vVz" id="8oR-q2-mBY"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="130.91517857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Above Level Background">
+            <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="At Level Background">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="At Level Font Body">
+            <color white="0.75199997425079346" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="At Level Font Title">
+            <color white="0.79500001668930054" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="Below Level Background">
+            <color red="0.14900000393390656" green="0.14900000393390656" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

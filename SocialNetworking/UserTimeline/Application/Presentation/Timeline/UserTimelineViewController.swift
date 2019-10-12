@@ -8,7 +8,9 @@ class UserTimelineViewController: UIViewController {
 
     private let viewModel: UserTimelineViewModel
     private lazy var mainView = UserTimelineView.initFromNib()
-            
+    
+    private let disposeBag = DisposeBag()
+    
     init(viewModel: UserTimelineViewModel) {
         self.viewModel = viewModel
         super.init(nibName: .none, bundle: .none)
@@ -28,8 +30,38 @@ class UserTimelineViewController: UIViewController {
     
     private func bindViewModel() {
     
-        bindCreatePostButton()
+        bindPostTableView()
         bindLogoutButton()
+        bindCreatePostButton()
+    }
+    
+    private func bindPostTableView() {
+        
+        let items:
+            (Observable<[PostCellViewModel]>) ->
+            (@escaping (Int, PostCellViewModel, PostTableViewCell) -> Void)
+            -> Disposable =
+            
+            mainView.postTableView.rx.items(cellIdentifier: PostTableViewCell.identifier,
+                                            cellType: PostTableViewCell.self)
+        
+        viewModel.output.postViewModels
+            .asObservable()
+            .bind(to: items) { _, viewModel, cell in cell.viewModel = viewModel }
+            .disposed(by: disposeBag)
+    }
+
+    private func bindLogoutButton() {
+        
+        mainView.logoutButton.addTarget(self, action: #selector(logoutButtonTouched), for: .touchUpInside)
+    }
+
+    @objc
+    private func logoutButtonTouched() {
+        
+        mainView.logoutButton.applyTouchUpInsideAnimation() {
+            self.viewModel.logoutButtonTouched()
+        }
     }
     
     private func bindCreatePostButton() {
@@ -37,24 +69,11 @@ class UserTimelineViewController: UIViewController {
         mainView.createPostButton.addTarget(self, action: #selector(createPostButtonTouched), for: .touchUpInside)
     }
     
-    private func bindLogoutButton() {
-        
-        mainView.logoutButton.addTarget(self, action: #selector(logoutButtonTouched), for: .touchUpInside)
-    }
-    
     @objc
     private func createPostButtonTouched() {
         
         mainView.createPostButtonContainer.applyTouchUpInsideAnimation() {
             self.viewModel.createPostButtonTouched()
-        }
-    }
-    
-    @objc
-    private func logoutButtonTouched() {
-        
-        mainView.logoutButton.applyTouchUpInsideAnimation() {
-            self.viewModel.logoutButtonTouched()
         }
     }
 }
