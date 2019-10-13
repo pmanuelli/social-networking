@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhK-3K-0v0" userLabel="Top Bar Container">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRk-m7-UNT" userLabel="Top Bar">
                             <rect key="frame" x="0.0" y="44" width="414" height="75"/>
@@ -75,18 +75,27 @@
                                 <constraint firstItem="zHe-ds-A53" firstAttribute="centerY" secondItem="NRk-m7-UNT" secondAttribute="centerY" id="tsB-AR-4sl"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-EP-Pzf" userLabel="Line">
+                            <rect key="frame" x="0.0" y="119" width="414" height="1"/>
+                            <color key="backgroundColor" name="Below Level Background"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="pwv-oO-UtW"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="At Level Background"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="NRk-m7-UNT" secondAttribute="trailing" id="5jS-yy-zU9"/>
+                        <constraint firstAttribute="bottom" secondItem="GQe-EP-Pzf" secondAttribute="bottom" id="MVH-EY-dTV"/>
+                        <constraint firstItem="GQe-EP-Pzf" firstAttribute="top" secondItem="NRk-m7-UNT" secondAttribute="bottom" id="Owo-AU-DSQ"/>
                         <constraint firstItem="NRk-m7-UNT" firstAttribute="leading" secondItem="vhK-3K-0v0" secondAttribute="leading" id="RSv-ri-AQt"/>
-                        <constraint firstAttribute="bottom" secondItem="NRk-m7-UNT" secondAttribute="bottom" id="hne-89-ddr"/>
+                        <constraint firstItem="GQe-EP-Pzf" firstAttribute="leading" secondItem="vhK-3K-0v0" secondAttribute="leading" id="Wfk-fh-JkK"/>
+                        <constraint firstAttribute="trailing" secondItem="GQe-EP-Pzf" secondAttribute="trailing" id="swi-eX-1zO"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbW-GN-cgn">
-                    <rect key="frame" x="0.0" y="119" width="414" height="777"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbW-GN-cgn">
+                    <rect key="frame" x="0.0" y="120" width="414" height="776"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" name="Below Level Background"/>
                 </tableView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWY-SK-PQZ" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                     <rect key="frame" x="324" y="772" width="70" height="70"/>

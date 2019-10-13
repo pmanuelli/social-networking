@@ -56,8 +56,8 @@
                         <color key="textColor" name="At Level Font Body"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-2b-6jQ" userLabel="Line">
-                        <rect key="frame" x="10" y="160" width="396" height="1"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-2b-6jQ" userLabel="Line">
+                        <rect key="frame" x="0.0" y="160" width="416" height="1"/>
                         <color key="backgroundColor" name="Below Level Background"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="zRn-ds-Tgv"/>
@@ -67,13 +67,13 @@
                 <color key="backgroundColor" name="At Level Background"/>
                 <constraints>
                     <constraint firstItem="S2C-2b-6jQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FUg-0n-vVz" secondAttribute="bottom" constant="15" id="1Z2-yn-CCN"/>
-                    <constraint firstAttribute="trailing" secondItem="S2C-2b-6jQ" secondAttribute="trailing" constant="10" id="A9E-f2-QRa"/>
+                    <constraint firstAttribute="trailing" secondItem="S2C-2b-6jQ" secondAttribute="trailing" id="A9E-f2-QRa"/>
                     <constraint firstAttribute="bottom" secondItem="S2C-2b-6jQ" secondAttribute="bottom" id="B8l-2G-68b"/>
                     <constraint firstItem="SMQ-gM-XQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="K4w-Ji-Hyh"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SMQ-gM-XQe" secondAttribute="bottom" constant="15" id="OJL-rC-MI5"/>
                     <constraint firstItem="FUg-0n-vVz" firstAttribute="top" secondItem="SMQ-gM-XQe" secondAttribute="top" id="PuS-Oj-27S"/>
                     <constraint firstItem="SMQ-gM-XQe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="TpU-UA-QfX"/>
-                    <constraint firstItem="S2C-2b-6jQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Z6n-ei-uD5"/>
+                    <constraint firstItem="S2C-2b-6jQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Z6n-ei-uD5"/>
                     <constraint firstAttribute="trailing" secondItem="FUg-0n-vVz" secondAttribute="trailing" constant="10" id="Z8l-4G-Clj"/>
                     <constraint firstItem="FUg-0n-vVz" firstAttribute="leading" secondItem="SMQ-gM-XQe" secondAttribute="trailing" constant="10" id="mum-xx-EBG"/>
                 </constraints>
