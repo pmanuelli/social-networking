@@ -2,30 +2,53 @@
 import RxSwift
 import RxCocoa
 
-let viewModels: [PostCellViewModel] = [
-    PostCellViewModel(post: Post(id: UUID(), userId: UUID(), text: "Post text 1", date: Date())),
-    PostCellViewModel(post: Post(id: UUID(), userId: UUID(), text: "Post text 2 asdsdhbs sadb asd asdasdsdbhsbdhbsd sdbshdbahs ashd asdas ashd ashd bhsdb hsdb sd asjdhb ajs", date: Date())),
-    PostCellViewModel(post: Post(id: UUID(), userId: UUID(), text: "Post text 3", date: Date()))
-]
-
 class UserTimelineViewModel {
         
     struct Output {
         
-        var createPostButtonTouch: Driver<Void>
-        var logoutButtonTouch: Driver<Void>
-        let postViewModels: Driver<[PostCellViewModel]> = Driver.just(viewModels)
+        let postViewModels: Driver<[PostCellViewModel]>
+        let createPostButtonTouch: Driver<Void>
+        let logoutButtonTouch: Driver<Void>
     }
     
     private(set) lazy var output = createOutput()
     
+    private let postViewModelsSubject = BehaviorSubject<[PostCellViewModel]>(value: [])
     private let createPostButtonTouchSubject = PublishSubject<Void>()
     private let logoutButtonTouchSubject = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
+
+    private let userId: UUID
+    private let getPosts: GetPosts
+        
+    init(userId: UUID, getPosts: GetPosts) {
+        self.userId = userId
+        self.getPosts = getPosts
+    }
     
     private func createOutput() -> Output {
         
-        return Output(createPostButtonTouch: createPostButtonTouchSubject.asDriver(),
+        return Output(postViewModels: postViewModelsSubject.asDriver(onErrorJustReturn: []),
+                      createPostButtonTouch: createPostButtonTouchSubject.asDriver(),
                       logoutButtonTouch: logoutButtonTouchSubject.asDriver())
+    }
+    
+    func viewDidAppear() {
+        
+        getPosts.execute(userId: userId)
+            .subscribe(onSuccess: { [weak self] in self?.getPostsSuccess($0) },
+                       onError: { [weak self] in self?.getPostsError($0) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func getPostsSuccess(_ posts: [Post]) {
+        
+        let viewModels = posts.map { PostCellViewModel(post: $0) }
+        postViewModelsSubject.onNext(viewModels)
+    }
+    
+    private func getPostsError(_ error: Error) {
+        
     }
     
     func createPostButtonTouched() {

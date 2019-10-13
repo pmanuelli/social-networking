@@ -9,12 +9,7 @@ class UserTimelineCoordinator {
     
     private let navigationController: UINavigationController
     private let userId: UUID
-    
-    private lazy var postRepository = InMemoryPostRepository()
-    private lazy var languageService = LanguageServiceDefault()
-    private lazy var postService = PostServiceDefault(postRepository: postRepository, languageService: languageService)
-    private lazy var createPost = CreatePostDefault(postService: postService)
-    
+        
     private let disposeBag = DisposeBag()
     
     init(navigationController: UINavigationController, userId: UUID) {
@@ -29,7 +24,7 @@ class UserTimelineCoordinator {
     
     private func goToUserTimeline() {
         
-        let viewModel = UserTimelineViewModel()
+        let viewModel = UserTimelineViewModel(userId: userId, getPosts: Infrastructure.getPosts)
         let viewController = UserTimelineViewController(viewModel: viewModel)
         
         observe(viewModel)
@@ -50,7 +45,7 @@ class UserTimelineCoordinator {
     
     private func goToCreatePost() {
         
-        let viewModel = CreatePostViewModel(userId: userId, createPost: createPost)
+        let viewModel = CreatePostViewModel(userId: userId, createPost: Infrastructure.createPost)
         let viewController = CreatePostViewController(viewModel: viewModel)
         
         observe(viewModel)

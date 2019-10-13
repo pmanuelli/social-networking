@@ -7,19 +7,13 @@ class LoginUserCoordinator {
     var onFinish: ((User) -> Void)?
     
     private let navigationController: UINavigationController
-    private let userRepository: UserRepository
-    
-    private lazy var userService = UserServiceDefault(userRepository: userRepository)
-    private lazy var loginUser = LoginUserDefault(userService: userService)
-    private lazy var registerUser = RegisterUserDefault(userService: userService)
-    
+        
     private var userTimelineCoordinator: UserTimelineCoordinator?
     
     private let disposeBag = DisposeBag()
     
-    init(navigationController: UINavigationController, userRepository: UserRepository) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.userRepository = userRepository
     }
     
     func start() {
@@ -29,13 +23,12 @@ class LoginUserCoordinator {
     
     private func goToLoginUser() {
         
-        let viewModel = LoginUserViewModel(loginUser: loginUser)
+        let viewModel = LoginUserViewModel(loginUser: Infrastructure.loginUser)
         let viewController = LoginUserViewController(viewModel: viewModel)
         
         subscribe(to: viewModel)
         
         navigationController.setViewControllers([viewController], animated: true)
-//        pushViewController(viewController)
     }
     
     private func subscribe(to viewModel: LoginUserViewModel) {
@@ -51,12 +44,12 @@ class LoginUserCoordinator {
     
     private func goToRegisterUser() {
         
-        let viewModel = RegisterUserViewModel(registerUser: registerUser)
+        let viewModel = RegisterUserViewModel(registerUser: Infrastructure.registerUser)
         let viewController = RegisterUserViewController(viewModel: viewModel)
         
         subscribe(to: viewModel)
         
-        pushViewController(viewController)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     private func subscribe(to viewModel: RegisterUserViewModel) {
@@ -69,11 +62,7 @@ class LoginUserCoordinator {
             .subscribe(onNext: { [weak self] in self?.userDidLogin(user: $0) })
             .disposed(by: disposeBag)
     }
-    
-    private func pushViewController(_ viewController: UIViewController) {
-        navigationController.pushViewController(viewController, animated: true)
-    }
-    
+        
     private func popViewController() {
         navigationController.popViewController(animated: true)
     }

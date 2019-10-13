@@ -15,10 +15,10 @@ class RegisterUserViewModel {
     
     struct Output {
         
-        var registerUserButtonEnabled: Driver<Bool>
-        var registerErrorDescription: Driver<String>
+        let registerUserButtonEnabled: Driver<Bool>
+        let registerErrorDescription: Driver<String>
         let loginUserButtonTouch: Observable<Void>
-        var didRegisterUser: Observable<User>
+        let didRegisterUser: Observable<User>
     }
     
     let input = Input()

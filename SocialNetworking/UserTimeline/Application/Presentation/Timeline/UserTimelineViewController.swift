@@ -28,6 +28,12 @@ class UserTimelineViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.viewDidAppear()
+    }
+    
     private func bindViewModel() {
     
         bindPostTableView()

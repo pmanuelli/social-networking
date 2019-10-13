@@ -5,9 +5,7 @@ import RxSwift
 class ApplicationCoordinator {
     
     private let navigationController: UINavigationController
-    
-    private let userRepository = InMemoryUserRepository()
-    
+        
     private var loginUserCoordinator: LoginUserCoordinator?
     private var userTimelineCoordinator: UserTimelineCoordinator?
 
@@ -23,7 +21,7 @@ class ApplicationCoordinator {
     
     private func goToLogin() {
         
-        loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController, userRepository: userRepository)
+        loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController)
         
         loginUserCoordinator?.onFinish = { [weak self] in self?.goToTimeline($0) }
         loginUserCoordinator?.start()
