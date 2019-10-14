@@ -9,7 +9,10 @@ class UserTimelineCoordinator {
     
     private let navigationController: UINavigationController
     private let userId: UUID
-        
+    
+    private var viewModel: UserTimelineViewModel?
+    private var createPostCoordinator: CreatePostCoordinator?
+    
     private let disposeBag = DisposeBag()
     
     init(navigationController: UINavigationController, userId: UUID) {
@@ -30,6 +33,8 @@ class UserTimelineCoordinator {
         observe(viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
+        
+        self.viewModel = viewModel
     }
     
     private func observe(_ viewModel: UserTimelineViewModel) {
@@ -45,22 +50,12 @@ class UserTimelineCoordinator {
     
     private func goToCreatePost() {
         
-        let viewModel = CreatePostViewModel(userId: userId, createPost: Infrastructure.createPost)
-        let viewController = CreatePostViewController(viewModel: viewModel)
-        
-        observe(viewModel)
-        
-        navigationController.present(viewController, animated: true)
-    }
-        
-    private func observe(_ viewModel: CreatePostViewModel) {
-        
-        viewModel.output.didCreatePost
-            .subscribe { [weak self] _ in self?.dismissViewController() }
-            .disposed(by: disposeBag)
+        createPostCoordinator = CreatePostCoordinator(navigationController: navigationController, userId: userId)
+        createPostCoordinator?.onFinish = { [weak self] in self?.createPostCoordinatorFinished() }
+        createPostCoordinator?.start()
     }
     
-    private func dismissViewController() {
-        navigationController.dismiss(animated: true)
+    private func createPostCoordinatorFinished() {
+        viewModel?.viewDidAppear()
     }
 }
