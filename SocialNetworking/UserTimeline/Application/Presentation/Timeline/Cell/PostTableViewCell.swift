@@ -10,20 +10,11 @@ class PostTableViewCell: UITableViewCell {
         didSet { bindViewModel() }
     }
     
-    @IBOutlet private var postAuthorNameLabel: UILabel!
-    @IBOutlet private var postTextLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+    @IBOutlet private var authorInitialsLabel: UILabel!
+    @IBOutlet private var authorNameLabel: UILabel!
+    @IBOutlet private var authorUsernameLabel: UILabel!
+    @IBOutlet private var bodyLabel: UILabel!
+        
     private func bindViewModel() {
         guard let viewModel = viewModel else { return }
         
@@ -32,7 +23,9 @@ class PostTableViewCell: UITableViewCell {
     
     private func bindViewModel(_ viewModel: PostCellViewModel) {
         
-        postAuthorNameLabel.text = viewModel.authorName
-        postTextLabel.text = viewModel.text
+        authorInitialsLabel.text = viewModel.authorInitials
+        authorNameLabel.text = viewModel.authorName
+        authorUsernameLabel.text = viewModel.authorUsername
+        bodyLabel.text = viewModel.body
     }
 }

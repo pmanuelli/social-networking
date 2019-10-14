@@ -18,11 +18,11 @@ class UserTimelineViewModel {
     private let logoutButtonTouchSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
 
-    private let userId: UUID
+    private let user: User
     private let getPosts: GetPosts
         
-    init(userId: UUID, getPosts: GetPosts) {
-        self.userId = userId
+    init(user: User, getPosts: GetPosts) {
+        self.user = user
         self.getPosts = getPosts
     }
     
@@ -35,7 +35,7 @@ class UserTimelineViewModel {
     
     func viewDidAppear() {
         
-        getPosts.execute(userId: userId)
+        getPosts.execute(userId: user.id)
             .subscribe(onSuccess: { [weak self] in self?.getPostsSuccess($0) },
                        onError: { [weak self] in self?.getPostsError($0) })
             .disposed(by: disposeBag)
@@ -43,7 +43,7 @@ class UserTimelineViewModel {
     
     private func getPostsSuccess(_ posts: [Post]) {
         
-        let viewModels = posts.map { PostCellViewModel(post: $0) }
+        let viewModels = posts.map { PostCellViewModel(post: $0, author: user) }
         postViewModelsSubject.onNext(viewModels)
     }
     

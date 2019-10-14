@@ -8,16 +8,16 @@ class UserTimelineCoordinator {
     var onFinish: (() -> Void)?
     
     private let navigationController: UINavigationController
-    private let userId: UUID
+    private let user: User
     
     private var viewModel: UserTimelineViewModel?
     private var createPostCoordinator: CreatePostCoordinator?
     
     private let disposeBag = DisposeBag()
     
-    init(navigationController: UINavigationController, userId: UUID) {
+    init(navigationController: UINavigationController, user: User) {
         self.navigationController = navigationController
-        self.userId = userId
+        self.user = user
     }
     
     func start() {
@@ -27,7 +27,7 @@ class UserTimelineCoordinator {
     
     private func goToUserTimeline() {
         
-        let viewModel = UserTimelineViewModel(userId: userId, getPosts: Infrastructure.getPosts)
+        let viewModel = UserTimelineViewModel(user: user, getPosts: Infrastructure.getPosts)
         let viewController = UserTimelineViewController(viewModel: viewModel)
         
         observe(viewModel)
@@ -50,7 +50,7 @@ class UserTimelineCoordinator {
     
     private func goToCreatePost() {
         
-        createPostCoordinator = CreatePostCoordinator(navigationController: navigationController, userId: userId)
+        createPostCoordinator = CreatePostCoordinator(navigationController: navigationController, userId: user.id)
         createPostCoordinator?.onFinish = { [weak self] in self?.createPostCoordinatorFinished() }
         createPostCoordinator?.start()
     }

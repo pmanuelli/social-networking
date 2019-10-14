@@ -29,7 +29,7 @@ class ApplicationCoordinator {
     
     private func goToTimeline(_ user: User) {
         
-        userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, userId: user.id)
+        userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, user: user)
         
         userTimelineCoordinator?.onFinish = { [weak self] in self?.goToLogin() }
         userTimelineCoordinator?.start()

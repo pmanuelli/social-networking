@@ -22,10 +22,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waa-Tv-5DP">
-                                    <rect key="frame" x="35" y="282.5" width="344" height="331"/>
+                                    <rect key="frame" x="35" y="288" width="344" height="320"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-3z-wAs">
-                                            <rect key="frame" x="0.0" y="0.0" width="344" height="201"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="190"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-so-0kX" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
@@ -97,34 +97,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWP-PE-T3b">
-                                                    <rect key="frame" x="0.0" y="100" width="344" height="1"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g48-4m-exR" customClass="TwoColorsGradientView" customModule="UIKitExtensions">
-                                                            <rect key="frame" x="72" y="0.0" width="200" height="1"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="1" id="zqZ-0d-4Mb"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                                    <color key="value" name="Primary"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                                    <color key="value" name="Secondary"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="g48-4m-exR" secondAttribute="bottom" id="Kp9-e9-BgS"/>
-                                                        <constraint firstItem="g48-4m-exR" firstAttribute="top" secondItem="qWP-PE-T3b" secondAttribute="top" id="WCA-KR-faJ"/>
-                                                        <constraint firstItem="g48-4m-exR" firstAttribute="centerX" secondItem="qWP-PE-T3b" secondAttribute="centerX" id="oFj-GI-hgs"/>
-                                                    </constraints>
-                                                </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-VC-EgP" customClass="IBDesignableUIView" customModule="UIKitExtensions">
-                                                    <rect key="frame" x="0.0" y="111" width="344" height="40"/>
+                                                    <rect key="frame" x="0.0" y="100" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Given Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-T7-cGp">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
@@ -159,7 +133,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-Mi-HaN" customClass="IBDesignableUIView" customModule="UIKitExtensions">
-                                                    <rect key="frame" x="0.0" y="161" width="344" height="40"/>
+                                                    <rect key="frame" x="0.0" y="150" width="344" height="40"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Family Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8O-Zv-98Z">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
@@ -194,7 +168,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-1i-QVD">
-                                                    <rect key="frame" x="0.0" y="201" width="344" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="190" width="344" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" name="Error"/>
                                                     <nil key="highlightedColor"/>
@@ -202,7 +176,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-MQ-RB8" userLabel="Register User Button" customClass="PrimaryButton" customModule="SocialNetworking" customModuleProvider="target">
-                                            <rect key="frame" x="47" y="221" width="250" height="50"/>
+                                            <rect key="frame" x="47" y="210" width="250" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="4PY-bP-j5e"/>
                                                 <constraint firstAttribute="height" constant="50" id="7vM-U8-e5C"/>
@@ -213,7 +187,7 @@
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVu-Xq-Be5" customClass="IBDesignableUIButton" customModule="UIKitExtensions">
-                                            <rect key="frame" x="47" y="281" width="250" height="50"/>
+                                            <rect key="frame" x="47" y="270" width="250" height="50"/>
                                             <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="I already have an account">
@@ -243,7 +217,6 @@
                                         <constraint firstAttribute="trailing" secondItem="m1x-3z-wAs" secondAttribute="trailing" id="N61-2c-zsH"/>
                                         <constraint firstItem="Pg5-MQ-RB8" firstAttribute="centerX" secondItem="waa-Tv-5DP" secondAttribute="centerX" id="NJp-gi-WNJ"/>
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="leading" secondItem="waa-Tv-5DP" secondAttribute="leading" id="Rza-iv-SXC"/>
-                                        <constraint firstItem="g48-4m-exR" firstAttribute="width" secondItem="Pg5-MQ-RB8" secondAttribute="width" constant="-50" id="bJY-n7-jj7"/>
                                         <constraint firstItem="Pg5-MQ-RB8" firstAttribute="top" secondItem="m1x-3z-wAs" secondAttribute="bottom" constant="20" id="dYO-Lb-jMZ"/>
                                         <constraint firstItem="m1x-3z-wAs" firstAttribute="top" secondItem="waa-Tv-5DP" secondAttribute="top" id="rc6-eX-QWd"/>
                                     </constraints>
@@ -312,12 +285,6 @@
         </namedColor>
         <namedColor name="Error">
             <color red="0.94900000095367432" green="0.51899999380111694" blue="0.48500001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Primary">
-            <color red="0.28999999165534973" green="0.6119999885559082" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Secondary">
-            <color red="0.25499999523162842" green="0.92900002002716064" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

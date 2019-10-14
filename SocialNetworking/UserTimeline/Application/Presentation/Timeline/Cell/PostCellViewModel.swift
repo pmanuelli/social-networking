@@ -3,12 +3,16 @@ import Foundation
 
 struct PostCellViewModel {
     
+    let authorInitials: String
     let authorName: String
-    let text: String
+    let authorUsername: String
+    let body: String
     
-    init(post: Post) {
+    init(post: Post, author: User) {
         
-        authorName = String("\(post.userId)".prefix(2))
-        text = post.text
+        authorInitials = (author.givenName.prefix(1) + author.familyName.prefix(1)).uppercased()
+        authorName = author.givenName + " " + author.familyName
+        authorUsername = "@" + author.username
+        body = post.text
     }
 }
