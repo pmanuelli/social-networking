@@ -30,31 +30,42 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-P7-yGt" customClass="IBDesignableUIView" customModule="UIKitExtensions">
                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amr-YF-CDA" userLabel="Username Text Field">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2e-zh-9MR">
                                                             <rect key="frame" x="10" y="0.0" width="324" height="40"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="UrO-Bf-3Ww"/>
-                                                            </constraints>
-                                                            <color key="textColor" name="Above Level Font Body"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="username"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="0.0"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <outlet property="delegate" destination="iN0-l3-epB" id="qvM-3g-S1C"/>
-                                                            </connections>
-                                                        </textField>
+                                                            <subviews>
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJM-AS-zMh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <color key="textColor" name="Above Level Font Body"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amr-YF-CDA" userLabel="Username Text Field">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="40"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="UrO-Bf-3Ww"/>
+                                                                    </constraints>
+                                                                    <color key="textColor" name="Above Level Font Body"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="username"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="0.0"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="iN0-l3-epB" id="qvM-3g-S1C"/>
+                                                                    </connections>
+                                                                </textField>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Above Level Background"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Amr-YF-CDA" secondAttribute="bottom" id="CdB-VS-Hvz"/>
-                                                        <constraint firstItem="Amr-YF-CDA" firstAttribute="leading" secondItem="xgN-P7-yGt" secondAttribute="leading" constant="10" id="cmB-pm-kEq"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Amr-YF-CDA" secondAttribute="trailing" constant="10" id="gG5-BW-e6k"/>
-                                                        <constraint firstItem="Amr-YF-CDA" firstAttribute="top" secondItem="xgN-P7-yGt" secondAttribute="top" id="mYM-Vf-7Xk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O2e-zh-9MR" secondAttribute="trailing" constant="10" id="2li-cl-RRE"/>
+                                                        <constraint firstAttribute="bottom" secondItem="O2e-zh-9MR" secondAttribute="bottom" id="5c9-LG-81h"/>
+                                                        <constraint firstItem="O2e-zh-9MR" firstAttribute="leading" secondItem="xgN-P7-yGt" secondAttribute="leading" constant="10" id="K9s-qD-SC6"/>
+                                                        <constraint firstItem="O2e-zh-9MR" firstAttribute="top" secondItem="xgN-P7-yGt" secondAttribute="top" id="LU3-nF-9PH"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -193,6 +204,7 @@
                 <outlet property="loginUserButton" destination="HTU-bc-XZq" id="29b-J7-iw5"/>
                 <outlet property="passwordTextField" destination="cUV-aT-u5d" id="jCA-cz-xM4"/>
                 <outlet property="registerUserButton" destination="rrJ-gY-hh5" id="dXf-sY-hrM"/>
+                <outlet property="usernameAtLabel" destination="tJM-AS-zMh" id="I1F-pi-tI7"/>
                 <outlet property="usernameTextField" destination="Amr-YF-CDA" id="wso-Gj-Or8"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>

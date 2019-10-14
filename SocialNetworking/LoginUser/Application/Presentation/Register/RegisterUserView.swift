@@ -6,10 +6,13 @@ import RxKeyboard
 
 class RegisterUserView: UIView {
 
+    @IBOutlet var usernameAtLabel: UILabel!
+    
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var givenNameTextField: UITextField!
     @IBOutlet var familyNameTextField: UITextField!
+    
     @IBOutlet var errorLabel: UILabel!
 
     @IBOutlet var registerUserButton: PrimaryButton!
@@ -32,7 +35,9 @@ class RegisterUserView: UIView {
     private func setupTextFields() {
         
         textFields = [usernameTextField, passwordTextField, givenNameTextField, familyNameTextField]
-        textFields.forEach { setupPlaceholderTextColor($0)  }
+        textFields.forEach { setupPlaceholderTextColor($0) }
+        
+        usernameTextField.addTarget(self, action: #selector(usernameTextDidChange), for: .editingChanged)
     }
     
     private func setupPlaceholderTextColor(_ textField: UITextField) {
@@ -54,6 +59,20 @@ class RegisterUserView: UIView {
         
         keyboardAdjustmentViewHeightConstraint.constant = height
         layoutIfNeeded()
+    }
+    
+    @objc
+    private func usernameTextDidChange() {
+        
+        let isEmpty = usernameTextField.text?.isEmpty ?? true
+        
+        UIView.animate(withDuration: 0.25,
+                       animations: { self.setUsernameAtLabel(isHidden: isEmpty) })
+    }
+    
+    private func setUsernameAtLabel(isHidden: Bool) {
+        usernameAtLabel.alpha = isHidden ? 0 : 1
+        usernameAtLabel.isHidden = isHidden
     }
 }
 
@@ -84,17 +103,20 @@ extension RegisterUserView {
     func showErrorLabel(_ text: String) {
         guard errorLabel.isHidden else { return }
         
-        UIView.animate(withDuration: 0.25, animations: {
-            self.errorLabel.text = text
-            self.errorLabel.alpha = 1
-            self.errorLabel.isHidden = false })
+        UIView.animate(withDuration: 0.25,
+                       animations: { self.setErrorLabel(text: text, isHidden: false) })
     }
     
     func hideErrorLabel() {
         guard !errorLabel.isHidden else { return }
         
-        UIView.animate(withDuration: 0.25, animations: {
-            self.errorLabel.alpha = 0
-            self.errorLabel.isHidden = true })
+        UIView.animate(withDuration: 0.25,
+                       animations: { self.setErrorLabel(text: " ", isHidden: true) })
+    }
+    
+    private func setErrorLabel(text: String, isHidden: Bool) {
+        errorLabel.text = text
+        errorLabel.alpha = isHidden ? 0 : 1
+        errorLabel.isHidden = isHidden
     }
 }
