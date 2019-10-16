@@ -26,6 +26,7 @@
 		6E1E02462340493200306025 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E02412340493200306025 /* CreatePostView.swift */; };
 		6E1E02472340493200306025 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E02422340493200306025 /* CreatePostViewModel.swift */; };
 		6E1E02482340493200306025 /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E02432340493200306025 /* CreatePostView.xib */; };
+		6E3D4D6023569FC50037CA9F /* UserTimelineHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D4D5F23569FC50037CA9F /* UserTimelineHeaderViewModel.swift */; };
 		6E534DC823414824008A5BD7 /* UIButton+TouchUpInsideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E534DC723414824008A5BD7 /* UIButton+TouchUpInsideAnimation.swift */; };
 		6E534DCC23415704008A5BD7 /* LanguageServiceDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E534DCB23415704008A5BD7 /* LanguageServiceDefaultTests.swift */; };
 		6E534DD023415F03008A5BD7 /* InMemoryPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E534DCF23415F03008A5BD7 /* InMemoryPostRepository.swift */; };
@@ -116,6 +117,7 @@
 		6E1E02412340493200306025 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		6E1E02422340493200306025 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		6E1E02432340493200306025 /* CreatePostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostView.xib; sourceTree = "<group>"; };
+		6E3D4D5F23569FC50037CA9F /* UserTimelineHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTimelineHeaderViewModel.swift; sourceTree = "<group>"; };
 		6E534DC723414824008A5BD7 /* UIButton+TouchUpInsideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TouchUpInsideAnimation.swift"; sourceTree = "<group>"; };
 		6E534DCB23415704008A5BD7 /* LanguageServiceDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageServiceDefaultTests.swift; sourceTree = "<group>"; };
 		6E534DCF23415F03008A5BD7 /* InMemoryPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryPostRepository.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				6E1E023F2340493200306025 /* UserTimelineCoordinator.swift */,
+				6E3D4D5F23569FC50037CA9F /* UserTimelineHeaderViewModel.swift */,
 				6E534DD8234183CB008A5BD7 /* UserTimelineViewModel.swift */,
 				6E534DD22341831C008A5BD7 /* UserTimelineViewController.swift */,
 				6E534DD62341833E008A5BD7 /* UserTimelineView.swift */,
@@ -949,6 +952,7 @@
 				6EF9D6A62336EC710041803D /* RegistrationData.swift in Sources */,
 				E9F5A7FD232E823200CE8BEF /* ApplicationCoordinator.swift in Sources */,
 				6E534DC823414824008A5BD7 /* UIButton+TouchUpInsideAnimation.swift in Sources */,
+				6E3D4D6023569FC50037CA9F /* UserTimelineHeaderViewModel.swift in Sources */,
 				6E0C143923330162000D1524 /* UIView+Animation.swift in Sources */,
 				6E1E02462340493200306025 /* CreatePostView.swift in Sources */,
 				6E1E023B234018DB00306025 /* LanguageService.swift in Sources */,

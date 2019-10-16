@@ -5,8 +5,9 @@ class UserTimelineView: UIView {
     
     @IBOutlet var logoutButton: UIButton!
 
+    @IBOutlet var initialsLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var completeNameLabel: UILabel!
     
     @IBOutlet var postTableView: UITableView!
     

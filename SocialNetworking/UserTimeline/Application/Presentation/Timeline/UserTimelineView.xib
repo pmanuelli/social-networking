@@ -215,10 +215,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="completeNameLabel" destination="fgk-nC-zjY" id="S7N-Sq-tnX"/>
                 <outlet property="createPostButton" destination="1Wv-kt-tzN" id="PUQ-X5-Sdw"/>
                 <outlet property="createPostButtonContainer" destination="FWY-SK-PQZ" id="L15-YH-u8Y"/>
+                <outlet property="initialsLabel" destination="ExN-DX-4Gf" id="BBs-Ec-rwk"/>
                 <outlet property="logoutButton" destination="zHe-ds-A53" id="Ian-Wd-G3C"/>
+                <outlet property="nameLabel" destination="fgk-nC-zjY" id="S7N-Sq-tnX"/>
                 <outlet property="postTableView" destination="mbW-GN-cgn" id="b9U-AR-W6y"/>
                 <outlet property="usernameLabel" destination="Kvy-ej-l7S" id="5vW-m2-0F3"/>
             </connections>
