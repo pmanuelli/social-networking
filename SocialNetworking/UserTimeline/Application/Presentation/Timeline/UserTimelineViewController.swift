@@ -44,9 +44,9 @@ class UserTimelineViewController: UIViewController {
     
     private func bindHeaderView() {
         
-        mainView.initialsLabel.text = viewModel.output.headerViewModel.initials
-        mainView.nameLabel.text = viewModel.output.headerViewModel.name
-        mainView.usernameLabel.text = viewModel.output.headerViewModel.username
+        mainView.topBar.initialsLabel.text = viewModel.output.headerViewModel.initials
+        mainView.topBar.nameLabel.text = viewModel.output.headerViewModel.name
+        mainView.topBar.usernameLabel.text = viewModel.output.headerViewModel.username
     }
     
     private func bindPostTableView() {
@@ -67,13 +67,13 @@ class UserTimelineViewController: UIViewController {
 
     private func bindLogoutButton() {
         
-        mainView.logoutButton.addTarget(self, action: #selector(logoutButtonTouched), for: .touchUpInside)
+        mainView.topBar.logoutButton.addTarget(self, action: #selector(logoutButtonTouched), for: .touchUpInside)
     }
 
     @objc
     private func logoutButtonTouched() {
         
-        mainView.logoutButton.applyTouchUpInsideAnimation() {
+        mainView.topBar.logoutButton.applyTouchUpInsideAnimation() {
             self.viewModel.logoutButtonTouched()
         }
     }

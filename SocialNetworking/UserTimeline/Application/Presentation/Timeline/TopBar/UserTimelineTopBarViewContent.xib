@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserTimelineTopBarView" customModule="SocialNetworking" customModuleProvider="target">
+            <connections>
+                <outlet property="initialsLabel" destination="lTM-6X-5SQ" id="Oe0-7S-nUU"/>
+                <outlet property="logoutButton" destination="i30-ko-oTx" id="eWc-jq-kDC"/>
+                <outlet property="nameLabel" destination="JRn-JW-Nsm" id="5pq-dD-BgV"/>
+                <outlet property="usernameLabel" destination="Aei-0A-yWE" id="4uf-cs-tlz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STb-aI-60e" customClass="IBDesignableUIView" customModule="UIKitExtensions">
+                    <rect key="frame" x="15" y="17.5" width="50" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTM-6X-5SQ">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <color key="textColor" name="At Level Font Title"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="Above Level Background"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="lTM-6X-5SQ" secondAttribute="trailing" id="L9U-YE-SuS"/>
+                        <constraint firstItem="lTM-6X-5SQ" firstAttribute="leading" secondItem="STb-aI-60e" secondAttribute="leading" id="Wqr-4z-Yvb"/>
+                        <constraint firstAttribute="bottom" secondItem="lTM-6X-5SQ" secondAttribute="bottom" id="Zdg-JN-8qL"/>
+                        <constraint firstAttribute="height" constant="50" id="Zza-bl-7mg"/>
+                        <constraint firstItem="lTM-6X-5SQ" firstAttribute="top" secondItem="STb-aI-60e" secondAttribute="top" id="kLN-jA-4ZR"/>
+                        <constraint firstAttribute="width" secondItem="STb-aI-60e" secondAttribute="height" multiplier="1:1" id="maO-lm-fSY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                            <color key="value" name="At Level Font Title"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kdY-al-YEy">
+                    <rect key="frame" x="75" y="17.5" width="85.5" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRn-JW-Nsm">
+                            <rect key="frame" x="0.0" y="0.0" width="85.5" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <color key="textColor" name="At Level Font Title"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@john.doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aei-0A-yWE">
+                            <rect key="frame" x="0.0" y="29.5" width="85.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="Below Level Font Body"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i30-ko-oTx">
+                    <rect key="frame" x="349" y="17.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="AKv-Ri-Rfc"/>
+                        <constraint firstAttribute="width" secondItem="i30-ko-oTx" secondAttribute="height" multiplier="1:1" id="izC-JN-sTB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" name="At Level Font Body"/>
+                    <state key="normal" image="escape" catalog="system">
+                        <color key="titleColor" name="At Level Font Body"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="STb-aI-60e" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4ep-OB-U9W"/>
+                <constraint firstItem="kdY-al-YEy" firstAttribute="bottom" secondItem="STb-aI-60e" secondAttribute="bottom" id="FEx-xg-OLe"/>
+                <constraint firstAttribute="trailing" secondItem="i30-ko-oTx" secondAttribute="trailing" constant="15" id="QMg-pv-dx8"/>
+                <constraint firstItem="i30-ko-oTx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aFU-bO-0et"/>
+                <constraint firstItem="STb-aI-60e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="fzL-OJ-Rhb"/>
+                <constraint firstItem="kdY-al-YEy" firstAttribute="top" secondItem="STb-aI-60e" secondAttribute="top" id="lba-ga-Yli"/>
+                <constraint firstItem="kdY-al-YEy" firstAttribute="leading" secondItem="STb-aI-60e" secondAttribute="trailing" constant="10" id="nnC-1V-Anx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="30.434782608695656" y="120.20089285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="escape" catalog="system" width="64" height="62"/>
+        <namedColor name="Above Level Background">
+            <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="At Level Font Body">
+            <color white="0.75199997425079346" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="At Level Font Title">
+            <color white="0.79500001668930054" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="Below Level Font Body">
+            <color white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
+</document>

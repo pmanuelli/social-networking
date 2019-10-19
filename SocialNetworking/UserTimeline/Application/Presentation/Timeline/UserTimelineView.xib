@@ -18,81 +18,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhK-3K-0v0" userLabel="Top Bar Container">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRk-m7-UNT" userLabel="Top Bar">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRk-m7-UNT" userLabel="Top Bar" customClass="UserTimelineTopBarView" customModule="SocialNetworking" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="44" width="414" height="75"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQU-MB-NQa" customClass="IBDesignableUIView" customModule="UIKitExtensions">
-                                    <rect key="frame" x="15" y="12.5" width="50" height="50"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExN-DX-4Gf">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                            <color key="textColor" name="At Level Font Title"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" name="Above Level Background"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="ExN-DX-4Gf" secondAttribute="trailing" id="2Bp-Rx-uhR"/>
-                                        <constraint firstAttribute="bottom" secondItem="ExN-DX-4Gf" secondAttribute="bottom" id="Apg-B6-E9c"/>
-                                        <constraint firstItem="ExN-DX-4Gf" firstAttribute="leading" secondItem="AQU-MB-NQa" secondAttribute="leading" id="Pbn-wi-Uwi"/>
-                                        <constraint firstAttribute="width" secondItem="AQU-MB-NQa" secondAttribute="height" multiplier="1:1" id="WzK-4w-hgS"/>
-                                        <constraint firstItem="ExN-DX-4Gf" firstAttribute="top" secondItem="AQU-MB-NQa" secondAttribute="top" id="lq5-sX-2iE"/>
-                                        <constraint firstAttribute="height" constant="50" id="pUx-aD-3BK"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="25"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
-                                            <color key="value" name="At Level Font Title"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="n2Y-Id-Vty">
-                                    <rect key="frame" x="75" y="12.5" width="85.5" height="50"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgk-nC-zjY">
-                                            <rect key="frame" x="0.0" y="0.0" width="85.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                            <color key="textColor" name="At Level Font Title"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@john.doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvy-ej-l7S">
-                                            <rect key="frame" x="0.0" y="29.5" width="85.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" name="Below Level Font Body"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-ds-A53">
-                                    <rect key="frame" x="349" y="12.5" width="50" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="0Cr-Uv-v9a"/>
-                                        <constraint firstAttribute="width" secondItem="zHe-ds-A53" secondAttribute="height" multiplier="1:1" id="mAc-x9-8WF"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="tintColor" name="At Level Font Body"/>
-                                    <state key="normal" image="escape" catalog="system">
-                                        <color key="titleColor" name="At Level Font Body"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
-                                    </state>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="n2Y-Id-Vty" firstAttribute="leading" secondItem="AQU-MB-NQa" secondAttribute="trailing" constant="10" id="0Lr-pt-VoT"/>
-                                <constraint firstAttribute="trailing" secondItem="zHe-ds-A53" secondAttribute="trailing" constant="15" id="Ffd-Vf-ve8"/>
-                                <constraint firstItem="AQU-MB-NQa" firstAttribute="centerY" secondItem="NRk-m7-UNT" secondAttribute="centerY" id="hRv-mh-abY"/>
-                                <constraint firstItem="n2Y-Id-Vty" firstAttribute="top" secondItem="AQU-MB-NQa" secondAttribute="top" id="lAG-fT-QGW"/>
                                 <constraint firstAttribute="height" constant="75" id="ljk-Cq-y76"/>
-                                <constraint firstItem="AQU-MB-NQa" firstAttribute="leading" secondItem="NRk-m7-UNT" secondAttribute="leading" constant="15" id="m25-Fh-650"/>
-                                <constraint firstItem="n2Y-Id-Vty" firstAttribute="bottom" secondItem="AQU-MB-NQa" secondAttribute="bottom" id="tcr-7b-EWx"/>
-                                <constraint firstItem="zHe-ds-A53" firstAttribute="centerY" secondItem="NRk-m7-UNT" secondAttribute="centerY" id="tsB-AR-4sl"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-EP-Pzf" userLabel="Line">
@@ -217,35 +147,19 @@
             <connections>
                 <outlet property="createPostButton" destination="1Wv-kt-tzN" id="PUQ-X5-Sdw"/>
                 <outlet property="createPostButtonContainer" destination="FWY-SK-PQZ" id="L15-YH-u8Y"/>
-                <outlet property="initialsLabel" destination="ExN-DX-4Gf" id="BBs-Ec-rwk"/>
-                <outlet property="logoutButton" destination="zHe-ds-A53" id="Ian-Wd-G3C"/>
-                <outlet property="nameLabel" destination="fgk-nC-zjY" id="S7N-Sq-tnX"/>
                 <outlet property="postTableView" destination="mbW-GN-cgn" id="b9U-AR-W6y"/>
-                <outlet property="usernameLabel" destination="Kvy-ej-l7S" id="5vW-m2-0F3"/>
+                <outlet property="topBar" destination="NRk-m7-UNT" id="QZO-AZ-9U7"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
     <resources>
-        <image name="escape" catalog="system" width="64" height="62"/>
         <image name="pencil" catalog="system" width="64" height="58"/>
-        <namedColor name="Above Level Background">
-            <color red="0.28200000524520874" green="0.28200000524520874" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="At Level Background">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="At Level Font Body">
-            <color white="0.75199997425079346" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
-        <namedColor name="At Level Font Title">
-            <color white="0.79500001668930054" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
         <namedColor name="Below Level Background">
             <color red="0.14900000393390656" green="0.14900000393390656" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Below Level Font Body">
-            <color white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.28999999165534973" green="0.6119999885559082" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
