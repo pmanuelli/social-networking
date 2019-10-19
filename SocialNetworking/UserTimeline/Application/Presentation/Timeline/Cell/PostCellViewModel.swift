@@ -7,6 +7,7 @@ struct PostCellViewModel {
     let authorName: String
     let authorUsername: String
     let body: String
+    let time: String
     
     init(post: Post, author: User) {
         
@@ -14,5 +15,6 @@ struct PostCellViewModel {
         authorName = author.givenName + " " + author.familyName
         authorUsername = "@" + author.username
         body = post.text
+        time = PostTimeDescription.description(for: post.date)
     }
 }

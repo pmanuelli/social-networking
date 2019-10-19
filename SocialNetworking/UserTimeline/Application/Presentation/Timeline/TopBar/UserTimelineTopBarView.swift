@@ -5,13 +5,13 @@ import UIKitExtensions
 @IBDesignable
 class UserTimelineTopBarView: UIView {
     
-    @IBOutlet var initialsLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet private var initialsLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var usernameLabel: UILabel!
     
     @IBOutlet var logoutButton: UIButton!
     
-    var viewModel: UserTimelineTopBarViewModel = .empty { didSet { bindViewModel() } }
+    var viewModel: UserTimelineTopBarViewModel? { didSet { bindViewModel() } }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,13 @@ class UserTimelineTopBarView: UIView {
     }
     
     private func bindViewModel() {
-                
+        guard let viewModel = viewModel else { return }
+        
+        bindViewModel(viewModel)
+    }
+    
+    private func bindViewModel(_ viewModel: UserTimelineTopBarViewModel) {
+        
         initialsLabel.text = viewModel.initials
         nameLabel.text = viewModel.name
         usernameLabel.text = viewModel.username

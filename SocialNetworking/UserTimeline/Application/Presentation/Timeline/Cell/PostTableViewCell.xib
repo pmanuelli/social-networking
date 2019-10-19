@@ -60,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uzz-66-Sax">
-                                <rect key="frame" x="0.0" y="0.0" width="177" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="212" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3q-B4-ep6">
                                         <rect key="frame" x="0.0" y="0.0" width="85.5" height="24"/>
@@ -70,6 +70,12 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@john.doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1b-ia-G4h">
                                         <rect key="frame" x="95.5" y="0.0" width="81.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="Below Level Font Body"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-83-gaL">
+                                        <rect key="frame" x="187" y="0.0" width="25" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="Below Level Font Body"/>
                                         <nil key="highlightedColor"/>
@@ -115,6 +121,7 @@
                 <outlet property="authorNameLabel" destination="K3q-B4-ep6" id="uKB-8S-pS0"/>
                 <outlet property="authorUsernameLabel" destination="S1b-ia-G4h" id="RYf-EP-qJg"/>
                 <outlet property="bodyLabel" destination="FUg-0n-vVz" id="8oR-q2-mBY"/>
+                <outlet property="timeLabel" destination="eNs-83-gaL" id="p0j-jC-uGY"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="143.30357142857142"/>
         </tableViewCell>

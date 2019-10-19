@@ -13,8 +13,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet private var authorInitialsLabel: UILabel!
     @IBOutlet private var authorNameLabel: UILabel!
     @IBOutlet private var authorUsernameLabel: UILabel!
+    @IBOutlet private var timeLabel: UILabel!
     @IBOutlet private var bodyLabel: UILabel!
-        
+    
     private func bindViewModel() {
         guard let viewModel = viewModel else { return }
         
@@ -26,6 +27,7 @@ class PostTableViewCell: UITableViewCell {
         authorInitialsLabel.text = viewModel.authorInitials
         authorNameLabel.text = viewModel.authorName
         authorUsernameLabel.text = viewModel.authorUsername
+        timeLabel.text = viewModel.time
         bodyLabel.text = viewModel.body
     }
 }
