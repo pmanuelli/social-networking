@@ -44,9 +44,7 @@ class UserTimelineViewController: UIViewController {
     
     private func bindHeaderView() {
         
-        mainView.topBar.initialsLabel.text = viewModel.output.headerViewModel.initials
-        mainView.topBar.nameLabel.text = viewModel.output.headerViewModel.name
-        mainView.topBar.usernameLabel.text = viewModel.output.headerViewModel.username
+        mainView.topBar.viewModel = viewModel.output.topBarViewModel
     }
     
     private func bindPostTableView() {

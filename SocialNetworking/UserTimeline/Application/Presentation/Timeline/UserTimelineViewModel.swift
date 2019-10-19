@@ -6,7 +6,7 @@ class UserTimelineViewModel {
         
     struct Output {
         
-        let headerViewModel: UserTimelineHeaderViewModel
+        let topBarViewModel: UserTimelineTopBarViewModel
         let postViewModels: Driver<[PostCellViewModel]>
         let createPostButtonTouch: Driver<Void>
         let logoutButtonTouch: Driver<Void>
@@ -29,16 +29,12 @@ class UserTimelineViewModel {
     
     private func createOutput() -> Output {
         
-        return Output(headerViewModel: createHeaderViewModel(),
+        return Output(topBarViewModel: UserTimelineTopBarViewModel(user: user),
                       postViewModels: postViewModelsSubject.asDriver(onErrorJustReturn: []),
                       createPostButtonTouch: createPostButtonTouchSubject.asDriver(),
                       logoutButtonTouch: logoutButtonTouchSubject.asDriver())
     }
-    
-    private func createHeaderViewModel() -> UserTimelineHeaderViewModel {
-        return UserTimelineHeaderViewModel(user: user)
-    }
-    
+        
     func viewDidAppear() {
         
         getPosts.execute(userId: user.id)

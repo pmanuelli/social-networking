@@ -11,6 +11,8 @@ class UserTimelineTopBarView: UIView {
     
     @IBOutlet var logoutButton: UIButton!
     
+    var viewModel: UserTimelineTopBarViewModel = .empty { didSet { bindViewModel() } }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -21,5 +23,12 @@ class UserTimelineTopBarView: UIView {
         super.init(coder: coder)
         
         ViewContentLoader.loadContent(for: self)
+    }
+    
+    private func bindViewModel() {
+                
+        initialsLabel.text = viewModel.initials
+        nameLabel.text = viewModel.name
+        usernameLabel.text = viewModel.username
     }
 }
