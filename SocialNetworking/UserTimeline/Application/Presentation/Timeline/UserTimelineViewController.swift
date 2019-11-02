@@ -15,8 +15,8 @@ class UserTimelineViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: .none, bundle: .none)
     }
-    
-    required init?(coder aDecoder: NSCoder) { return nil }
+
+    required init?(coder: NSCoder) { return nil }
     
     override func loadView() {
         view = mainView

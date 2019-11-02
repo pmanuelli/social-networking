@@ -11,6 +11,7 @@ class UserTimelineView: UIView {
     @IBOutlet var createPostButtonContainer: UIView!
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         
         postTableView.register(PostTableViewCell.nib, forCellReuseIdentifier: PostTableViewCell.identifier)
     }
