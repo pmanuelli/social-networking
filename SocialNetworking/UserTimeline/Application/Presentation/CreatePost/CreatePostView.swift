@@ -13,6 +13,11 @@ class CreatePostView: UIView {
         setupButton()
     }
     
+    func showKeyboard() {
+        
+        postTextView.becomeFirstResponder()
+    }
+    
     private func setupPostTextView() {
     
         setPostTextViewInsets()

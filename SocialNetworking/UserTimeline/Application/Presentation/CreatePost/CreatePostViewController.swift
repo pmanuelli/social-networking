@@ -27,6 +27,12 @@ class CreatePostViewController: UIViewController {
 
         bindViewModel()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        mainView.showKeyboard()
+    }
 
     private func bindViewModel() {
 
