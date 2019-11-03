@@ -6,6 +6,7 @@ protocol UserService {
     
     func registerUser(data: RegistrationData) -> Single<User>
     func loginUser(credentials: UserCredentials) -> Single<User>
+    func getAllUsers() -> Single<[User]>
 }
 
 class UserServiceDefault: UserService {
@@ -62,5 +63,9 @@ class UserServiceDefault: UserService {
             
             return user
         }
+    }
+    
+    func getAllUsers() -> Single<[User]> {
+        abort()
     }
 }

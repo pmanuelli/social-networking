@@ -13,7 +13,7 @@ class GetPostsDefaultTests: XCTestCase {
     // Dependencies
     private let postService = PostServiceMock()
     
-    // Object to test
+    // Object under test
     private lazy var action = GetPostsDefault(postService: postService)
     
     private var returnedPosts: [Post]?
