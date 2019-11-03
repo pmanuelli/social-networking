@@ -16,22 +16,28 @@ class ApplicationCoordinator {
     
     func start() {
         
-        goToLogin()
+        startLogin()
     }
     
-    private func goToLogin() {
+    private func startLogin() {
         
         loginUserCoordinator = LoginUserCoordinator(navigationController: navigationController)
         
-        loginUserCoordinator?.onFinish = { [weak self] in self?.goToTimeline($0) }
+        loginUserCoordinator?.onFinish = { [weak self] in self?.startTimeline($0) }
         loginUserCoordinator?.start()
     }
     
-    private func goToTimeline(_ user: User) {
+    private func startTimeline(_ user: User) {
         
         userTimelineCoordinator = UserTimelineCoordinator(navigationController: navigationController, user: user)
         
-        userTimelineCoordinator?.onFinish = { [weak self] in self?.goToLogin() }
+        userTimelineCoordinator?.onFinish = { [weak self] in self?.stopTimeline() }
         userTimelineCoordinator?.start()
+    }
+    
+    private func stopTimeline() {
+        
+        startLogin()
+        userTimelineCoordinator?.stop()
     }
 }

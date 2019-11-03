@@ -9,7 +9,7 @@ class CreatePostCoordinator {
     
     private let navigationController: UINavigationController
     private let userId: UUID
-        
+    
     private let disposeBag = DisposeBag()
     
     init(navigationController: UINavigationController, userId: UUID) {
@@ -19,10 +19,15 @@ class CreatePostCoordinator {
     
     func start() {
         
-        goToCreatePost()
+        startCreatePost()
     }
     
-    private func goToCreatePost() {
+    func stop() {
+        
+        stopCreatePost()
+    }
+    
+    private func startCreatePost() {
         
         let viewModel = CreatePostViewModel(userId: userId, createPost: Infrastructure.createPost)
         let viewController = CreatePostViewController(viewModel: viewModel)
@@ -35,11 +40,15 @@ class CreatePostCoordinator {
     private func observe(_ viewModel: CreatePostViewModel) {
         
         viewModel.output.didCreatePost
-            .subscribe { [weak self] _ in self?.dismissViewController() }
+            .subscribe { [weak self] _ in self?.postCreated() }
             .disposed(by: disposeBag)
     }
     
-    private func dismissViewController() {
-        navigationController.dismiss(animated: true) { self.onFinish?() }
+    private func postCreated() {
+        onFinish?()
+    }
+    
+    private func stopCreatePost() {
+        navigationController.dismiss(animated: true)
     }
 }

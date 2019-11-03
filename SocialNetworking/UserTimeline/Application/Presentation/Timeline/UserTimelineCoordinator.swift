@@ -7,32 +7,45 @@ class UserTimelineCoordinator {
     
     var onFinish: (() -> Void)?
     
-    private let navigationController: UINavigationController
+    private let rootNavigationController: UINavigationController
+    private let navigationController = UINavigationController()
     private let user: User
     
     private var viewModel: UserTimelineViewModel?
     private var createPostCoordinator: CreatePostCoordinator?
     
+    private let transitioningDelegate = FlipTransitioningDelegate()
+
     private let disposeBag = DisposeBag()
-    
+        
     init(navigationController: UINavigationController, user: User) {
-        self.navigationController = navigationController
+        self.rootNavigationController = navigationController
         self.user = user
     }
     
     func start() {
         
-        goToUserTimeline()
+        startTimeline()
     }
     
-    private func goToUserTimeline() {
+    func stop() {
+        
+        stopTimeline()
+    }
+    
+    private func startTimeline() {
         
         let viewModel = UserTimelineViewModel(user: user, getPosts: Infrastructure.getPosts)
         let viewController = UserTimelineViewController(viewModel: viewModel)
         
         observe(viewModel)
         
-        navigationController.pushViewController(viewController, animated: true)
+        navigationController.viewControllers = [viewController]
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.setNavigationBarHidden(true, animated: false)
+        navigationController.transitioningDelegate = transitioningDelegate
+        
+        rootNavigationController.present(navigationController, animated: true)
         
         self.viewModel = viewModel
     }
@@ -40,22 +53,32 @@ class UserTimelineCoordinator {
     private func observe(_ viewModel: UserTimelineViewModel) {
         
         viewModel.output.createPostButtonTouch
-            .drive(onNext: { [weak self] _ in self?.goToCreatePost() })
+            .drive(onNext: { [weak self] _ in self?.startCreatePost() })
             .disposed(by: disposeBag)
         
         viewModel.output.logoutButtonTouch
-            .drive(onNext: { [weak self] _ in self?.onFinish?() })
+            .drive(onNext: { [weak self] _ in self?.logoutButtonTouched() })
             .disposed(by: disposeBag)
     }
-    
-    private func goToCreatePost() {
+        
+    private func startCreatePost() {
         
         createPostCoordinator = CreatePostCoordinator(navigationController: navigationController, userId: user.id)
-        createPostCoordinator?.onFinish = { [weak self] in self?.createPostCoordinatorFinished() }
+        createPostCoordinator?.onFinish = { [weak self] in self?.stopCreatePost() }
         createPostCoordinator?.start()
     }
     
-    private func createPostCoordinatorFinished() {
+    private func stopCreatePost() {
+        
         viewModel?.viewDidAppear()
+        createPostCoordinator?.stop()
+    }
+    
+    private func logoutButtonTouched() {
+        onFinish?()
+    }
+    
+    private func stopTimeline() {
+        rootNavigationController.dismiss(animated: true)
     }
 }

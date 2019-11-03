@@ -57,6 +57,7 @@
 		6E88F41A233EEA5000866CCA /* InappropriateLanguageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E88F419233EEA5000866CCA /* InappropriateLanguageError.swift */; };
 		6E9276C2233669A900069595 /* PrimaryButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9276C1233669A900069595 /* PrimaryButton+Animation.swift */; };
 		6E9FE292233823EA008111C8 /* LoginUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */; };
+		6EA4E59F236F5424004600B5 /* FlipTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA4E59E236F5424004600B5 /* FlipTransitioningDelegate.swift */; };
 		6EAEDBDA235386B200384007 /* Infrastructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAEDBD9235386B200384007 /* Infrastructure.swift */; };
 		6EAEDBDC235418CB00384007 /* CreatePostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAEDBDB235418CB00384007 /* CreatePostCoordinator.swift */; };
 		6EB82DCF23372DF50072947E /* UsernameAlreadyInUseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */; };
@@ -153,6 +154,7 @@
 		6E88F419233EEA5000866CCA /* InappropriateLanguageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappropriateLanguageError.swift; sourceTree = "<group>"; };
 		6E9276C1233669A900069595 /* PrimaryButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton+Animation.swift"; sourceTree = "<group>"; };
 		6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserViewModelTests.swift; sourceTree = "<group>"; };
+		6EA4E59E236F5424004600B5 /* FlipTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipTransitioningDelegate.swift; sourceTree = "<group>"; };
 		6EAEDBD9235386B200384007 /* Infrastructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure.swift; sourceTree = "<group>"; };
 		6EAEDBDB235418CB00384007 /* CreatePostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostCoordinator.swift; sourceTree = "<group>"; };
 		6EB82DCE23372DF50072947E /* UsernameAlreadyInUseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAlreadyInUseError.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				6E534DD22341831C008A5BD7 /* UserTimelineViewController.swift */,
 				6E534DD62341833E008A5BD7 /* UserTimelineView.swift */,
 				6E534DD42341832C008A5BD7 /* UserTimelineView.xib */,
+				6EA4E59E236F5424004600B5 /* FlipTransitioningDelegate.swift */,
 				6E3D4D632356A2330037CA9F /* TopBar */,
 				6EFAD4AA2352883C0012E4DB /* Cell */,
 			);
@@ -1040,6 +1043,7 @@
 				6E88F405233EE02400866CCA /* CreatePost.swift in Sources */,
 				6E88F41A233EEA5000866CCA /* InappropriateLanguageError.swift in Sources */,
 				6EE15C412336DA7D004AA235 /* NSError+Extension.swift in Sources */,
+				6EA4E59F236F5424004600B5 /* FlipTransitioningDelegate.swift in Sources */,
 				6E1CA945233810210045E066 /* LoginUserViewModel.swift in Sources */,
 				6E8213C823383247005EC9DC /* LoginUser.swift in Sources */,
 				E913656823307CF10015CF99 /* RegisterUserViewController.swift in Sources */,
