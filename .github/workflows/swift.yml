@@ -5,15 +5,19 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
+    
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
 
     steps:
     - uses: actions/checkout@v1
     - name: Build
       run: | 
         cd SocialNetworking
-        swift build -v
+        xcodebuild clean build -project SocialNetworking.xcodeproj -scheme SocialNetworking -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
     - name: Run tests
       run: |
         cd SocialNetworking
-        swift test -v
+        xcodebuild clean test -project SocialNetworking.xcodeproj -scheme SocialNetworking -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
