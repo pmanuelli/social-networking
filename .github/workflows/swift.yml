@@ -11,6 +11,9 @@ jobs:
       matrix:
         destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
 
+    env:
+      destination: ${{ matrix.destination }}
+    
     steps:
     - uses: actions/checkout@v1
     - name: Build
