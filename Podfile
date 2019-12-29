@@ -1,5 +1,5 @@
 
-platform :ios, '12.0'
+platform :ios, '13.0'
 
 target 'SocialNetworking' do
 
