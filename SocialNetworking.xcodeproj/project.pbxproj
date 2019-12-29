@@ -155,7 +155,6 @@
 		6E88F409233EE13600866CCA /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		6E88F40E233EE1FF00866CCA /* CreatePostDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostDefaultTests.swift; sourceTree = "<group>"; };
 		6E88F412233EE6E100866CCA /* PostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBuilder.swift; sourceTree = "<group>"; };
-		6E88F414233EE85600866CCA /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		6E88F419233EEA5000866CCA /* InappropriateLanguageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InappropriateLanguageError.swift; sourceTree = "<group>"; };
 		6E9276C1233669A900069595 /* PrimaryButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton+Animation.swift"; sourceTree = "<group>"; };
 		6E9FE291233823EA008111C8 /* LoginUserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserViewModelTests.swift; sourceTree = "<group>"; };
@@ -249,7 +248,6 @@
 		6E0C14312333005E000D1524 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				6E88F416233EE93600866CCA /* Domain */,
 				6EAEDBD82353868D00384007 /* Infrastructure */,
 				E9F5A7FF232E82E900CE8BEF /* Application */,
 			);
@@ -286,14 +284,12 @@
 			path = UIKitExtension;
 			sourceTree = "<group>";
 		};
-		6E0C143A23332657000D1524 /* LoginUser */ = {
+		6E0C143A23332657000D1524 /* UserLogin */ = {
 			isa = PBXGroup;
 			children = (
-				6EF9D6AB2336F1280041803D /* Domain */,
-				6E1CA936233802680045E066 /* Infrastructure */,
 				6E0C143B23332665000D1524 /* Application */,
 			);
-			path = LoginUser;
+			path = UserLogin;
 			sourceTree = "<group>";
 		};
 		6E0C143B23332665000D1524 /* Application */ = {
@@ -337,22 +333,12 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		6E1CA93A23380FE00045E066 /* LoginUser */ = {
+		6E1CA93A23380FE00045E066 /* UserLogin */ = {
 			isa = PBXGroup;
 			children = (
-				6E8213C52338319B005EC9DC /* Domain */,
-				6E88F3F9233EDA6100866CCA /* Infrastructute */,
-				6E1CA93B23380FF30045E066 /* Application */,
+				E968B52C23B946E50011CF29 /* Application */,
 			);
-			path = LoginUser;
-			sourceTree = "<group>";
-		};
-		6E1CA93B23380FF30045E066 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				6E1CA93C23380FFA0045E066 /* Presentation */,
-			);
-			path = Application;
+			path = UserLogin;
 			sourceTree = "<group>";
 		};
 		6E1CA93C23380FFA0045E066 /* Presentation */ = {
@@ -375,15 +361,6 @@
 		6E1E023D2340467300306025 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				6E1E023E2340472500306025 /* Timeline */,
-				6E534DD1234181F7008A5BD7 /* CreatePost */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		6E1E023E2340472500306025 /* Timeline */ = {
-			isa = PBXGroup;
-			children = (
 				6E1E023F2340493200306025 /* UserTimelineCoordinator.swift */,
 				6E534DD8234183CB008A5BD7 /* UserTimelineViewModel.swift */,
 				6E534DD22341831C008A5BD7 /* UserTimelineViewController.swift */,
@@ -393,7 +370,7 @@
 				6E3D4D632356A2330037CA9F /* TopBar */,
 				6EFAD4AA2352883C0012E4DB /* Cell */,
 			);
-			path = Timeline;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		6E3D4D632356A2330037CA9F /* TopBar */ = {
@@ -454,18 +431,6 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		6E534DD1234181F7008A5BD7 /* CreatePost */ = {
-			isa = PBXGroup;
-			children = (
-				6EAEDBDB235418CB00384007 /* CreatePostCoordinator.swift */,
-				6E1E02422340493200306025 /* CreatePostViewModel.swift */,
-				6E1E02402340493200306025 /* CreatePostViewController.swift */,
-				6E1E02412340493200306025 /* CreatePostView.swift */,
-				6E1E02432340493200306025 /* CreatePostView.xib */,
-			);
-			path = CreatePost;
-			sourceTree = "<group>";
-		};
 		6E8213C52338319B005EC9DC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +445,7 @@
 			children = (
 				6E7DF8D12336796400F829FA /* RegisterUser.swift */,
 				6E8213C723383247005EC9DC /* LoginUser.swift */,
+				6EA4E5A0236F75A9004600B5 /* GetAllUsers.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -492,12 +458,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6E88F3F9233EDA6100866CCA /* Infrastructute */ = {
+		6E88F3F9233EDA6100866CCA /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				6E1CA933233801CC0045E066 /* Repository */,
 			);
-			path = Infrastructute;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		6E88F3FA233EDA8000866CCA /* Login */ = {
@@ -569,8 +535,6 @@
 		6E88F400233EDFEC00866CCA /* UserTimeline */ = {
 			isa = PBXGroup;
 			children = (
-				6E88F401233EE00400866CCA /* Domain */,
-				6E534DCD23415EDB008A5BD7 /* Infrastructure */,
 				6E1E023C2340466200306025 /* Application */,
 			);
 			path = UserTimeline;
@@ -588,6 +552,7 @@
 		6E88F402233EE00900866CCA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E968B52923B945BE0011CF29 /* Clock */,
 				6E88F406233EE05A00866CCA /* Post */,
 			);
 			path = Model;
@@ -598,7 +563,6 @@
 			children = (
 				6E88F404233EE02400866CCA /* CreatePost.swift */,
 				6E72119C234969920014BE9C /* GetPosts.swift */,
-				6EA4E5A0236F75A9004600B5 /* GetAllUsers.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -620,8 +584,6 @@
 		6E88F40B233EE1DE00866CCA /* UserTimeline */ = {
 			isa = PBXGroup;
 			children = (
-				6E88F40C233EE1EB00866CCA /* Domain */,
-				6E069764234C26630022C091 /* Infrastructure */,
 				6E4A9D3C235BB95100DBF02C /* Application */,
 			);
 			path = UserTimeline;
@@ -633,15 +595,15 @@
 				6E88F40D233EE1F000866CCA /* Action */,
 				6E88F410233EE6CB00866CCA /* Model */,
 			);
-			path = Domain;
-			sourceTree = "<group>";
+			name = Domain;
+			path = SocialNetworkingTests/Post/Domain;
+			sourceTree = SOURCE_ROOT;
 		};
 		6E88F40D233EE1F000866CCA /* Action */ = {
 			isa = PBXGroup;
 			children = (
 				6E88F40E233EE1FF00866CCA /* CreatePostDefaultTests.swift */,
 				6E72119E23496A6A0014BE9C /* GetPostsDefaultTests.swift */,
-				6EA4E5A2236F77BF004600B5 /* GetAllUsersDefaultTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -664,26 +626,13 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		6E88F416233EE93600866CCA /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				6E88F417233EE94100866CCA /* Model */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		6E88F417233EE94100866CCA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6E1E0238234013FB00306025 /* Clock.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		6EAEDBD82353868D00384007 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				6EAEDBD9235386B200384007 /* Infrastructure.swift */,
+				6EC4722423442DED00D6AFBC /* RxSwiftExtension */,
+				6E0C14372333013C000D1524 /* UIKitExtension */,
+				6EE15C3F2336DA5D004AA235 /* FoundationExtension */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -705,16 +654,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6EE15C3E2336DA40004AA235 /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-				6EC4722423442DED00D6AFBC /* RxSwiftExtension */,
-				6E0C14372333013C000D1524 /* UIKitExtension */,
-				6EE15C3F2336DA5D004AA235 /* FoundationExtension */,
-			);
-			path = Infrastructure;
-			sourceTree = "<group>";
-		};
 		6EE15C3F2336DA5D004AA235 /* FoundationExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +667,7 @@
 			children = (
 				6E7586632339AFE500976AE0 /* LoginUserDefaultTests.swift */,
 				6EF9D6A82336F0820041803D /* RegisterUserDefaultTests.swift */,
+				6EA4E5A2236F77BF004600B5 /* GetAllUsersDefaultTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -771,6 +711,86 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E968B52323B9423A0011CF29 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6E8213C52338319B005EC9DC /* Domain */,
+				6E88F3F9233EDA6100866CCA /* Infrastructure */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E968B52523B943210011CF29 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				6E88F401233EE00400866CCA /* Domain */,
+				6E534DCD23415EDB008A5BD7 /* Infrastructure */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		E968B52623B943C00011CF29 /* PostCreation */ = {
+			isa = PBXGroup;
+			children = (
+				E968B52723B943ED0011CF29 /* Application */,
+			);
+			path = PostCreation;
+			sourceTree = "<group>";
+		};
+		E968B52723B943ED0011CF29 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E968B52823B943F40011CF29 /* Presentation */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E968B52823B943F40011CF29 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6EAEDBDB235418CB00384007 /* CreatePostCoordinator.swift */,
+				6E1E02422340493200306025 /* CreatePostViewModel.swift */,
+				6E1E02402340493200306025 /* CreatePostViewController.swift */,
+				6E1E02412340493200306025 /* CreatePostView.swift */,
+				6E1E02432340493200306025 /* CreatePostView.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E968B52923B945BE0011CF29 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				6E1E0238234013FB00306025 /* Clock.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		E968B52A23B946290011CF29 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6EF9D6AB2336F1280041803D /* Domain */,
+				6E1CA936233802680045E066 /* Infrastructure */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E968B52C23B946E50011CF29 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6E1CA93C23380FFA0045E066 /* Presentation */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E968B52D23B947580011CF29 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				6E88F40C233EE1EB00866CCA /* Domain */,
+				6E069764234C26630022C091 /* Infrastructure */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		E985DD99232DE7DF009C2C32 = {
 			isa = PBXGroup;
 			children = (
@@ -794,10 +814,12 @@
 		E985DDA4232DE7DF009C2C32 /* SocialNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				6E88F414233EE85600866CCA /* TODO.md */,
 				6E0C14312333005E000D1524 /* Common */,
-				6E1CA93A23380FE00045E066 /* LoginUser */,
+				E968B52323B9423A0011CF29 /* User */,
+				E968B52523B943210011CF29 /* Post */,
+				6E1CA93A23380FE00045E066 /* UserLogin */,
 				6E88F400233EDFEC00866CCA /* UserTimeline */,
+				E968B52623B943C00011CF29 /* PostCreation */,
 			);
 			path = SocialNetworking;
 			sourceTree = "<group>";
@@ -808,7 +830,9 @@
 				E985DDBE232DE7E0009C2C32 /* Info.plist */,
 				6E7DF8D82336941500F829FA /* mocky.yml */,
 				6E7DF8DA2336949A00F829FA /* Mock.generated.swift */,
-				6E0C143A23332657000D1524 /* LoginUser */,
+				E968B52A23B946290011CF29 /* User */,
+				E968B52D23B947580011CF29 /* Post */,
+				6E0C143A23332657000D1524 /* UserLogin */,
 				6E88F40B233EE1DE00866CCA /* UserTimeline */,
 			);
 			path = SocialNetworkingTests;
@@ -818,7 +842,6 @@
 			isa = PBXGroup;
 			children = (
 				E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */,
-				6EE15C3E2336DA40004AA235 /* Infrastructure */,
 				6E0C1435233300C7000D1524 /* Presentation */,
 				6E0C1436233300E1000D1524 /* Resource */,
 			);
