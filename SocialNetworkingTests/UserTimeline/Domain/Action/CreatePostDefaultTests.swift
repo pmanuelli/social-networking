@@ -7,7 +7,7 @@ import RxBlocking
 
 class CreatePostDefaultTests: XCTestCase {
     
-    private let postId = UUID()
+    private let postId = PostId(raw: UUID())
     private let userId = UserId(raw: UUID())
     private let text = "Hello, World!"
     private let date = Date(timeIntervalSince1970: 1569542400)

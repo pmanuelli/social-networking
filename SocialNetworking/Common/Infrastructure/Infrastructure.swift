@@ -3,19 +3,22 @@ import Foundation
 
 class Infrastructure {
     
-    static private let idGenerator = IdGeneratorDefault()
-    static private let userIdGenerator = UserIdGeneratorDefault()
     static private let clock = ClockDefault()
+
+    static private let userIdGenerator = UserIdGeneratorDefault()
+    static private let postIdGenerator = PostIdGeneratorDefault()
+
     static private let languageService = LanguageServiceDefault()
     
     static private let userRepository = InMemoryUserRepository()
     static private let postRepository = InMemoryPostRepository()
     
-    static let userService = UserServiceDefault(userRepository: userRepository, idGenerator: userIdGenerator)
+    static let userService = UserServiceDefault(userRepository: userRepository,
+                                                idGenerator: userIdGenerator)
 
     static let postService = PostServiceDefault(postRepository: postRepository,
                                                 languageService: languageService,
-                                                idGenerator: idGenerator,
+                                                idGenerator: postIdGenerator,
                                                 clock: clock)
     
     static let loginUser = LoginUserDefault(userService: userService)

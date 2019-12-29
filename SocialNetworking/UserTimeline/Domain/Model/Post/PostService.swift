@@ -12,12 +12,12 @@ class PostServiceDefault: PostService {
     
     private let postRepository: PostRepository
     private let languageService: LanguageService
-    private let idGenerator: IdGenerator
+    private let idGenerator: PostIdGenerator
     private let clock: Clock
     
     init(postRepository: PostRepository,
          languageService: LanguageService,
-         idGenerator: IdGenerator = IdGeneratorDefault(),
+         idGenerator: PostIdGenerator,
          clock: Clock = ClockDefault()) {
         
         self.postRepository = postRepository

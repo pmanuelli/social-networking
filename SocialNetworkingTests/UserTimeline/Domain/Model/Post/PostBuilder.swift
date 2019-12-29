@@ -19,6 +19,6 @@ class PostBuilder {
     }
     
     func build() -> Post {
-        return Post(id: UUID(), userId: userId, text: "Post text", date: date)
+        return Post(id: PostId(raw: UUID()), userId: userId, text: "Post text", date: date)
     }
 }

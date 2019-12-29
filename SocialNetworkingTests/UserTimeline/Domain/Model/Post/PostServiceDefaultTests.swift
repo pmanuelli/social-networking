@@ -7,7 +7,7 @@ import RxBlocking
 
 class PostServiceDefaultTests: XCTestCase {
 
-    private let postId = UUID()
+    private let postId = PostId(raw: UUID())
     private let userId = UserId(raw: UUID())
     private let text = "Post text"
     private let date = Date(timeIntervalSince1970: 1569628800)
@@ -16,7 +16,7 @@ class PostServiceDefaultTests: XCTestCase {
     // Dependencies
     private let postRepository = PostRepositoryMock()
     private let languageService = LanguageServiceMock()
-    private let idGenerator = IdGeneratorMock()
+    private let idGenerator = PostIdGeneratorMock()
     private let clock = ClockMock()
     
     // Object Under Test
@@ -80,7 +80,7 @@ class PostServiceDefaultTests: XCTestCase {
         Given(postRepository, .add(.any, willReturn: .empty()))
     }
     
-    private func givenAnIdGeneratorReturning(_ id: UUID){
+    private func givenAnIdGeneratorReturning(_ id: PostId){
         Given(idGenerator, .next(willReturn: id))
     }
     
