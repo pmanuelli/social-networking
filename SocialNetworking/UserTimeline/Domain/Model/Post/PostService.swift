@@ -4,8 +4,8 @@ import RxSwift
 //sourcery: AutoMockable
 protocol PostService {
     
-    func createPost(userId: UUID, text: String) -> Single<Post>
-    func posts(by userId: UUID) -> Single<[Post]>
+    func createPost(userId: UserId, text: String) -> Single<Post>
+    func posts(by userId: UserId) -> Single<[Post]>
 }
 
 class PostServiceDefault: PostService {
@@ -26,7 +26,7 @@ class PostServiceDefault: PostService {
         self.clock = clock
     }
     
-    func createPost(userId: UUID, text: String) -> Single<Post> {
+    func createPost(userId: UserId, text: String) -> Single<Post> {
         guard doesNotContainInappropriateLanguage(text) else {
             return .error(InappropriateLanguageError())
         }
@@ -42,11 +42,11 @@ class PostServiceDefault: PostService {
         return !languageService.isInappropriate(text)
     }
     
-    private func createNewPost(userId: UUID, text: String) -> Post {
+    private func createNewPost(userId: UserId, text: String) -> Post {
         return Post(id: idGenerator.next(), userId: userId, text: text, date: clock.now())
     }
     
-    func posts(by userId: UUID) -> Single<[Post]> {
+    func posts(by userId: UserId) -> Single<[Post]> {
         return postRepository.posts(by: userId)
             .map { self.sortPostsInReverseChronologicalOrder($0) }
     }

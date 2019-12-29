@@ -14,7 +14,7 @@ class InMemoryPostRepository: PostRepository {
         }
     }
     
-    func posts(by userId: UUID) -> Single<[Post]> {
+    func posts(by userId: UserId) -> Single<[Post]> {
         
         Single.deferred {
             

@@ -5,11 +5,11 @@ import Foundation
 
 class UserBuilder {
     
-    private var id = UUID()
+    private var id = UserId(raw: UUID())
     private var username = "mjkeenan"
     private var password = "password"
     
-    func withId(_ id: UUID) -> UserBuilder {
+    func withId(_ id: UserId) -> UserBuilder {
         self.id = id
         return self
     }

@@ -85,6 +85,8 @@
 		E913656923307CF10015CF99 /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656523307CF10015CF99 /* RegisterUserView.swift */; };
 		E913656A23307CF10015CF99 /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913656623307CF10015CF99 /* RegisterUserViewModel.swift */; };
 		E913656B23307CF10015CF99 /* RegisterUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E913656723307CF10015CF99 /* RegisterUserView.xib */; };
+		E94091A423B83CEF002FD0B3 /* UserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94091A323B83CEF002FD0B3 /* UserId.swift */; };
+		E94091A623B83E65002FD0B3 /* UserIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94091A523B83E65002FD0B3 /* UserIdGenerator.swift */; };
 		E985DDA6232DE7DF009C2C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */; };
 		E985DDAF232DE7E0009C2C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985DDAE232DE7E0009C2C32 /* Assets.xcassets */; };
 		E985DDB2232DE7E0009C2C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E985DDB0232DE7E0009C2C32 /* LaunchScreen.storyboard */; };
@@ -185,6 +187,8 @@
 		E913656523307CF10015CF99 /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		E913656623307CF10015CF99 /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		E913656723307CF10015CF99 /* RegisterUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterUserView.xib; sourceTree = "<group>"; };
+		E94091A323B83CEF002FD0B3 /* UserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserId.swift; sourceTree = "<group>"; };
+		E94091A523B83E65002FD0B3 /* UserIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdGenerator.swift; sourceTree = "<group>"; };
 		E985DDA2232DE7DF009C2C32 /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985DDA5232DE7DF009C2C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E985DDAE232DE7E0009C2C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -536,6 +540,8 @@
 		6E88F3FE233EDF2A00866CCA /* User */ = {
 			isa = PBXGroup;
 			children = (
+				E94091A523B83E65002FD0B3 /* UserIdGenerator.swift */,
+				E94091A323B83CEF002FD0B3 /* UserId.swift */,
 				6E7DF8D5233679C300F829FA /* User.swift */,
 				6EF9D6A32336EBE20041803D /* UserService.swift */,
 				6EF9D6B12336F49A0041803D /* UserRepository.swift */,
@@ -1034,11 +1040,13 @@
 				6E7DF8D22336796400F829FA /* RegisterUser.swift in Sources */,
 				6E8213CB233864A6005EC9DC /* UserCredentials.swift in Sources */,
 				6E1CA943233810210045E066 /* LoginUserViewController.swift in Sources */,
+				E94091A423B83CEF002FD0B3 /* UserId.swift in Sources */,
 				6E534DD023415F03008A5BD7 /* InMemoryPostRepository.swift in Sources */,
 				6EC4722623442E1500D6AFBC /* PublishSubject+Extension.swift in Sources */,
 				6EFAD4B023528AD20012E4DB /* PostCellViewModel.swift in Sources */,
 				6E1E0239234013FB00306025 /* Clock.swift in Sources */,
 				6EF9D6A42336EBE20041803D /* UserService.swift in Sources */,
+				E94091A623B83E65002FD0B3 /* UserIdGenerator.swift in Sources */,
 				6E1CA935233801E70045E066 /* InMemoryUserRepository.swift in Sources */,
 				6E1E02442340493200306025 /* UserTimelineCoordinator.swift in Sources */,
 				6EF9D6B22336F49A0041803D /* UserRepository.swift in Sources */,

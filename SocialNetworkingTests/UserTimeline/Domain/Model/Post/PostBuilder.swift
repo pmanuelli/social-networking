@@ -5,10 +5,10 @@ import Foundation
 
 class PostBuilder {
     
-    private var userId = UUID()
+    private var userId = UserId(raw: UUID())
     private var date = Date()
     
-    func withUserId(_ userId: UUID) -> PostBuilder {
+    func withUserId(_ userId: UserId) -> PostBuilder {
         self.userId = userId
         return self
     }

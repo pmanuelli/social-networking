@@ -7,7 +7,7 @@ import RxBlocking
 
 class GetPostsDefaultTests: XCTestCase {
 
-    private let userId = UUID()
+    private let userId = UserId(raw: UUID())
     private let posts = [PostBuilder().build()]
     
     // Dependencies
@@ -29,13 +29,13 @@ class GetPostsDefaultTests: XCTestCase {
     
     // MARK: Given
 
-    private func givenAUserServiceReturning(_ posts: [Post], for userId: UUID) {
+    private func givenAUserServiceReturning(_ posts: [Post], for userId: UserId) {
         Given(postService, .posts(by: .value(userId), willReturn: .just(posts)))
     }
     
     // MARK: When
     
-    private func whenActionIsExecutedForUserId(_ userId: UUID) {
+    private func whenActionIsExecutedForUserId(_ userId: UserId) {
         returnedPosts = try? action.execute(userId: userId).toBlocking().first()
     }
     

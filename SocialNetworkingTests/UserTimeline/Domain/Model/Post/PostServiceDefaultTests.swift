@@ -8,7 +8,7 @@ import RxBlocking
 class PostServiceDefaultTests: XCTestCase {
 
     private let postId = UUID()
-    private let userId = UUID()
+    private let userId = UserId(raw: UUID())
     private let text = "Post text"
     private let date = Date(timeIntervalSince1970: 1569628800)
     private lazy var post = Post(id: postId, userId: userId, text: text, date: date)
@@ -102,12 +102,12 @@ class PostServiceDefaultTests: XCTestCase {
     
     // MARK: When
     
-    private func whenPostIsCreated(userId: UUID, text: String) {
+    private func whenPostIsCreated(userId: UserId, text: String) {
         do { createdPost = try postService.createPost(userId: userId, text: text).toBlocking().first() }
         catch { self.error = error }
     }
     
-    private func whenPostsAreRequestedForUserWithId(_ userId: UUID) {
+    private func whenPostsAreRequestedForUserWithId(_ userId: UserId) {
         do { returnedPosts = try postService.posts(by: userId).toBlocking().first() }
         catch { self.error = error }
     }

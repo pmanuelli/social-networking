@@ -8,7 +8,7 @@ import RxBlocking
 class CreatePostDefaultTests: XCTestCase {
     
     private let postId = UUID()
-    private let userId = UUID()
+    private let userId = UserId(raw: UUID())
     private let text = "Hello, World!"
     private let date = Date(timeIntervalSince1970: 1569542400)
     
@@ -68,7 +68,7 @@ class CreatePostDefaultTests: XCTestCase {
     
     // MARK: When
     
-    private func whenActionIsExecutedWith(userId: UUID, text: String) {
+    private func whenActionIsExecutedWith(userId: UserId, text: String) {
         
         do { createdPost = try action.execute(userId: userId, text: text).toBlocking().first() }
         catch { self.error = error }
@@ -76,7 +76,7 @@ class CreatePostDefaultTests: XCTestCase {
 
     // MARK: Then
     
-    private func thenPostIsCreatedWith(userId: UUID, text: String) {
+    private func thenPostIsCreatedWith(userId: UserId, text: String) {
         Verify(postService, .createPost(userId: .value(userId), text: .value(text)))
     }
         

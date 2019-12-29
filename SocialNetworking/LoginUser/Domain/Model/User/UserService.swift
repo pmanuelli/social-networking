@@ -12,11 +12,11 @@ protocol UserService {
 class UserServiceDefault: UserService {
 
     private let userRepository: UserRepository
-    private let idGenerator: IdGenerator
+    private let idGenerator: UserIdGenerator
     
     private let disposeBag = DisposeBag()
     
-    init(userRepository: UserRepository, idGenerator: IdGenerator = IdGeneratorDefault()) {
+    init(userRepository: UserRepository, idGenerator: UserIdGenerator) {
         self.userRepository = userRepository
         self.idGenerator = idGenerator
     }

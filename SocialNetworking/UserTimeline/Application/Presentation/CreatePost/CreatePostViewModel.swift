@@ -17,10 +17,10 @@ class CreatePostViewModel {
     private let didCreatePostSubject = PublishSubject<Post>()
     private let disposeBag = DisposeBag()
 
-    private let userId: UUID
+    private let userId: UserId
     private let createPost: CreatePost
     
-    init(userId: UUID, createPost: CreatePost) {
+    init(userId: UserId, createPost: CreatePost) {
         self.userId = userId
         self.createPost = createPost
     }

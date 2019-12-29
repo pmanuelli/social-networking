@@ -4,7 +4,7 @@ import RxSwift
 //sourcery: AutoMockable
 protocol CreatePost {
     
-    func execute(userId: UUID, text: String) -> Single<Post>
+    func execute(userId: UserId, text: String) -> Single<Post>
 }
 
 class CreatePostDefault: CreatePost {
@@ -15,7 +15,7 @@ class CreatePostDefault: CreatePost {
         self.postService = postService
     }
     
-    func execute(userId: UUID, text: String) -> Single<Post> {
+    func execute(userId: UserId, text: String) -> Single<Post> {
         return postService.createPost(userId: userId, text: text)
     }
 }

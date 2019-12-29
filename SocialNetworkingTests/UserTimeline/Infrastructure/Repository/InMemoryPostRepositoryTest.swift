@@ -7,8 +7,8 @@ import RxBlocking
 
 class InMemoryPostRepositoryTest: XCTestCase {
 
-    private let user1Id = UUID()
-    private let user2Id = UUID()
+    private let user1Id = UserId(raw: UUID())
+    private let user2Id = UserId(raw: UUID())
     private lazy var user1Post1 = PostBuilder().withUserId(user1Id).build()
     private lazy var user2Post1 = PostBuilder().withUserId(user2Id).build()
     private lazy var user1Post2 = PostBuilder().withUserId(user1Id).build()
@@ -42,7 +42,7 @@ class InMemoryPostRepositoryTest: XCTestCase {
     
     // MARK: When
     
-    private func whenPostsAreRequestedForUserId(_ userId: UUID) {
+    private func whenPostsAreRequestedForUserId(_ userId: UserId) {
         returnedPosts = try? repository.posts(by: userId).toBlocking().first()
     }
     

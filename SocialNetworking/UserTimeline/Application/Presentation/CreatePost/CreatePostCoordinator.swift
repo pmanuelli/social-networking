@@ -8,11 +8,11 @@ class CreatePostCoordinator {
     var onFinish: (() -> Void)?
     
     private let navigationController: UINavigationController
-    private let userId: UUID
+    private let userId: UserId
     
     private let disposeBag = DisposeBag()
     
-    init(navigationController: UINavigationController, userId: UUID) {
+    init(navigationController: UINavigationController, userId: UserId) {
         self.navigationController = navigationController
         self.userId = userId
     }

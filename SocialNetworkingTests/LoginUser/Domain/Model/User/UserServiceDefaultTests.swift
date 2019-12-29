@@ -8,7 +8,7 @@ import SwiftyMocky
 
 class UserServiceDefaultTests: XCTestCase {
         
-    private let id = UUID()
+    private let id = UserId(raw: UUID())
     private let username = "username"
     private let password = "password"
     private let givenName = "givenName"
@@ -20,7 +20,7 @@ class UserServiceDefaultTests: XCTestCase {
     
     // Dependencies
     private let userRepository = UserRepositoryMock()
-    private let idGenerator = IdGeneratorMock()
+    private let idGenerator = UserIdGeneratorMock()
 
     // Object under test
     private var service: UserServiceDefault!
@@ -83,7 +83,7 @@ class UserServiceDefaultTests: XCTestCase {
     
     // MARK: Given
      
-    private func givenAnIdGenerator(returning id: UUID) {
+    private func givenAnIdGenerator(returning id: UserId) {
         Given(idGenerator, .next(willReturn: id))
     }
     
