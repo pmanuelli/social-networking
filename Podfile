@@ -7,9 +7,8 @@ target 'SocialNetworking' do
 
   # Pods for SocialNetworking
 
-  #pod 'UIKitExtensions', :git => 'https://github.com/pmanuelli/uikit-extensions.git'
-  
-  pod 'UIKitExtensions', :path => '../uikit-extensions'
+  pod 'UIKitExtensions', :git => 'https://github.com/pmanuelli/uikit-extensions.git'
+#  pod 'UIKitExtensions', :path => '../uikit-extensions'
   
   pod 'RxSwift', '~> 5.0'
   pod 'RxSwiftExt', '~> 5'

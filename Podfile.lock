@@ -35,7 +35,7 @@ DEPENDENCIES:
   - RxSwiftExt (~> 5)
   - RxTest (~> 5.0)
   - SwiftyMocky
-  - UIKitExtensions (from `../uikit-extensions`)
+  - UIKitExtensions (from `https://github.com/pmanuelli/uikit-extensions.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -51,7 +51,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   UIKitExtensions:
-    :path: "../uikit-extensions"
+    :git: https://github.com/pmanuelli/uikit-extensions.git
+
+CHECKOUT OPTIONS:
+  UIKitExtensions:
+    :commit: 965c00cabf3df5c291b40c913a50e83c67ea4d05
+    :git: https://github.com/pmanuelli/uikit-extensions.git
 
 SPEC CHECKSUMS:
   RxBlocking: c67185d26498ea3cbe3e121917c3c16739e43123
@@ -65,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftyMocky: f277174040db328a9da04ce8efa81b6d6d5b9d7d
   UIKitExtensions: ba814ad4e8e26e018a9634aa7387f4cc9f2103a9
 
-PODFILE CHECKSUM: 366f654f27404758240a9856d21e7a99ccb24960
+PODFILE CHECKSUM: c1fcd886ef69705e33d32583426280769be29911
 
 COCOAPODS: 1.7.4
