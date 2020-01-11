@@ -23,7 +23,7 @@ class LoginUserCoordinator {
     
     private func goToLoginUser() {
         
-        let viewModel = LoginUserViewModel(loginUser: Infrastructure.loginUser)
+        let viewModel = LoginUserViewModel(loginUser: Dependencies.loginUser)
         let viewController = LoginUserViewController(viewModel: viewModel)
         
         subscribe(to: viewModel)
@@ -44,7 +44,7 @@ class LoginUserCoordinator {
     
     private func goToRegisterUser() {
         
-        let viewModel = RegisterUserViewModel(registerUser: Infrastructure.registerUser)
+        let viewModel = RegisterUserViewModel(registerUser: Dependencies.registerUser)
         let viewController = RegisterUserViewController(viewModel: viewModel)
         
         subscribe(to: viewModel)

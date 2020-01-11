@@ -43,8 +43,8 @@ class PrimaryButton: UIButton {
     
     private func createGradientColorLocations() -> [GradientView.ColorLocation] {
         
-        return [GradientView.ColorLocation(color: ColorsCatalog.primary, location: 0),
-                GradientView.ColorLocation(color: ColorsCatalog.secondary, location: 1)]
+        return [GradientView.ColorLocation(color: ColorCatalog.primary, location: 0),
+                GradientView.ColorLocation(color: ColorCatalog.secondary, location: 1)]
     }
     
     override func layoutSubviews() {

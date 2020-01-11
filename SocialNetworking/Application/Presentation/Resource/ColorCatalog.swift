@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ColorsCatalog {
+class ColorCatalog {
     
     static var belowLevelBackground: UIColor { return UIColor(named: "Below Level Background")! }
     static var belowLevelFontTitle: UIColor { return UIColor(named: "Below Level Font Title")! }

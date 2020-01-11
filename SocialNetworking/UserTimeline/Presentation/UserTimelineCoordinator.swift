@@ -35,7 +35,7 @@ class UserTimelineCoordinator {
     
     private func startTimeline() {
         
-        let viewModel = UserTimelineViewModel(user: user, getPosts: Infrastructure.getPosts)
+        let viewModel = UserTimelineViewModel(user: user, getPosts: Dependencies.getPosts)
         let viewController = UserTimelineViewController(viewModel: viewModel)
         
         observe(viewModel)

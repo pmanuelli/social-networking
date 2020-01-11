@@ -43,7 +43,7 @@ class RegisterUserView: UIView {
     private func setupPlaceholderTextColor(_ textField: UITextField) {
         
         let string = textField.placeholder ?? ""
-        let attributes = [NSAttributedString.Key.foregroundColor : ColorsCatalog.belowLevelBackground]
+        let attributes = [NSAttributedString.Key.foregroundColor : ColorCatalog.belowLevelBackground]
                 
         textField.attributedPlaceholder = NSAttributedString(string: string, attributes: attributes)
     }

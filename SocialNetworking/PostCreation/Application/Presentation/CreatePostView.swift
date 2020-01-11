@@ -36,12 +36,12 @@ class CreatePostView: UIView {
 
     private func setNonPlaceholderStyle(_ textView: UITextView) {
         textView.text = nil
-        textView.textColor = ColorsCatalog.aboveLevelFontBody
+        textView.textColor = ColorCatalog.aboveLevelFontBody
     }
     
     private func setPlaceholderStyle(_ textView: UITextView) {
         textView.text = "What is going on?"
-        textView.textColor = ColorsCatalog.atLevelBackground
+        textView.textColor = ColorCatalog.atLevelBackground
     }
 }
 

@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Infrastructure {
+class Dependencies {
     
     static private let clock = ClockDefault()
 

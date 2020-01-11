@@ -29,7 +29,7 @@ class CreatePostCoordinator {
     
     private func startCreatePost() {
         
-        let viewModel = CreatePostViewModel(userId: userId, createPost: Infrastructure.createPost)
+        let viewModel = CreatePostViewModel(userId: userId, createPost: Dependencies.createPost)
         let viewController = CreatePostViewController(viewModel: viewModel)
         
         observe(viewModel)
